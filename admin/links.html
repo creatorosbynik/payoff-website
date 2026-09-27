@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ad link builder · Payoff</title>
+<link rel="icon" href="/favicon-48.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600..800&family=Manrope:wght@400..700&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="/admin/links.css">
+</head>
+<body>
+<header class="top">
+  <a href="/admin/" class="back">← Dashboard</a>
+  <img src="/logo-cream.png" alt="Payoff" width="640" height="145">
+</header>
+<main>
+  <p class="mono eyebrow">Ad link builder</p>
+  <h1>One link per ad, so you know which one brought the client.</h1>
+  <p class="lede">Pick the page, pick where the link will sit, name the campaign. Copy the link or download a QR code. Every visit then shows up tagged in your analytics.</p>
+
+  <form id="f" class="grid" autocomplete="off">
+    <section class="card">
+      <h2><span>1</span> Where should people land?</h2>
+      <label>Page
+        <select id="page"><option value="/#teardown">Free teardown form (homepage)</option><option value="/">Homepage</option><option value="/blog/">Blog home</option></select>
+      </label>
+      <label>…or paste any Payoff link
+        <input id="custom" type="text" placeholder="https://payoffcreative.com/blog/…" inputmode="url">
+      </label>
+      <p class="hint" id="postsNote">Loading your posts…</p>
+    </section>
+
+    <section class="card">
+      <h2><span>2</span> Where will the link be placed?</h2>
+      <div class="chips" id="presets" role="radiogroup" aria-label="Placement"></div>
+      <div class="two">
+        <label>Source<input id="source" type="text" value="meta"></label>
+        <label>Type<input id="medium" type="text" value="paid_social"></label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><span>3</span> Name it</h2>
+      <label>Campaign<input id="campaign" type="text" placeholder="e.g. oct-teardown-push"></label>
+      <label>Ad / creative name<input id="content" type="text" placeholder="e.g. reel-hook-a"></label>
+      <label class="check"><input id="dynamic" type="checkbox"> Meta Ads: let Meta fill campaign and ad names automatically</label>
+    </section>
+  </form>
+
+  <section class="out card" aria-live="polite">
+    <h2>Your link</h2>
+    <output id="url" class="url"></output>
+    <div class="btns">
+      <button type="button" class="btn" id="copyUrl">Copy link</button>
+      <a class="btn ghost" id="open" href="#" target="_blank" rel="noopener">Test it ↗</a>
+    </div>
+    <div class="meta-box" id="metaBox">
+      <h3>For Meta Ads Manager</h3>
+      <p class="hint">Put the page link in <b>Website URL</b>, then paste this into <b>URL parameters</b> (under Tracking):</p>
+      <output id="params" class="url small"></output>
+      <button type="button" class="btn ghost" id="copyParams">Copy URL parameters</button>
+    </div>
+    <div class="qr">
+      <canvas id="qr" width="600" height="600" aria-label="QR code for this link"></canvas>
+      <div>
+        <h3>QR code</h3>
+        <p class="hint">For posters, packaging, visiting cards and event standees. Print it at least 2 cm wide.</p>
+        <button type="button" class="btn ghost" id="dlQr">Download QR (PNG)</button>
+      </div>
+    </div>
+    <p class="hint tip">Want a short, clean link like <b>payoffcreative.com/go/diwali</b>? Add it in the dashboard under <b>Settings &amp; ad links → Ad links</b>.</p>
+  </section>
+</main>
+<script src="/admin/qrcode.js"></script>
+<script src="/admin/links.js"></script>
+</body>
+</html>

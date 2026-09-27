@@ -1,0 +1,43 @@
+{
+  "blog_title": "The Payoff Blog",
+  "blog_heading": "Marketing, explained like a story.",
+  "blog_intro": "Plain-English notes on brand stories, ads, video and content for founders who'd rather sell than decode jargon. No fluff. One idea per post you can use this week.",
+  "seo_title": "Blog · Brand storytelling, ads & video marketing explained | Payoff",
+  "seo_description": "Plain-English guides on brand storytelling, Meta ads, UGC, video and content for D2C founders in India. From Payoff, a story-first creative agency in Noida.",
+  "categories": [
+    {
+      "name": "Brand Story",
+      "description": "Finding the one thing only your brand can say."
+    },
+    {
+      "name": "Ads & Performance",
+      "description": "Meta ads, hooks, creative testing and what actually moves sales."
+    },
+    {
+      "name": "Video & Content",
+      "description": "Films, reels, UGC and content that people finish watching."
+    },
+    {
+      "name": "Teardowns",
+      "description": "Real brands, taken apart in public: what they bury, and the move."
+    },
+    {
+      "name": "Founder Notes",
+      "description": "Lessons from running Payoff and making work for D2C brands."
+    }
+  ],
+  "author": {
+    "name": "Nikunj",
+    "role": "Founder, Payoff",
+    "bio": "Filmmaker and editor with 8+ years behind the camera and in the edit. Started Payoff in Noida to find the story underneath brands and make it pay them back.",
+    "photo": "/director-chair.jpg",
+    "linkedin": "https://www.linkedin.com/company/payoffcreative"
+  },
+  "default_cta": {
+    "title": "Want us to find your brand's story?",
+    "text": "Send your brand name and Instagram. We send back a 60-second video showing the story we think you're sitting on. Free. No deck, no sales call unless you ask for one.",
+    "label": "Get my free teardown",
+    "link": "/#teardown"
+  },
+  "sticky_cta_label": "Free 60-sec teardown"
+}

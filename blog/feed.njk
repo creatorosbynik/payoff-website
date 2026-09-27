@@ -1,0 +1,26 @@
+---
+permalink: /blog/feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+<channel>
+  <title>{{ settings.blog_title }}</title>
+  <link>{{ site.url }}/blog/</link>
+  <atom:link href="{{ site.url }}/blog/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>{{ settings.seo_description }}</description>
+  <language>{{ site.lang }}</language>
+  {% if collections.posts.length %}<lastBuildDate>{{ collections.posts[0].date.toUTCString() }}</lastBuildDate>{% endif %}
+  {%- for p in collections.posts | limit(30) %}
+  <item>
+    <title>{{ p.data.title }}</title>
+    <link>{{ p.url | absoluteUrl(site.url) }}</link>
+    <guid isPermaLink="true">{{ p.url | absoluteUrl(site.url) }}</guid>
+    <pubDate>{{ p.date.toUTCString() }}</pubDate>
+    {% if p.data.category %}<category>{{ p.data.category }}</category>{% endif %}
+    <description>{{ p.data.description }}</description>
+    {% if p.data.cover %}<media:content url="{{ p.data.cover | absoluteUrl(site.url) }}" medium="image"/>{% endif %}
+  </item>
+  {%- endfor %}
+</channel>
+</rss>

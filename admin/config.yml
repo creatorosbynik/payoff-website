@@ -1,0 +1,257 @@
+# Payoff dashboard (Decap CMS) — lives at payoffcreative.com/admin
+# Only GitHub accounts with write access to the repo below can log in.
+backend:
+  name: github
+  repo: creatorosbynik/payoff-website
+  branch: main
+  commit_messages:
+    create: "Blog: new {{collection}} “{{slug}}”"
+    update: "Blog: update {{collection}} “{{slug}}”"
+    delete: "Blog: delete {{collection}} “{{slug}}”"
+    uploadMedia: "Blog: upload “{{path}}”"
+    deleteMedia: "Blog: delete “{{path}}”"
+
+site_url: https://payoffcreative.com
+display_url: https://payoffcreative.com/blog/
+logo_url: /logo-red.jpg
+locale: en
+
+media_folder: blog/uploads
+public_folder: /blog/uploads
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  # ------------------------------------------------------------------ POSTS
+  - name: posts
+    label: Blog posts
+    label_singular: Post
+    description: >-
+      Write, edit and publish blog posts. Status decides who sees a post:
+      Draft = only you · Published = live on the blog and in Google · Hidden = live link for ads, not listed anywhere.
+      After you press Publish, the website updates in about a minute.
+    folder: blog/posts
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    preview_path: "blog/{{slug}}/"
+    summary: "{{title}}  ·  {{status}}  ·  {{date | date('D MMM YYYY')}}"
+    sortable_fields: [date, title, status, category]
+    view_filters:
+      - { label: "Published", field: status, pattern: "published" }
+      - { label: "Drafts", field: status, pattern: "draft" }
+      - { label: "Hidden (ads)", field: status, pattern: "hidden" }
+    view_groups:
+      - { label: Category, field: category }
+      - { label: Status, field: status }
+    fields:
+      - label: Headline
+        name: title
+        widget: string
+        hint: "What the reader gets, in plain words. Aim for 45–65 characters so Google shows all of it."
+      - label: Short summary (Google + WhatsApp preview)
+        name: description
+        widget: text
+        hint: "1–2 sentences, 120–160 characters. This shows under the headline on Google and when the link is shared."
+      - label: Status
+        name: status
+        widget: select
+        default: draft
+        options:
+          - { label: "Draft (not on the website)", value: draft }
+          - { label: "Published (live on the blog + Google)", value: published }
+          - { label: "Hidden link for ads (live, not listed, not on Google)", value: hidden }
+      - label: Publish date
+        name: date
+        widget: datetime
+        format: "YYYY-MM-DDTHH:mm:ssZ"
+        date_format: "D MMM YYYY"
+        time_format: "h:mm A"
+        default: "{{now}}"
+      - label: Category
+        name: category
+        widget: relation
+        collection: settings
+        file: blog
+        search_fields: ["categories.*.name"]
+        value_field: "categories.*.name"
+        display_fields: ["categories.*.name"]
+        hint: "Add or rename categories in Settings → Blog settings."
+      - label: Cover photo
+        name: cover
+        widget: image
+        required: false
+        hint: "Wide photo, at least 1600 px across (16:9 works best). It's also the image people see when the link is shared."
+        choose_url: true
+      - label: Cover photo description (for Google + blind readers)
+        name: cover_alt
+        widget: string
+        required: false
+        hint: "Describe what's in the photo in a few words."
+      - label: Cover photo caption
+        name: cover_caption
+        widget: string
+        required: false
+      - label: Post
+        name: body
+        widget: markdown
+        buttons: [bold, italic, link, heading-two, heading-three, quote, bulleted-list, numbered-list]
+        editor_components: [photo, video, note, button, image]
+        modes: [rich_text, raw]
+        hint: "Use 'Heading 2' for each main section. Use the + button to add a Photo, Video, Note box or Button."
+      - label: Quick answers (FAQ)
+        name: faqs
+        widget: list
+        required: false
+        collapsed: true
+        summary: "{{fields.q}}"
+        hint: "Optional. 2–5 questions people actually type into Google. These can show up directly in Google results."
+        fields:
+          - { label: Question, name: q, widget: string }
+          - { label: Answer, name: a, widget: text }
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+        hint: "Optional keywords, comma separated (e.g. meta ads, ugc, d2c)."
+      - label: Call to action at the end
+        name: cta
+        widget: object
+        collapsed: true
+        required: false
+        summary: "{{fields.label}} → {{fields.link}}"
+        hint: "Leave empty to use the default (free 60-second teardown). Change it when a post should sell something specific."
+        fields:
+          - { label: Heading, name: title, widget: string, required: false }
+          - { label: Text, name: text, widget: text, required: false }
+          - { label: Button words, name: label, widget: string, required: false }
+          - { label: Button link, name: link, widget: string, required: false, hint: "e.g. /#teardown, https://wa.me/918826774234?text=Hi, or any page" }
+      - label: Hide the call to action
+        name: hide_cta
+        widget: boolean
+        default: false
+        required: false
+      - label: Ad landing mode
+        name: ad_landing
+        widget: boolean
+        default: false
+        required: false
+        hint: "Turn on for posts you send ad traffic to. Hides the menu, breadcrumb and 'keep reading' so visitors stay on the offer."
+      - label: Google settings
+        name: seo
+        widget: object
+        collapsed: true
+        required: false
+        fields:
+          - label: Google title
+            name: title
+            widget: string
+            required: false
+            hint: "Only if you want Google to show a different title than the headline. Keep under 60 characters."
+          - label: Custom web address
+            name: slug
+            widget: string
+            required: false
+            hint: "Only if you want a different link. Letters, numbers and dashes, e.g. meta-ads-for-d2c → payoffcreative.com/blog/meta-ads-for-d2c/. Don't change it after sharing the post."
+          - label: Main keyword (for you)
+            name: keyword
+            widget: string
+            required: false
+            hint: "The phrase you want this post to be found for. Use it in the headline, summary and first paragraph."
+          - label: Original source link (canonical)
+            name: canonical
+            widget: string
+            required: false
+            hint: "Only if this post was first published somewhere else (e.g. LinkedIn). Otherwise leave empty."
+          - label: Hide from Google
+            name: noindex
+            widget: boolean
+            default: false
+            required: false
+      - label: Last updated
+        name: updated
+        widget: datetime
+        format: "YYYY-MM-DDTHH:mm:ssZ"
+        date_format: "D MMM YYYY"
+        time_format: false
+        required: false
+        hint: "Set this when you meaningfully update an older post. Google likes fresh content."
+
+  # ------------------------------------------------------------------ AD LINKS + SETTINGS
+  - name: settings
+    label: Settings & ad links
+    editor:
+      preview: false
+    files:
+      - name: links
+        label: Ad links (payoffcreative.com/go/…)
+        file: _blog/data/shortlinks.json
+        description: >-
+          Short, trackable links for ads, Instagram bio, WhatsApp and QR codes.
+          Each link becomes payoffcreative.com/go/CODE and forwards to the post with tracking tags added.
+          For a QR code or a quick copy-paste link, open payoffcreative.com/admin/links.html
+        fields:
+          - label: Links
+            name: links
+            widget: list
+            summary: "/go/{{fields.code}}  →  {{fields.post}}{{fields.url}}  ({{fields.source}})"
+            fields:
+              - { label: "Short code (becomes /go/CODE)", name: code, widget: string, hint: "Lowercase, no spaces. e.g. diwali-reel" }
+              - { label: Note (for you), name: note, widget: string, required: false }
+              - label: Send people to this post
+                name: post
+                widget: relation
+                collection: posts
+                value_field: "{{slug}}"
+                search_fields: [title]
+                display_fields: [title]
+                required: false
+              - { label: "…or to this web address", name: url, widget: string, required: false, hint: "Use instead of a post, e.g. /#teardown or https://wa.me/918826774234" }
+              - label: Where the link is placed (source)
+                name: source
+                widget: select
+                options: [instagram, facebook, meta_ads, google, youtube, linkedin, whatsapp, email, qr, other]
+              - label: Type (medium)
+                name: medium
+                widget: select
+                options: [paid_social, social, bio, story, cpc, email, referral, print, dm]
+              - { label: Campaign name, name: campaign, widget: string, required: false, hint: "e.g. oct-teardown-push" }
+              - { label: Ad / creative name, name: content, widget: string, required: false, hint: "e.g. reel-hook-a, static-v2" }
+      - name: blog
+        label: Blog settings
+        file: _blog/data/settings.json
+        fields:
+          - { label: Blog name, name: blog_title, widget: string }
+          - { label: Big heading on the blog page, name: blog_heading, widget: string }
+          - { label: Intro under the heading, name: blog_intro, widget: text }
+          - { label: Google title for the blog page, name: seo_title, widget: string }
+          - { label: Google description for the blog page, name: seo_description, widget: text }
+          - label: Categories
+            name: categories
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Description, name: description, widget: text }
+          - label: Author
+            name: author
+            widget: object
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string }
+              - { label: Short bio, name: bio, widget: text }
+              - { label: Photo, name: photo, widget: image, required: false }
+              - { label: Profile link, name: linkedin, widget: string, required: false }
+          - label: Default call to action (end of every post + blog page)
+            name: default_cta
+            widget: object
+            fields:
+              - { label: Heading, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: Button words, name: label, widget: string }
+              - { label: Button link, name: link, widget: string }
+          - { label: Sticky button words (phones), name: sticky_cta_label, widget: string }

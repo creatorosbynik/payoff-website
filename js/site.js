@@ -278,24 +278,58 @@
   })();
 
 
-  /* form: validation, honeypot, loading and success states */
-  const f = $('#tearForm');
-  const rules = { fBrand: v => v.length >= 2 || 'Add your brand name.', fLink: v => /^@?[\w.]{2,}$|\.[a-z]{2,}/i.test(v) || 'Add an Instagram handle like @yourbrand or a website.', fContact: v => /^\+?[\d\s-]{10,}$|^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) || 'Add a WhatsApp number or an email we can reply to.' };
-  function check(id){ const el = $('#'+id), r = rules[id](el.value.trim()); const bad = r !== true; el.setAttribute('aria-invalid', bad); $('#e'+id.slice(1)).textContent = bad ? r : ''; return !bad; }
-  Object.keys(rules).forEach(id => $('#'+id).addEventListener('blur', () => check(id)));
-  f.addEventListener('submit', e => {
-    e.preventDefault();
-    const ok = Object.keys(rules).map(check).every(Boolean); if (!ok) { f.querySelector('[aria-invalid="true"]').focus(); return; }
-    if ($('#fWeb').value) return; // bot
-    const btn = $('#submitBtn'); btn.disabled = true; btn.textContent = 'Sending…';
-    setBrand($('#fBrand').value);
-    const done = () => { f.hidden = true; $('#ok').hidden = false; };
-    const live = /payoffcreative\.com$|netlify\.app$/.test(location.hostname);
-    if (!live) { $('#okNote').hidden = false; setTimeout(done, 900); return; } // preview: nothing is sent
-    // live: Netlify Forms stores the request and emails it (Site settings → Forms → notifications)
-    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(f)).toString() })
-      .then(r => { if (!r.ok) throw 0; done(); })
-      .catch(() => { btn.disabled = false; btn.textContent = 'Get my free teardown'; $('#eContact').textContent = "That didn't send. Try again, or WhatsApp us on +91 88267 74234."; });
+  /* cast: big toggle reveals the slates + form */
+  (function(){
+    const btn = $('#castToggle'), body = $('#castBody');
+    if (!btn || !body) return;
+    btn.addEventListener('click', () => {
+      const on = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', on); body.classList.toggle('open', on);
+      if (on) setTimeout(() => { const top = btn.getBoundingClientRect().top; if (top < 60 || top > innerHeight * .55) (lenis ? lenis.scrollTo(btn, {offset:-90, duration:1}) : btn.scrollIntoView({behavior:'smooth'})); }, 380);
+    });
+  })();
+
+
+  /* form: validation, honeypot, loading and success states — shared by teardown + creator forms */
+  function wireForm({ formId, rules, honeypotId, submitBtnId, idleLabel, okId, okNoteId, errorFieldId, onValid }){
+    const f = $('#'+formId);
+    function check(id){ const el = $('#'+id), r = rules[id](el.value.trim()); const bad = r !== true; el.setAttribute('aria-invalid', bad); $('#e'+id.slice(1)).textContent = bad ? r : ''; return !bad; }
+    Object.keys(rules).forEach(id => $('#'+id).addEventListener('blur', () => check(id)));
+    f.addEventListener('submit', e => {
+      e.preventDefault();
+      const ok = Object.keys(rules).map(check).every(Boolean); if (!ok) { f.querySelector('[aria-invalid="true"]').focus(); return; }
+      if ($('#'+honeypotId).value) return; // bot
+      const btn = $('#'+submitBtnId); btn.disabled = true; btn.textContent = 'Sending…';
+      if (onValid) onValid();
+      const done = () => { f.hidden = true; $('#'+okId).hidden = false; };
+      const live = /payoffcreative\.com$|netlify\.app$/.test(location.hostname);
+      if (!live) { $('#'+okNoteId).hidden = false; setTimeout(done, 900); return; } // preview: nothing is sent
+      // live: Netlify Forms stores the request and emails it (Site settings → Forms → notifications)
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(f)).toString() })
+        .then(r => { if (!r.ok) throw 0; done(); })
+        .catch(() => { btn.disabled = false; btn.textContent = idleLabel; $('#'+errorFieldId).textContent = "That didn't send. Try again, or WhatsApp us on +91 88267 74234."; });
+    });
+  }
+
+  wireForm({
+    formId: 'tearForm',
+    rules: { fBrand: v => v.length >= 2 || 'Add your brand name.', fLink: v => /^@?[\w.]{2,}$|\.[a-z]{2,}/i.test(v) || 'Add an Instagram handle like @yourbrand or a website.', fContact: v => /^\+?[\d\s-]{10,}$|^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) || 'Add a WhatsApp number or an email we can reply to.' },
+    honeypotId: 'fWeb', submitBtnId: 'submitBtn', idleLabel: 'Get my free teardown',
+    okId: 'ok', okNoteId: 'okNote', errorFieldId: 'eContact',
+    onValid: () => setBrand($('#fBrand').value),
+  });
+
+  wireForm({
+    formId: 'castForm',
+    rules: {
+      cName: v => v.length >= 2 || 'Add your name.',
+      cHandle: v => /^@?[\w.]{2,}$/.test(v) || 'Add your Instagram or YouTube handle.',
+      cFollowers: v => v.length > 0 || 'Pick a follower range.',
+      cNiche: v => v.length >= 2 || 'Add your niche.',
+      cReach: v => /^\+?[\d\s-]{10,}$|^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) || 'Add a WhatsApp number or an email we can reply to.',
+    },
+    honeypotId: 'cWeb', submitBtnId: 'castSubmitBtn', idleLabel: 'Join the cast',
+    okId: 'castOk', okNoteId: 'castOkNote', errorFieldId: 'eReach',
   });
 
 

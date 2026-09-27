@@ -1,0 +1,27 @@
+---
+pagination:
+  data: collections.posts
+  size: 12
+  alias: items
+  generatePageOnEmptyData: true
+permalink: "/blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}"
+eleventyExcludeFromCollections: true
+---
+{% extends "base.njk" %}
+{%- set pag = pagination -%}
+{%- set eyebrow = settings.blog_title -%}
+{%- set heading = settings.blog_heading | replace("explained", "<em>explained</em>") -%}
+{%- set intro = settings.blog_intro -%}
+{%- set seo_title = settings.seo_title if pagination.pageNumber == 0 else (settings.blog_title + " · Page " + (pagination.pageNumber + 1) + " | Payoff") -%}
+{%- set seo_desc = settings.seo_description -%}
+{%- set seo_canonical = page.url | absoluteUrl(site.url) -%}
+{%- set seo_image = site.defaultImage | absoluteUrl(site.url) -%}
+{%- set body_class = "is-list" -%}
+{% block head_extra %}
+{% if pagination.href.previous %}<link rel="prev" href="{{ pagination.href.previous | absoluteUrl(site.url) }}">{% endif %}
+{% if pagination.href.next %}<link rel="next" href="{{ pagination.href.next | absoluteUrl(site.url) }}">{% endif %}
+{% endblock %}
+{% block jsonld %}
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Blog","@id":"{{ site.url }}/blog/#blog","name":{{ settings.blog_title | json | safe }},"description":{{ settings.seo_description | json | safe }},"url":"{{ site.url }}/blog/","inLanguage":"{{ site.lang }}","publisher":{"@type":"Organization","@id":"{{ site.url }}/#org","name":"Payoff","url":"{{ site.url }}/","logo":{"@type":"ImageObject","url":"{{ site.url }}{{ site.logoOnLight }}"}},"blogPost":[{% for p in items %}{"@type":"BlogPosting","headline":{{ p.data.title | json | safe }},"url":"{{ p.url | absoluteUrl(site.url) }}","datePublished":"{{ p.date | isoDate }}"}{% if not loop.last %},{% endif %}{% endfor %}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"},{"@type":"ListItem","position":2,"name":"Blog","item":"{{ site.url }}/blog/"}]}]}</script>
+{% endblock %}
+{% block main %}{% include "listing.njk" %}{% endblock %}

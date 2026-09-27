@@ -1,0 +1,5 @@
+---
+permalink: /admin/posts.json
+eleventyExcludeFromCollections: true
+---
+[{% for p in collections.livePosts %}{"title":{{ p.data.title | json | safe }},"url":"{{ p.url }}","status":"{{ p.data.status }}","category":{{ (p.data.category or "") | json | safe }},"date":"{{ p.date | isoDate }}"}{% if not loop.last %},{% endif %}{% endfor %}]

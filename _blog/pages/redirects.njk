@@ -1,0 +1,10 @@
+---
+permalink: /_redirects
+eleventyExcludeFromCollections: true
+---
+# Short links for ads, bios and QR codes. Edit them in /admin → Ad links. Generated on every build.
+{%- for l in shortlinks.links %}{% if l.code %}
+{%- set target = l.url if l.url else (collections.livePosts | postUrl(l.post)) %}
+/go/{{ l.code | slugify }}  {{ target | withUtm({ source: l.source, medium: l.medium, campaign: l.campaign, content: l.content }) | safe }}  302
+{%- endif %}{% endfor %}
+/blog/page/1/  /blog/  301

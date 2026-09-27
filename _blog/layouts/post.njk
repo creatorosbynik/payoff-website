@@ -1,0 +1,168 @@
+{% extends "base.njk" %}
+{%- set postUrl = page.url | absoluteUrl(site.url) -%}
+{%- set cta_title = cta.title if (cta and cta.title) else settings.default_cta.title -%}
+{%- set cta_text = cta.text if (cta and cta.text) else settings.default_cta.text -%}
+{%- set cta_label = cta.label if (cta and cta.label) else settings.default_cta.label -%}
+{%- set cta_link = cta.link if (cta and cta.link) else settings.default_cta.link -%}
+{%- set seo_title = (seo.title if (seo and seo.title) else title + " | Payoff") -%}
+{%- set seo_og_title = title -%}
+{%- set seo_desc = description -%}
+{%- set seo_canonical = seo.canonical if (seo and seo.canonical) else postUrl -%}
+{%- set seo_type = "article" -%}
+{%- set seo_image = (ogImageUrl or site.defaultImage) | absoluteUrl(site.url) -%}
+{%- set seo_noindex = (status == "hidden") or (seo and seo.noindex) -%}
+{%- set focus_mode = ad_landing -%}
+{%- set header_cta_link = cta_link -%}
+{%- set header_cta_label = "Free teardown" if cta_link == "/#teardown" else cta_label -%}
+{%- set body_class = "is-post" + (" is-focus" if ad_landing else "") -%}
+{%- set mins = content | readingMinutes -%}
+{%- set tocItems = content | toc -%}
+{%- set authorName = settings.author.name -%}
+
+{% block head_extra %}
+<meta property="article:published_time" content="{{ date | isoDate }}">
+<meta property="article:modified_time" content="{{ (updated or date) | isoDate }}">
+{% if category %}<meta property="article:section" content="{{ category }}">{% endif %}
+{% for t in tags %}<meta property="article:tag" content="{{ t }}">{% endfor %}
+<meta name="author" content="{{ authorName }}">
+{% endblock %}
+
+{% block jsonld %}
+{%- set ld = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": postUrl + "#article",
+      "headline": title,
+      "description": description,
+      "image": [ seo_image ],
+      "datePublished": date | isoDate,
+      "dateModified": (updated or date) | isoDate,
+      "inLanguage": site.lang,
+      "articleSection": category,
+      "keywords": (tags or []) | join(", "),
+      "wordCount": (content | striptags | wordcount),
+      "timeRequired": "PT" + mins + "M",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": postUrl },
+      "author": { "@type": "Person", "name": authorName, "jobTitle": settings.author.role, "url": site.url + "/", "worksFor": { "@id": site.url + "/#org" } },
+      "publisher": { "@type": "Organization", "@id": site.url + "/#org", "name": site.name, "url": site.url + "/", "logo": { "@type": "ImageObject", "url": site.logoOnLight | absoluteUrl(site.url) } }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": site.url + "/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": site.url + "/blog/" },
+        { "@type": "ListItem", "position": 3, "name": category or "Post", "item": (site.url + "/blog/category/" + categorySlug + "/") if category else (site.url + "/blog/") },
+        { "@type": "ListItem", "position": 4, "name": title, "item": postUrl }
+      ]
+    }
+  ]
+} -%}
+<script type="application/ld+json">{{ ld | json | safe }}</script>
+{%- if faqs and faqs.length %}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for f in faqs %}{"@type":"Question","name":{{ f.q | json | safe }},"acceptedAnswer":{"@type":"Answer","text":{{ (f.a | md | striptags(true)) | json | safe }}}}{% if not loop.last %},{% endif %}{% endfor %}]}</script>
+{%- endif %}
+{% endblock %}
+
+{% block main %}
+<article class="post">
+  <header class="post-hero wrap">
+    {% if not ad_landing %}
+    <nav class="crumbs mono" aria-label="Breadcrumb">
+      <a href="/blog/">Blog</a>{% if category %}<span aria-hidden="true">/</span><a href="/blog/category/{{ categorySlug }}/">{{ category }}</a>{% endif %}
+    </nav>
+    {% endif %}
+    <h1 class="post-title">{{ title }}</h1>
+    {% if description %}<p class="post-dek">{{ description }}</p>{% endif %}
+    <div class="post-meta">
+      {% if settings.author.photo %}<img class="av" src="{{ settings.author.photo }}" alt="" width="44" height="44" sizes="88px">{% endif %}
+      <div>
+        <span class="by">By <span>{{ authorName }}</span></span>
+        <span class="mono sub"><time datetime="{{ date | isoDate }}">{{ date | prettyDate }}</time>{% if updated %} · Updated <time datetime="{{ updated | isoDate }}">{{ updated | prettyDate }}</time>{% endif %} · {{ mins }} min read</span>
+      </div>
+    </div>
+  </header>
+
+  {% if cover %}
+  <figure class="post-cover wrap">
+    <img src="{{ cover }}" alt="{{ cover_alt or title }}" loading="eager" fetchpriority="high" sizes="(min-width: 1240px) 1200px, 100vw">
+    {% if cover_caption %}<figcaption>{{ cover_caption }}</figcaption>{% endif %}
+  </figure>
+  {% endif %}
+
+  <div class="paper">
+    <div class="post-body-wrap">
+      {% if tocItems.length %}
+      <details class="toc" open>
+        <summary class="mono">In this post</summary>
+        <ol>{% for h in tocItems %}<li><a href="#{{ h.id }}">{{ h.text }}</a></li>{% endfor %}</ol>
+      </details>
+      {% endif %}
+
+      <div class="post-body">
+        {{ content | safe }}
+      </div>
+
+      {% if faqs and faqs.length %}
+      <section class="faq" aria-labelledby="faq-h">
+        <h2 id="faq-h">Quick answers</h2>
+        {% for f in faqs %}
+        <details><summary>{{ f.q }}</summary><div class="faq-a">{{ f.a | md | safe }}</div></details>
+        {% endfor %}
+      </section>
+      {% endif %}
+
+      {% if not hide_cta %}
+      <aside class="cta-card" aria-label="Next step">
+        <p class="mono">Your move</p>
+        <h2>{{ cta_title }}</h2>
+        <p>{{ cta_text }}</p>
+        <a class="btn btn-cream" href="{{ cta_link }}" data-cta="end">{{ cta_label }} <span aria-hidden="true">→</span></a>
+        <a class="btn-link" href="https://wa.me/{{ site.whatsapp }}?text={{ ('Hi Payoff, I just read: ' + title) | urlencode }}" target="_blank" rel="noopener" data-cta="whatsapp">or talk to us on WhatsApp</a>
+      </aside>
+      {% endif %}
+
+      <div class="share" aria-label="Share this post">
+        <span class="mono">Share</span>
+        <a href="https://wa.me/?text={{ (title + ' ' + postUrl) | urlencode }}" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ postUrl | urlencode }}" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://twitter.com/intent/tweet?text={{ title | urlencode }}&url={{ postUrl | urlencode }}" target="_blank" rel="noopener">X</a>
+        <button type="button" class="copy" data-copy="{{ postUrl }}">Copy link</button>
+      </div>
+
+      {% if not ad_landing %}
+      <div class="author">
+        {% if settings.author.photo %}<img src="{{ settings.author.photo }}" alt="{{ authorName }}" width="72" height="72" loading="lazy" sizes="144px">{% endif %}
+        <div>
+          <p class="mono">Written by</p>
+          <p class="an">{{ authorName }} · {{ settings.author.role }}</p>
+          <p>{{ settings.author.bio }}</p>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</article>
+
+{% if not ad_landing %}
+{%- set related = collections.posts | relatedPosts(page.url, category, 3) -%}
+{% if related.length %}
+<section class="related wrap" aria-labelledby="rel-h">
+  <h2 id="rel-h" class="sec-h">Keep reading</h2>
+  <div class="grid">
+    {% for p in related %}{% include "card.njk" %}{% endfor %}
+  </div>
+</section>
+{% endif %}
+{% endif %}
+{% endblock %}
+
+{% block after %}
+{% if not hide_cta %}
+<div class="sticky-cta" id="stickyCta" hidden>
+  <span>{{ cta_title }}</span>
+  <a class="btn" href="{{ cta_link }}" data-cta="sticky">{{ settings.sticky_cta_label if cta_link == '/#teardown' else cta_label }}</a>
+</div>
+{% endif %}
+{% endblock %}

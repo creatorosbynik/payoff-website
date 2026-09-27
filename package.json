@@ -1,0 +1,19 @@
+{
+  "name": "payoff-website",
+  "version": "1.0.0",
+  "description": "Payoff website + blog",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve --port 8080"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "@11ty/eleventy-img": "^7.0.0",
+    "markdown-it": "^14.3.2",
+    "markdown-it-anchor": "^10.0.0"
+  }
+}

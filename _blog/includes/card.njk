@@ -1,0 +1,11 @@
+<article class="card">
+  <a class="card-link" href="{{ p.url }}">
+    <div class="card-img">{% if p.data.cover %}<img src="{{ p.data.cover }}" alt="{{ p.data.cover_alt or p.data.title }}" sizes="(min-width: 1100px) 380px, (min-width: 700px) 45vw, 92vw">{% else %}<span class="card-ph" aria-hidden="true">{{ (p.data.category or 'Payoff') }}</span>{% endif %}</div>
+    <div class="card-body">
+      <p class="mono card-meta">{% if p.data.category %}<span>{{ p.data.category }}</span> · {% endif %}{{ p.templateContent | readingMinutes }} min read</p>
+      <h3 class="card-title">{{ p.data.title }}</h3>
+      <p class="card-ex">{{ p.data.description or (p.templateContent | excerpt(150)) }}</p>
+      <p class="mono card-date"><time datetime="{{ p.date | isoDate }}">{{ p.date | prettyDate }}</time></p>
+    </div>
+  </a>
+</article>

@@ -1,0 +1,9 @@
+/* Preview pane only */
+body{background:#0B0806}
+.bn,.sticky-cta{display:none}
+.pv-preview .post-hero{padding-top:40px}
+.pv-status{position:sticky;top:0;z-index:5;font:500 11px/1 "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;padding:10px 16px;text-align:center}
+.pv-draft{background:#241A15;color:#FFD9A1}
+.pv-published{background:#D52204;color:#fff}
+.pv-hidden{background:#FFD9A1;color:#241A15}
+.pv-empty{display:grid;place-items:center;color:#FFD9A1;font:14px Manrope,sans-serif}

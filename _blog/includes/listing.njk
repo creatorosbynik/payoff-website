@@ -1,0 +1,56 @@
+{# Shared body for /blog/ and category pages. Needs: items (posts on this page), pag (pagination), heading, intro, eyebrow, activeCat #}
+<section class="bl-hero wrap">
+  <p class="eyebrow mono">{{ eyebrow }}</p>
+  <h1 class="bl-h1">{{ heading | safe }}</h1>
+  <p class="bl-lede">{{ intro }}</p>
+  {% if collections.categoryPages.length %}
+  <nav class="chips" aria-label="Topics">
+    <a href="/blog/"{% if not activeCat %} aria-current="page"{% endif %}>All</a>
+    {% for c in collections.categoryPages %}<a href="/blog/category/{{ c.slug }}/"{% if activeCat == c.slug %} aria-current="page"{% endif %}>{{ c.name }}</a>{% endfor %}
+  </nav>
+  {% endif %}
+</section>
+
+<section class="wrap bl-list" aria-label="Posts">
+  {% if items.length == 0 %}
+  <p class="empty">The first posts are on their way.</p>
+  {% endif %}
+  {% set rest = items %}
+  {% if pag.pageNumber == 0 and items.length and not activeCat %}
+  {% set f = items[0] %}
+  <article class="feature">
+    <a class="feature-link" href="{{ f.url }}">
+      <div class="feature-img">{% if f.data.cover %}<img src="{{ f.data.cover }}" alt="{{ f.data.cover_alt or f.data.title }}" loading="eager" fetchpriority="high" sizes="(min-width: 1100px) 640px, 92vw">{% else %}<span class="card-ph" aria-hidden="true">{{ f.data.category or 'Payoff' }}</span>{% endif %}</div>
+      <div class="feature-body">
+        <p class="mono card-meta"><span class="tag">Latest</span>{% if f.data.category %} {{ f.data.category }} ·{% endif %} {{ f.templateContent | readingMinutes }} min read</p>
+        <h2 class="feature-title">{{ f.data.title }}</h2>
+        <p class="card-ex">{{ f.data.description or (f.templateContent | excerpt(200)) }}</p>
+        <span class="btn">Read the post <span aria-hidden="true">→</span></span>
+      </div>
+    </a>
+  </article>
+  {% set rest = items.slice(1) %}
+  {% endif %}
+  {% if rest.length %}
+  <div class="grid">
+    {% for p in rest %}{% include "card.njk" %}{% endfor %}
+  </div>
+  {% endif %}
+
+  {% if pag.pages.length > 1 %}
+  <nav class="pager" aria-label="More posts">
+    {% if pag.href.previous %}<a class="btn ghost" href="{{ pag.href.previous }}" rel="prev">← Newer</a>{% endif %}
+    <span class="mono">Page {{ pag.pageNumber + 1 }} of {{ pag.pages.length }}</span>
+    {% if pag.href.next %}<a class="btn ghost" href="{{ pag.href.next }}" rel="next">Older →</a>{% endif %}
+  </nav>
+  {% endif %}
+</section>
+
+<section class="band">
+  <div class="wrap band-in">
+    <p class="mono">Free, and it takes you 20 seconds</p>
+    <h2>{{ settings.default_cta.title }}</h2>
+    <p>{{ settings.default_cta.text }}</p>
+    <a class="btn btn-cream" href="{{ settings.default_cta.link }}">{{ settings.default_cta.label }} <span aria-hidden="true">→</span></a>
+  </div>
+</section>

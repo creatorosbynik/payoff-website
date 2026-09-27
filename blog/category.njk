@@ -1,0 +1,26 @@
+---
+pagination:
+  data: collections.categoryPages
+  size: 1
+  alias: cat
+permalink: "/blog/category/{{ cat.slug }}/"
+eleventyExcludeFromCollections: true
+---
+{% extends "base.njk" %}
+{%- set items = cat.posts -%}
+{%- set pag = { pageNumber: 0, pages: [1], href: {} } -%}
+{%- set activeCat = cat.slug -%}
+{%- set catInfo = null -%}
+{%- for c in settings.categories %}{% if (c.name | slugify) == cat.slug %}{% set catInfo = c %}{% endif %}{% endfor -%}
+{%- set eyebrow = settings.blog_title -%}
+{%- set heading = cat.name -%}
+{%- set intro = catInfo.description if catInfo else ("Every Payoff post about " + cat.name + ".") -%}
+{%- set seo_title = cat.name + " · " + settings.blog_title + " | Payoff" -%}
+{%- set seo_desc = intro + " Plain-English posts from Payoff, a story-first creative agency in Noida." -%}
+{%- set seo_canonical = page.url | absoluteUrl(site.url) -%}
+{%- set seo_image = site.defaultImage | absoluteUrl(site.url) -%}
+{%- set body_class = "is-list" -%}
+{% block jsonld %}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"},{"@type":"ListItem","position":2,"name":"Blog","item":"{{ site.url }}/blog/"},{"@type":"ListItem","position":3,"name":{{ cat.name | json | safe }},"item":"{{ page.url | absoluteUrl(site.url) }}"}]}</script>
+{% endblock %}
+{% block main %}{% include "listing.njk" %}{% endblock %}
