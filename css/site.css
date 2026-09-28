@@ -622,3 +622,45 @@ body.menu-on{overflow:hidden}
 .as-frame.ready .as-end{display:none}
 .hero.vert video,.hero.vert .poster{object-position:50% 30%}
 @media (max-width:759px){.hpause{bottom:auto;top:18px;right:52px;padding:7px 12px}.vf .tc{display:none}}
+
+/* v14 — premium layer (js/premium.js) ------------------------------------ */
+/* Ember gradient behind the teardown. Static CSS version shows until WebGL paints, and stays if WebGL is unavailable. */
+.tear{position:relative;isolation:isolate;overflow:hidden;
+  background:radial-gradient(120% 90% at 70% 40%,#DF2E07 0%,var(--red) 38%,var(--red-deep) 78%,#6E1204 100%)}
+.tear>*{position:relative;z-index:1}
+.tear>.ember{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:0;transition:opacity 1.2s ease;pointer-events:none}
+.tear.ember-on>.ember{opacity:1}
+
+/* Unicorn Studio slot behind the four slates (empty until an embed ID is set) */
+.process{position:relative;isolation:isolate}
+.process>*{position:relative;z-index:1}
+.process>.us-bg{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity 1.2s ease}
+.process>.us-bg.us-on{opacity:.55}
+.process>.us-bg[data-us-project=""]{display:none}
+
+/* Slates: clapper micro-interaction (CSS now; a Rive file replaces the stripes when set) */
+.step{position:relative;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s ease}
+.step .stripes{transform-origin:0 100%;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+@media (hover:hover) and (pointer:fine){
+  .step:hover{transform:translateY(-6px);box-shadow:0 18px 40px -18px rgba(0,0,0,.7),0 0 0 1px rgba(255,217,161,.18)}
+  .step:hover .stripes{transform:rotate(-7deg)}
+}
+.step .rive-cv{display:block;width:100%;height:64px}
+.step.rive-on .stripes{display:none}
+
+/* Teardown button: light sweep + press (Rive canvas sits underneath the label when set) */
+.submit{position:relative;overflow:hidden;isolation:isolate;transition:transform .2s ease,box-shadow .3s ease}
+.submit>span{position:relative;z-index:2}
+.submit::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(105deg,transparent 35%,rgba(255,217,161,.38) 50%,transparent 65%);transform:translateX(-120%)}
+.submit .rive-cv{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+@media (hover:hover) and (pointer:fine){
+  .submit:hover{box-shadow:0 10px 28px -10px rgba(213,34,4,.8)}
+  .submit:hover::after{transform:translateX(120%);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+}
+.submit:active{transform:scale(.985)}
+
+@media (prefers-reduced-motion:reduce){
+  .step,.step .stripes,.submit,.submit::after,.tear>.ember,.process>.us-bg{transition:none!important}
+  .step:hover{transform:none}.step:hover .stripes{transform:none}
+}
