@@ -601,7 +601,6 @@ body{font-size:16.5px;font-weight:450;font-synthesis:none;text-rendering:optimiz
   .field label{font-size:12px}
   .lede a{display:inline-block;padding:10px 0;margin:-10px 0}
   .hpause{font-size:12px}
-}
 [hidden]{display:none!important}
 body.cookie-on .mcta{display:none!important}
 body.menu-on{overflow:hidden}
