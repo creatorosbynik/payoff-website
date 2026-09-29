@@ -5,7 +5,7 @@ description: UGC ads or a brand film? What each costs in India, when a D2C brand
 status: published
 date: 2026-09-29T21:57:00+05:30
 category: Video & Content
-cover: https://ai-toolkit-generations.imgix.net/content/-t-e-x-t_-t-o_-i-m-a-g-e-v1/media__2/image-0be8a2e8-3b25-48ca-90e9-165a8c9cb5cd.png?auto=format%2Ccompress&cs=srgb&w=1280&fit=max&s=e8ef5e47232d63a299dca500aff5d91d
+cover: /blog/uploads/ugc-vs-brand-film-hero.webp
 cover_alt: A creator filming a UGC video on a phone with a ring light while a
   film crew sets up a cinema camera behind her
 faqs:
@@ -61,7 +61,7 @@ They do different jobs, so comparing them on "which performs better" misses the 
 
 UGC tells you what works. A brand film makes what works stick.
 
-<figure class="is-wide"><img src="https://ai-toolkit-generations.imgix.net/content/-t-e-x-t_-t-o_-i-m-a-g-e-v1/media__8/image-2c386528-80d8-4dd8-a9ab-f7567c38432a.png?auto=format%2Ccompress&amp;cs=srgb&amp;w=1280&amp;fit=max&amp;s=6bd6bd4ce179c2e5b2054cf93388aee1" alt="A phone on a mini tripod and a cinema camera with a clapperboard on either side of a red tape line on a production table"><figcaption>Same product, two kits. The line between them is the order you use them in.</figcaption></figure>
+<figure class="is-wide"><img src="/blog/uploads/ugc-vs-brand-film-kit.webp" alt="A phone on a mini tripod and a cinema camera with a clapperboard on either side of a red tape line on a production table"><figcaption>Same product, two kits. The line between them is the order you use them in.</figcaption></figure>
 
 ## How much do UGC ads and brand films cost in India?
 
@@ -97,7 +97,7 @@ UGC-first is the default, not a rule. In eight years of [shooting for D2C brands
 4. **You're pitching someone who isn't a customer.** Retail buyers, marketplaces, investors and distributors judge you on how established you look. A brand film does that job in 60 seconds.
 5. **Your ads already feel like five different brands.** If your UGC works in patches but nobody remembers your name, the next thing to make is the film that ties it all together.
 
-<figure class="is-wide"><img src="https://ai-toolkit-generations.imgix.net/content/-t-e-x-t_-t-o_-i-m-a-g-e-v1/media__5/image-06b63e0e-6d8f-4e9e-bb4b-f0df662b0fa3.png?auto=format%2Ccompress&amp;cs=srgb&amp;w=1280&amp;fit=max&amp;s=3a2d3c41b2f10647198b8d7b1bc3c297" alt="An edit suite monitor showing a grid of ten vertical UGC videos of different creators holding the same product, one tile highlighted in red"><figcaption>Ten creators, ten doorways. The red one is the angle your film gets built on.</figcaption></figure>
+<figure class="is-wide"><img src="/blog/uploads/ugc-vs-brand-film-edit.webp" alt="An edit suite monitor showing a grid of ten vertical UGC videos of different creators holding the same product, one tile highlighted in red"><figcaption>Ten creators, ten doorways. The red one is the angle your film gets built on.</figcaption></figure>
 
 ## The expensive mistake: UGC without a story
 
@@ -128,7 +128,7 @@ Ask yourself these four questions.
 - **Do people remember your name after seeing your ads?** No: you need the film, and a story behind it.
 - **Are you running fewer than five ad variations?** Yes: you need more UGC, whatever else you do.
 
-<figure class="is-wide"><img src="https://ai-toolkit-generations.imgix.net/content/-t-e-x-t_-t-o_-i-m-a-g-e-v1/media__1/image-7e8d669f-418f-47bd-b9d2-4a3de37a3082.png?auto=format%2Ccompress&amp;cs=srgb&amp;w=1280&amp;fit=max&amp;s=8d93576cc77980c898c862a074cab389" alt="A phone on a tripod and a cinema camera both pointed at an empty stool under a single spotlight on a dark soundstage"><figcaption>Two cameras, one story.</figcaption></figure>
+<figure class="is-wide"><img src="/blog/uploads/ugc-vs-brand-film-end.webp" alt="A phone on a tripod and a cinema camera both pointed at an empty stool under a single spotlight on a dark soundstage"><figcaption>Two cameras, one story.</figcaption></figure>
 
 ## The camera isn't the decision
 
