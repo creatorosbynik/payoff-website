@@ -12,6 +12,6 @@ eleventyExcludeFromCollections: true
   {%- for p in collections.posts %}
   <url><loc>{{ p.url | absoluteUrl(site.url) }}</loc><lastmod>{{ (p.data.updated or p.date) | isoDate | truncate(10, true, "") }}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>{% if p.data.cover %}<image:image><image:loc>{{ p.data.cover | absoluteUrl(site.url) }}</image:loc></image:image>{% endif %}</url>
   {%- endfor %}
-  <url><loc>{{ site.url }}/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>{{ site.url }}/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>{{ site.url }}/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>{{ site.url }}/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
