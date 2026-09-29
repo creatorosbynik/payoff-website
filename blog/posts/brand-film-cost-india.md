@@ -1,28 +1,34 @@
 ---
-title: "How much does a brand film cost in India in 2026?"
-description: "Brand film cost in India runs from ₹50K to ₹2Cr+. See 2026 price tiers, what drives cost, and how to budget before you brief."
+title: How much does a brand film cost in India in 2026?
+description: Brand film cost in India runs from ₹50K to ₹2Cr+. See 2026 price
+  tiers, what drives cost, and how to budget before you brief.
 status: published
 date: 2026-09-29T10:00:00+05:30
 category: Video & Content
+cover: /blog/uploads/brand-film-hero.webp
+cover_alt: Brand film shoot in progress on a dark Indian set, cinema camera on a
+  dolly in the foreground
+faqs:
+  - q: How much does a 30-second ad film cost in India?
+    a: A 30-second digital ad usually costs ₹3–12 lakh with a professional studio. A
+      30-second TV commercial starts at around ₹15–20 lakh before airtime.
+  - q: How long does a brand film take to make?
+    a: "Most digital brand films take 3–6 weeks: 1–2 weeks of script and
+      pre-production, 1–2 shoot days, then 1–3 weeks of edit, colour and sound."
+  - q: Can AI make my brand film cheaper?
+    a: AI can cut the cost of concept frames, storyboards and some shots. It works
+      best alongside a real shoot, not in place of the story.
 tags:
   - brand film cost
   - ad film cost india
   - video production
   - d2c marketing
-cover: /blog/uploads/brand-film-hero.webp
-cover_alt: "Brand film shoot in progress on a dark Indian set, cinema camera on a dolly in the foreground"
-faqs:
-  - q: How much does a 30-second ad film cost in India?
-    a: "A 30-second digital ad usually costs ₹3–12 lakh with a professional studio. A 30-second TV commercial starts at around ₹15–20 lakh before airtime."
-  - q: How long does a brand film take to make?
-    a: "Most digital brand films take 3–6 weeks: 1–2 weeks of script and pre-production, 1–2 shoot days, then 1–3 weeks of edit, colour and sound."
-  - q: Can AI make my brand film cheaper?
-    a: "AI can cut the cost of concept frames, storyboards and some shots. It works best alongside a real shoot, not in place of the story."
 cta:
-  title: "Planning a brand film?"
-  text: "Send your brand name and Instagram. We'll send back a 60-second video on the story your brand should tell, and which budget tier fits it."
-  label: "Get a free teardown"
-  link: "/#teardown"
+  title: Planning a brand film?
+  text: Send your brand name and Instagram. We'll send back a 60-second video on
+    the story your brand should tell, and which budget tier fits it.
+  label: Get a free teardown
+  link: /#teardown
 seo:
   title: "Brand Film Cost in India (2026): Price Tiers & Budget Guide | Payoff"
   keyword: brand film cost in india
@@ -118,7 +124,7 @@ For most D2C brands, yes, as long as the film is built to be cut into ads.
 
 Source: [Wyzowl Video Marketing Statistics 2026](https://wyzowl.com/video-marketing-statistics/).
 
-Plan your film around that 30-second to 2-minute length and it keeps paying back in your ads.
+Plan your film around that 30-second to 2-minute length and it keeps paying back in your ads. Not sure whether to start with a film or UGC? Read [UGC ads vs brand films: what to make first](https://payoffcreative.com/blog/ugc-ads-vs-brand-films/).
 
 ## How to set your brand film budget in 5 steps
 
