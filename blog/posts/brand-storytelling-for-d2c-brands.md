@@ -1,7 +1,7 @@
 ---
 title: "Brand storytelling for D2C brands, explained in plain English"
 description: "What brand storytelling actually means, why your founding story isn't it, and four questions that help you find the one line your customers will remember."
-status: draft
+status: published
 date: 2026-09-28T10:00:00+05:30
 category: Brand Story
 tags:
