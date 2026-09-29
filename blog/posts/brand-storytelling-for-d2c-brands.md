@@ -1,24 +1,34 @@
 ---
-title: "Brand storytelling for D2C brands, explained in plain English"
-description: "What brand storytelling actually means, why your founding story isn't it, and four questions that help you find the one line your customers will remember."
+title: Brand storytelling for D2C brands, explained in plain English
+description: What brand storytelling actually means, why your founding story
+  isn't it, and four questions that help you find the one line your customers
+  will remember.
 status: published
 date: 2026-09-28T10:00:00+05:30
 category: Brand Story
+cover: /blog/uploads/brand-story-four-slates.jpg
+cover_alt: "A dark film stage with four clapperboards hanging under spotlights:
+  What you say, What they feel, The story we see, The move."
+faqs:
+  - q: What is brand storytelling in simple words?
+    a: It's picking the one true thing your brand stands for, the thing only you can
+      say, and repeating it in every film, ad, post and pack until customers say
+      it back to you.
+  - q: Is brand storytelling only for big brands?
+    a: No. It matters more for small brands. A big brand can afford to be forgotten
+      and pay to be remembered again. A small brand needs every rupee of spend
+      to add to the same memory.
+  - q: What's the difference between a brand story and a tagline?
+    a: The story is the idea. The tagline is one way of saying it. You can change
+      the tagline every year. If you change the story every year, you have no
+      story.
+  - q: How do I know if I've found my brand story?
+    a: Say it in one sentence to a customer. If they nod and add an example from
+      their own life, you've found it. If they look polite, keep digging.
 tags:
   - brand storytelling
   - d2c marketing
   - brand strategy
-cover: /blog/uploads/brand-story-four-slates.jpg
-cover_alt: "A dark film stage with four clapperboards hanging under spotlights: What you say, What they feel, The story we see, The move."
-faqs:
-  - q: What is brand storytelling in simple words?
-    a: "It's picking the one true thing your brand stands for, the thing only you can say, and repeating it in every film, ad, post and pack until customers say it back to you."
-  - q: Is brand storytelling only for big brands?
-    a: "No. It matters more for small brands. A big brand can afford to be forgotten and pay to be remembered again. A small brand needs every rupee of spend to add to the same memory."
-  - q: What's the difference between a brand story and a tagline?
-    a: "The story is the idea. The tagline is one way of saying it. You can change the tagline every year. If you change the story every year, you have no story."
-  - q: How do I know if I've found my brand story?
-    a: "Say it in one sentence to a customer. If they nod and add an example from their own life, you've found it. If they look polite, keep digging."
 seo:
   keyword: brand storytelling
 ---
@@ -107,7 +117,7 @@ The second line tells your video team what to shoot, your ad team what to test, 
 Once you have it, don't announce it. Use it.
 
 - **Ads:** every hook should be a different doorway into the same idea.
-- **Reels and UGC:** creators tell *their* version of it, in their own words.
+- **[Reels and UGC](https://payoffcreative.com/blog/ugc-ads-vs-brand-films/):** creators tell *their* version of it, in their own words.
 - **Website and bio:** the first line anyone reads is the story, not the discount.
 - **Packaging:** one line of it, where the customer looks when they're deciding.
 
