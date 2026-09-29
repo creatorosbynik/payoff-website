@@ -1,8 +1,8 @@
 # Payoff dashboard (Decap CMS) — lives at payoffcreative.com/admin
-# Only GitHub accounts with write access to the repo below can log in.
+# Log in with email + password (Netlify Identity). Invite people from
+# Netlify: Site configuration → Identity → Invite users.
 backend:
-  name: github
-  repo: creatorosbynik/payoff-website
+  name: git-gateway
   branch: main
   commit_messages:
     create: "Blog: new {{collection}} “{{slug}}”"
