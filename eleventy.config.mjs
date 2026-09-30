@@ -98,6 +98,19 @@ export default function (eleventyConfig) {
     api.getAll().filter((p) => isPost(p) && (p.data.status === "published" || p.data.status === "hidden")).sort(byDate)
   );
   // Categories that have at least one public post
+  // Categories with 3+ published posts: used for the topic chips on /blog/
+  eleventyConfig.addCollection("categoryChips", (api) => {
+    const counts = new Map();
+    for (const p of api.getAll().filter((p) => isPost(p) && p.data.status === "published")) {
+      const slug = slugify(p.data.category || "");
+      if (!slug) continue;
+      const c = counts.get(slug) || { slug, name: p.data.category, count: 0 };
+      c.count++;
+      counts.set(slug, c);
+    }
+    return [...counts.values()].filter((c) => c.count >= 3);
+  });
+
   eleventyConfig.addCollection("categoryPages", (api) => {
     const posts = api.getAll().filter((p) => isPost(p) && p.data.status === "published");
     const set = new Map();
