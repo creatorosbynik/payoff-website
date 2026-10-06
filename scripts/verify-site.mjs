@@ -48,6 +48,10 @@ for(const url of core) {
   assert.ok(!/name="robots"[^>]+noindex/.test(html),`Production indexability: ${url}`);
   assert.ok(urls.includes(site.url+url),`In sitemap: ${url}`);
   assert.ok(html.includes('href="/contact/'),`Brief path: ${url}`);
+  if(url!=='/') {
+    const footer=html.split('<footer')[1];
+    for(const service of agency.services) assert.equal(footer.split(`href="${service.url}"`).length-1,1,`One footer link per service: ${url} ${service.url}`);
+  }
   assert.ok(/href="\/?#teardown"/.test(html),`Teardown path: ${url}`);
   assert.ok(!/\bTNP\b/.test(html),`No unwanted brand references: ${url}`);
   const text = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,'').replace(/<[^>]+>/g,' ');

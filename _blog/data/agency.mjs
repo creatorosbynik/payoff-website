@@ -1,7 +1,7 @@
 // Commercial content. Keep each page focused on a buyer decision, not a keyword variant.
 import fs from 'node:fs';
 
-export const services = [
+const services = [
   {
     slug: 'video-production', name: 'Video production', url: '/services/video-production/',
     title: 'Brand Film & Video Production in India | Payoff',
