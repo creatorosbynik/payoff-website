@@ -1,6 +1,7 @@
 // Payoff website build.
 // Preserve the cinematic homepage; generate commercial pages and the blog with Eleventy.
 import fs from "node:fs";
+import getAgency from "./_blog/data/agency.mjs";
 import { agencySchema } from "./_blog/lib/agency-schema.mjs";
 import { imageTransformPlugin } from "@11ty/eleventy-img";
 import markdownIt from "markdown-it";
@@ -8,6 +9,8 @@ import markdownItAnchor from "markdown-it-anchor";
 import { videoEmbeds, slugify, readingMinutes, buildToc, absoluteUrl, withUtm, isoDate, prettyDate } from "./_blog/lib/helpers.mjs";
 
 export default function (eleventyConfig) {
+  // Register explicitly: this project's Eleventy data discovery does not load .mjs.
+  eleventyConfig.addGlobalData("agency", getAgency);
   // ---------- 1. Copy the existing static site untouched ----------
   // Root-level files (index.html, videos, images, icons, robots.txt, etc.)
   eleventyConfig.addPassthroughCopy("*.{html,css,js,jpg,jpeg,png,webp,avif,gif,svg,ico,mp4,webm,txt,webmanifest,pdf}");
@@ -156,4 +159,3 @@ export default function (eleventyConfig) {
     htmlTemplateEngine: "njk",
   };
 }
-
