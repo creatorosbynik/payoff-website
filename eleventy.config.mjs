@@ -1,7 +1,7 @@
 // Payoff website build.
-// The homepage and every existing file are copied as-is (no changes).
-// Eleventy only generates the blog (/blog/), the sitemap, the RSS feed and /go/ short links.
+// Preserve the cinematic homepage; generate commercial pages and the blog with Eleventy.
 import fs from "node:fs";
+import { agencySchema } from "./_blog/lib/agency-schema.mjs";
 import { imageTransformPlugin } from "@11ty/eleventy-img";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
@@ -12,7 +12,7 @@ export default function (eleventyConfig) {
   // Root-level files (index.html, videos, images, icons, robots.txt, etc.)
   eleventyConfig.addPassthroughCopy("*.{html,css,js,jpg,jpeg,png,webp,avif,gif,svg,ico,mp4,webm,txt,webmanifest,pdf}");
   // Every top-level folder (css, js, work, admin, and any you add later) except build/tooling folders
-  const skip = new Set(["node_modules", "_site", "_blog", "blog", ".cache"]);
+  const skip = new Set(["node_modules", "_site", "_blog", "blog", ".cache", "scripts", "docs"]);
   for (const d of fs.readdirSync(".", { withFileTypes: true })) {
     if (d.isDirectory() && !d.name.startsWith(".") && !skip.has(d.name)) eleventyConfig.addPassthroughCopy(d.name);
   }
@@ -22,6 +22,16 @@ export default function (eleventyConfig) {
   eleventyConfig.ignores.add("sitemap.xml");
   eleventyConfig.ignores.add("README.md");
   eleventyConfig.ignores.add("BLOG-GUIDE.md");
+  eleventyConfig.ignores.add("docs/**");
+  eleventyConfig.ignores.add("scripts/**");
+  eleventyConfig.addFilter("agencySchema", agencySchema);
+  eleventyConfig.addWatchTarget("./index.html");
+  // Preview deployments should not compete with the canonical production URLs.
+  eleventyConfig.on("eleventy.after", async () => {
+    if (["deploy-preview", "branch-deploy"].includes(process.env.CONTEXT)) {
+      fs.writeFileSync("_site/_headers", "/*\n  X-Robots-Tag: noindex, nofollow\n");
+    }
+  });
   eleventyConfig.ignores.add("node_modules/**");
   eleventyConfig.ignores.add("_site/**");
 
@@ -146,3 +156,4 @@ export default function (eleventyConfig) {
     htmlTemplateEngine: "njk",
   };
 }
+

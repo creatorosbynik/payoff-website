@@ -1,0 +1,11 @@
+---
+permalink: /brief-received/
+eleventyExcludeFromCollections: true
+---
+{% extends "base.njk" %}
+{% set seo_title = 'Brief received | Payoff' %}
+{% set seo_desc = 'Thanks for sharing your project with Payoff.' %}
+{% set seo_canonical = site.url + '/brief-received/' %}
+{% set seo_image = site.defaultImage | absoluteUrl(site.url) %}
+{% set seo_noindex = true %}
+{% block main %}<div class="core-hero wrap"><p class="mono">Brief received</p><h1>That’s a good beginning.</h1><p class="core-lede">Thanks for sharing your project. We’ll review the brief and reply to the email you provided.</p><p>Need to add something? Email <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p><a class="btn" href="/work/">Explore the work →</a></div>{% endblock %}

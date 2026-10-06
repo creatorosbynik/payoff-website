@@ -4,7 +4,8 @@
   "description": "Payoff website + blog",
   "scripts": {
     "build": "eleventy",
-    "start": "eleventy --serve --port 8080"
+    "start": "eleventy --serve --port 8080",
+    "test": "node scripts/verify-site.mjs"
   },
   "private": true,
   "engines": {
@@ -17,3 +18,4 @@
     "markdown-it-anchor": "^10.0.0"
   }
 }
+
