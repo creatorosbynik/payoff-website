@@ -9,7 +9,7 @@ import markdownItAnchor from "markdown-it-anchor";
 import { videoEmbeds, slugify, readingMinutes, buildToc, absoluteUrl, withUtm, isoDate, prettyDate } from "./_blog/lib/helpers.mjs";
 
 export default function (eleventyConfig) {
-  // Register explicitly: this project's Eleventy data discovery does not load .mjs.
+  // Register explicitly so pagination receives the resolved page model.
   eleventyConfig.addGlobalData("agency", getAgency);
   // ---------- 1. Copy the existing static site untouched ----------
   // Root-level files (index.html, videos, images, icons, robots.txt, etc.)
@@ -54,6 +54,11 @@ export default function (eleventyConfig) {
   eleventyConfig.setLibrary("md", md);
   eleventyConfig.addFilter("md", (s) => (s ? md.render(String(s)) : ""));
   eleventyConfig.addFilter("mdInline", (s) => (s ? md.renderInline(String(s)) : ""));
+  eleventyConfig.addFilter("blogFaqSchema", (faqs = []) => ({
+    "@context": "https://schema.org", "@type": "FAQPage",
+    mainEntity: faqs.map(f => ({"@type": "Question", name: f.q,
+      acceptedAnswer: {"@type": "Answer", text: md.render(String(f.a || "")).replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim()}}))
+  }));
 
   // ---------- 3. Images: every photo in a post becomes a fast, responsive WebP ----------
   eleventyConfig.addPlugin(imageTransformPlugin, {
@@ -159,3 +164,4 @@ export default function (eleventyConfig) {
     htmlTemplateEngine: "njk",
   };
 }
+
