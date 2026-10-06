@@ -2,7 +2,7 @@ name: Verify site
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, codex/payoff-site-architecture]
 permissions:
   contents: read
 jobs:

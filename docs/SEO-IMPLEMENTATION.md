@@ -48,7 +48,9 @@ Prepared against main commit `cdf102b94b600df157797c9d4a3b0b5253027d39`. This wo
 
 Passed: source-data/schema validation; JavaScript syntax checks; offline rendering of all 11 new core pages, confirmation, sitemap and blog-layout fixture; desktop/mobile visual spot checks; contact service-prefill and safe local submission handling. The offline renderer uses Nunjucks 3.2.2 and is not the locked production build.
 
-Not yet verified: full Eleventy build (dependency installation unavailable in this environment), production media performance, deployed redirects/headers, Netlify form delivery and Search Console account settings. GitHub branch creation returned `403 Resource not accessible by integration`; no branch, commit, pull request or deployment has been created. The included GitHub Actions workflow has not run.
+GitHub write access was restored after reconnection. Changes are on `codex/payoff-site-architecture`, with draft pull request #2 targeting main. Production has not been merged or deliberately deployed. Build checks are configured for the review branch and pull requests.
+
+Not yet verified: full Eleventy build (dependency installation unavailable in the local environment; hosted checks pending), production media performance, deployed redirects/headers, Netlify form delivery and Search Console account settings. A missing hosted check or preview is not a passing result.
 
 1. Run `npm ci`, `npm run build`, `npm test`; review desktop/mobile pages and homepage animation. GitHub Actions runs the same build checks on pull requests.
 2. Verify Netlify detects `brief`. Configure its notification recipient as needed. Test a real brief and teardown submission on the deployed site and confirm storage plus delivery. Code-level checks cannot prove email delivery.
