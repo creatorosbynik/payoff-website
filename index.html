@@ -28,14 +28,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="preload" href="css/site.css" as="style">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400..800&family=Fraunces:ital,opsz,wght@1,9..144,300..500&family=Manrope:wght@400..700&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="css/site.css">
 <link rel="stylesheet" href="/css/studio.css">
+<link rel="stylesheet" href="/css/playground.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://payoffcreative.com/#website","name":"Payoff Creative","alternateName":["Payoff","payoffcreative.com"],"url":"https://payoffcreative.com/","publisher":{"@id":"https://payoffcreative.com/#org"}},{"@type":"ProfessionalService","@id":"https://payoffcreative.com/#org","name":"Payoff","alternateName":"Payoff Creative","url":"https://payoffcreative.com/","logo":"https://payoffcreative.com/logo-cream.png","image":"https://payoffcreative.com/og-image.jpg","description":"Story-led creative agency in India for brands and agencies: films, advertising, content strategy and remote creative execution.","telephone":"+91-88267-74234","email":"hello@payoffcreative.com","address":{"@type":"PostalAddress","addressLocality":"Noida","addressRegion":"Uttar Pradesh","addressCountry":"IN"},"areaServed":["India","Worldwide"],"sameAs":["https://instagram.com/payoffcreative","https://www.linkedin.com/company/payoffcreative"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Story Sessions"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Brand films","url":"https://payoffcreative.com/services/video-production/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Post-production","description":"Video editing, colour grading, sound design and mix, VFX clean-up, subtitles and cutdowns","url":"https://payoffcreative.com/services/post-production/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Performance marketing","url":"https://payoffcreative.com/services/advertising/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Ad creatives and statics","url":"https://payoffcreative.com/services/advertising/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Motion graphics","url":"https://payoffcreative.com/services/motion-graphics/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"UGC and creator content"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Content strategy","url":"https://payoffcreative.com/services/content-strategy/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Creator partnerships"}}]},"slogan":"Every story earns"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does a storytelling agency do?","acceptedAnswer":{"@type":"Answer","text":"We find the one thing only your brand can say, then build your films, ads and content around it, so every piece adds to the same memory in your customer's head."}},{"@type":"Question","name":"Do you only make brand films?","acceptedAnswer":{"@type":"Answer","text":"No. We also run Meta performance campaigns, make static and motion ad creatives, and produce UGC. The story decides what we make; the format follows."}},{"@type":"Question","name":"What is the free 60-second teardown?","acceptedAnswer":{"@type":"Answer","text":"Send us your brand and Instagram or website. We send back a short video showing the story we think you're sitting on. No deck, no sales call unless you ask for one."}},{"@type":"Question","name":"Who do you work with?","acceptedAnswer":{"@type":"Answer","text":"D2C brands, creators, agencies and creative teams. We work with brands in India and support teams worldwide with remote creative execution."}},{"@type":"Question","name":"Can I see work from my category?","acceptedAnswer":{"@type":"Answer","text":"Yes. The work section has 59 pieces across films, UGC, AI campaigns, jewellery and stills. Tell us your category on WhatsApp and we'll send the closest matches from our full archive of 178."}},{"@type":"Question","name":"Where are you based?","acceptedAnswer":{"@type":"Answer","text":"Noida, Uttar Pradesh, India. We plan production around the brief and work remotely on editing, post-production, motion and creative support worldwide."}}]}]}
 </script>
 </head>
-<body>
+<body class="payoff-playground">
 <a class="skip-home" href="#top">Skip to content</a>
 
 <div class="grain" aria-hidden="true"></div>
@@ -84,7 +85,8 @@
     </div>
     <div class="hero-copy">
       <div class="mono">Story-led creative agency · India → Worldwide</div>
-      <h1 class="cond rv" id="heroH1">Every story <span class="it">earns.</span></h1>
+      <h1 class="cond" id="heroH1"><span class="hero-line">Every story</span><span class="it">earns<span class="hero-period">.</span></span></h1>
+      <a class="story-seal" href="#selected-title" aria-label="Explore selected work"><span>FEEL IT.<br>OR USE IT.</span><b aria-hidden="true">↘</b></a>
       <div class="hero-foot rv" id="heroFoot">
         <p>Your brand already has a story. We make people feel it. Films, campaigns and content—from the first idea to the final frame.</p>
         <div class="btns"><a class="cta" href="#teardown">Get my free teardown</a><a class="cta ghost" href="/contact/">Have a brief? Send it ↗</a><a class="home-work-link" href="/work/">See the work ↓</a></div>
@@ -93,13 +95,19 @@
     </div>
   </section>
 
-  <section class="studio-selected wrap" aria-labelledby="selected-title">
-    <div class="studio-section-head"><div><p class="mono">01 / In the frame</p><h2 id="selected-title">Less talking.<br><em>More showing.</em></h2></div><a class="studio-arrow" href="/work/">Explore the work <span aria-hidden="true">↗</span></a></div>
-    <div class="studio-reels">
-      <a class="studio-reel" href="/work/#mercedes-film" data-preview="/work/mercedes-hero.mp4"><img src="/work/mercedes-hero.jpg" alt="Mercedes by Hartan launch film" width="960" height="540" loading="lazy"><span class="studio-reel-top mono">01 / Product film <b aria-hidden="true">↗</b></span><span class="studio-reel-caption"><strong>A whole new level.</strong><span>Mercedes by Hartan · Via Duckduckbaby</span></span></a>
-      <a class="studio-reel" href="/work/#stbotanica-film" data-preview="/work/stbotanica-film.mp4"><img src="/work/stbotanica-film.jpg" alt="St. Botanica brand compilation film" width="960" height="540" loading="lazy"><span class="studio-reel-top mono">02 / Brand film <b aria-hidden="true">↗</b></span><span class="studio-reel-caption"><strong>Beauty, with a story.</strong><span>St. Botanica · Brand compilation</span></span></a>
+  <section class="studio-selected" aria-labelledby="selected-title">
+    <div class="studio-section-head"><div><p class="mono">01 / A few good stories</p><h2 id="selected-title">Made to<br><em>move you.</em></h2></div><p class="deck-intro">A little strategy.<br>A lot of feeling.<br>Something worth remembering.</p></div>
+    <div class="work-deck" aria-label="Selected work" aria-roledescription="carousel">
+      <div class="deck-stage">
+        <a class="deck-card" href="/work/#mercedes-film" data-preview="/work/mercedes-hero.mp4"><img src="/work/mercedes-hero.jpg" alt="Mercedes by Hartan product film" width="960" height="540" loading="lazy"><span class="deck-number">01 / PRODUCT FILM</span><span class="deck-caption"><strong>Mercedes<br>by Hartan</strong><small>Via Duckduckbaby</small><b aria-hidden="true">↗</b></span></a>
+        <a class="deck-card" href="/work/#stbotanica-film" data-preview="/work/stbotanica-film.mp4"><img src="/work/stbotanica-film.jpg" alt="St. Botanica brand film" width="960" height="540" loading="lazy"><span class="deck-number">02 / BRAND FILM</span><span class="deck-caption"><strong>St. Botanica</strong><small>Brand compilation</small><b aria-hidden="true">↗</b></span></a>
+        <a class="deck-card" href="/work/#aj-reel-1" data-preview="/work/aj-reel-1.mp4"><img src="/work/aj-reel-1.jpg" alt="Arpit Jewellers diamond necklace film" width="540" height="960" loading="lazy"><span class="deck-number">03 / JEWELLERY</span><span class="deck-caption"><strong>Arpit<br>Jewellers</strong><small>Diamond necklace · On-model reel</small><b aria-hidden="true">↗</b></span></a>
+        <a class="deck-card" href="/work/#ph-227"><img src="/work/ph-227.jpg" alt="Graavin watch still life" width="960" height="640" loading="lazy"><span class="deck-number">04 / PHOTOGRAPHY</span><span class="deck-caption"><strong>Graavin</strong><small>Watch still life</small><b aria-hidden="true">↗</b></span></a>
+        <a class="deck-card" href="/work/#chicco-bestfriend-film" data-preview="/work/chicco-landscape.mp4"><img src="/work/chicco-landscape.jpg" alt="Chicco Best Friend Pro stroller film" width="960" height="540" loading="lazy"><span class="deck-number">05 / PRODUCT FILM</span><span class="deck-caption"><strong>Chicco</strong><small>Via Duckduckbaby</small><b aria-hidden="true">↗</b></span></a>
+      </div>
+      <div class="deck-controls" hidden><button type="button" data-deck-prev aria-label="Previous project">←</button><span class="mono" data-deck-status aria-live="polite">01 / 05</span><button type="button" data-deck-next aria-label="Next project">→</button><span class="deck-hint mono">Drag to explore</span></div>
     </div>
-    <p class="studio-footnote mono">Feel it, or use it. That’s the filter.</p>
+    <div class="deck-bottom"><p class="mono">Films / Campaigns / Content / Still life</p><a class="studio-arrow" href="/work/">Enter the work archive <span aria-hidden="true">↗</span></a></div>
   </section>
   <section class="home-paths wrap" aria-labelledby="paths-heading">
     <p class="mono">Two ways to work with Payoff</p><h2 class="cond h2" id="paths-heading">From story to screen.<br>Or anywhere in between.</h2>
@@ -405,11 +413,11 @@
   <div class="row"><button class="yes" id="ckYes" type="button">Allow</button><button class="no" id="ckNo" type="button">No thanks</button></div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" crossorigin defer></script>
 <script src="motion.js" defer></script>
 <script src="js/site.js" defer></script>
 <script src="js/premium.js" defer></script>
 <script src="/js/studio.js" defer></script>
+<script src="/js/playground.js" defer></script>
 
 <!-- Dashboard login: catches invite / password-reset links from Netlify Identity and sends people to /admin/ -->
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>

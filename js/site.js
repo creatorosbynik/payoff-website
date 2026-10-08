@@ -251,7 +251,7 @@
   /* v6: hero pause + pointer parallax + Motion springs */
   const hp = $('#hPause');
   hp.addEventListener('click', () => { const paused = !hv.paused; paused ? hv.pause() : hv.play(); hp.textContent = paused ? 'Play' : 'Pause'; hp.setAttribute('aria-pressed', paused); hp.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video'); });
-  new IntersectionObserver(([e]) => { if (hp.getAttribute('aria-pressed') === 'true') return; e.isIntersecting ? hv.play().catch(()=>{}) : hv.pause(); }).observe($('#hframe'));
+  new IntersectionObserver(([e]) => { if (reduce || hp.getAttribute('aria-pressed') === 'true') return; e.isIntersecting ? hv.play().catch(()=>{}) : hv.pause(); }).observe($('#hframe'));
   if (matchMedia('(hover:hover) and (pointer:fine)').matches && !reduce) {
     const hf = $('#hframe'), layers = [hv, hf.querySelector('.poster')]; let tx = 0, ty = 0, ax = 0, ay = 0;
     hf.closest('.hero').addEventListener('pointermove', e => { const r = hf.getBoundingClientRect(); tx = ((e.clientX - r.left) / r.width - .5) * -18; ty = ((e.clientY - r.top) / r.height - .5) * -12; });
