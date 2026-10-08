@@ -65,7 +65,7 @@ for(const file of allHtml.filter(f=>!f.includes(`${path.sep}admin${path.sep}`)))
 }
 for(const url of core.filter(u=>u!=='/')) {
   const html=fs.readFileSync(pageFile(url),'utf8');
-  for(const m of html.matchAll(/\b(?:href|src|data-src|poster)="([^"<>]+)"/g)) {
+  for(const m of html.matchAll(/\b(?:href|src|data-src|data-preview|poster)="([^"<>]+)"/g)) {
     const raw=decode(m[1]); if(!raw.startsWith('/')) continue;
     const target=new URL(raw,site.url); const pathname=decodeURIComponent(target.pathname);
     const exact=path.join(output,pathname);

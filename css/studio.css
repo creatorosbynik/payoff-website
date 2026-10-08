@@ -6,7 +6,7 @@
 .hero .hero-copy{padding-top:145px;padding-bottom:65px;gap:32px;pointer-events:none}
 .hero-copy a,.hero-copy button{pointer-events:auto}
 .hero #heroH1{font-size:clamp(64px,9.7vw,154px);max-width:9ch;line-height:.98;letter-spacing:-.075em}
-.hero #heroH1 .it{color:#ffdfb2;font-size:1.22em}
+.hero #heroH1 .it{color:#ffdfb2;font-size:1.22em;display:block}
 .hero .hero-foot{display:grid;justify-content:start;gap:25px;max-width:570px}
 .hero .hero-foot p{font-size:17px;max-width:37ch;line-height:1.65}
 .hero .hero-foot .proof{font-size:10px;max-width:54ch;line-height:1.8;opacity:.65}
@@ -43,3 +43,4 @@
 @media(max-width:900px){.hero .hframe{inset:95px 14px 14px 35%;border-radius:4px 75px 4px 4px}.hero #heroH1{font-size:clamp(62px,11vw,100px);max-width:10ch}.studio-service-hero{column-gap:25px}.studio-service-image{min-height:420px}.studio-reels{gap:18px}.home-path-grid>div{padding:25px}}
 @media(max-width:650px){.hero{min-height:850px;align-content:end}.hero .hframe{inset:80px 12px 12px!important;border-radius:4px 65px 4px 4px}.hero .hframe img,.hero .hframe video{object-position:65% center}.hero::after{background:linear-gradient(0deg,#0b0806 1%,#0b0806e8 28%,#0b080688 53%,transparent 83%)}.hero .hero-copy{padding:350px 25px 40px;gap:22px}.hero #heroH1{font-size:clamp(60px,15vw,88px);max-width:9ch}.hero .hero-copy>.mono{font-size:9px}.hero .hero-foot p{font-size:15px}.hero .hero-foot .proof{font-size:9px}.hero .hpause{top:145px;bottom:auto}.studio-selected,.home-paths{padding-block:60px}.studio-section-head{display:block}.studio-arrow{margin-top:22px}.studio-reels{grid-template-columns:1fr}.studio-reel,.studio-reel:nth-child(2){margin:0;aspect-ratio:1.1}.studio-reel-top,.studio-reel-caption{left:20px;right:20px}.studio-service-hero{display:block}.studio-service-image{display:block;min-height:330px;margin-top:40px;border-radius:65px 4px 4px 4px}.studio-service-hero h1{font-size:38px}.core-two-paths .core-split>div+div{padding:30px 0 0;border-left:0;border-top:1px solid #fff4}.home-path-grid>div{padding:25px}.studio-footnote{text-align:left;line-height:1.8}}
 @media(prefers-reduced-motion:reduce){.studio-reveal,.core-faq details[open] p{animation:none}.studio-reel img,.studio-service-image img,.core-poster img,.core-slate,.studio-arrow span,.btn,.core-play{transition:none!important;transform:none!important;translate:none!important}.studio-preview-video{display:none}}
+@media(max-width:650px){.hero .hframe img,.hero .hframe video{object-position:88% center}.hero .hero-copy{padding-top:270px}.hero #heroH1{line-height:1.04}.hero #heroH1 .it{line-height:.98}.hero .hpause{right:24px;top:90px}}

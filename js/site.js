@@ -205,7 +205,7 @@
 
 
   /* v5: split H2s into masked words (motion-style stagger) */
-  $$('.h2, .hero h1').forEach(h => {
+  $$('.h2').forEach(h => {
     const walk = (node, out) => { node.childNodes.forEach(n => { if (n.nodeType === 3) n.textContent.split(/(\s+)/).forEach(t => out.push(/^\s+$/.test(t) || !t ? document.createTextNode(t) : Object.assign(document.createElement('span'), {textContent:t}))); else { const c = n.cloneNode(false); const inner = []; walk(n, inner); inner.forEach(x => c.appendChild(x)); out.push(c); } }); };
     const out = []; walk(h, out); h.textContent = ''; let i = 0;
     out.forEach(n => { if (n.nodeType === 3) { h.appendChild(n); return; } const wd = document.createElement('span'); wd.className = 'wd'; const inner = n.tagName === 'SPAN' && !n.className ? n : (() => { const x = document.createElement('span'); x.appendChild(n); return x; })(); inner.style.setProperty('--i', i++); wd.appendChild(inner); h.appendChild(wd); });
@@ -402,3 +402,4 @@
   }
   requestAnimationFrame(frame);
 })();
+
