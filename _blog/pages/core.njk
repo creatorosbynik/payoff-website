@@ -17,13 +17,16 @@ eleventyExcludeFromCollections: true
 {% block jsonld %}<script type="application/ld+json">{{ pageModel | agencySchema(site) | json | safe }}</script>{% endblock %}
 {% block main %}
 <article>
-  <header class="core-hero wrap">
+  <header class="core-hero wrap{% if pageModel.kind == 'service' %} studio-service-hero{% endif %}">
     <nav class="crumbs mono" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">{{ pageModel.name | escape }}</span></nav>
     <p class="mono">{{ pageModel.eyebrow | escape }}</p>
     <h1>{{ pageModel.heading | escape }}</h1>
     <p class="core-lede">{{ pageModel.intro | escape }}</p>
     {% if pageModel.kind != 'contact' %}
     <div class="core-actions"><a class="btn" href="/contact/?service={{ pageModel.slug or '' | urlencode }}">Send a brief <span aria-hidden="true">↗</span></a><a href="/#teardown">Need direction? Get a free teardown →</a></div>
+    {% endif %}
+    {% if pageModel.kind == 'service' %}
+    <a class="studio-service-image" href="/work/#{{ pageModel.work[0].id }}" data-preview="/{{ pageModel.work[0].hv or pageModel.work[0].v }}"><img src="/{{ pageModel.work[0].hp or pageModel.work[0].p }}" alt="{{ pageModel.work[0].title | escape }}" width="800" height="900" fetchpriority="high" eleventy:ignore><span class="mono">Selected work / {{ pageModel.work[0].client | escape }}{% if pageModel.work[0].via %} · Via {{ pageModel.work[0].via | escape }}{% endif %} ↗</span></a>
     {% endif %}
   </header>
 
