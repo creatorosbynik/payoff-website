@@ -8,6 +8,21 @@
   --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
   --g:clamp(16px,4vw,64px);
 }
+
+/* Two entry paths, using the established homepage type and palette. */
+html:not(.js) .pre{display:none}
+.skip-home{position:absolute;left:-9999px;top:10px;z-index:10000;padding:12px;background:var(--cream);color:var(--ink)}
+.skip-home:focus{left:10px}
+.home-paths{padding-block:70px;border-block:1px solid var(--line)}
+.home-path-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,100px);margin-top:38px}
+.home-path-grid h3{font-family:var(--display);font-size:clamp(23px,2.8vw,35px);letter-spacing:-.04em}
+.home-path-grid p{max-width:53ch;line-height:1.7}
+.home-path-grid p a{text-decoration:underline;text-underline-offset:4px}
+.home-work-link{display:inline-block;margin:12px 0;padding:8px 0;min-height:44px}
+.home-path-grid .home-work-link{display:block}
+.svc h3 a{text-decoration:none}.svc h3 a:hover{text-decoration:underline;text-underline-offset:6px}
+.mcta{gap:10px}.mcta .cta{flex:1}
+@media(max-width:700px){.home-path-grid{grid-template-columns:1fr}.home-paths{padding-block:48px}.mcta .cta{font-size:12px;padding:12px}.home-path-grid .cta{white-space:normal;text-align:center}}
 *{box-sizing:border-box}
 html{background:var(--black);scrollbar-width:none}
 html::-webkit-scrollbar{display:none}
@@ -663,3 +678,4 @@ body.menu-on{overflow:hidden}
   .step,.step .stripes,.submit,.submit::after,.tear>.ember,.process>.us-bg{transition:none!important}
   .step:hover{transform:none}.step:hover .stripes{transform:none}
 }
+

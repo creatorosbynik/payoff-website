@@ -1,5 +1,5 @@
 # Payoff — Netlify config.
-# The homepage files are copied as they are; Eleventy builds the blog (/blog/) around them.
+# Eleventy generates commercial pages, blog and sitemap around the static homepage.
 [build]
   command = "npm run build"
   publish = "_site"
@@ -46,7 +46,7 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "/work/*"
+  for = "/work/*.mp4"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
@@ -64,6 +64,23 @@
   for = "/*.png"
   [headers.values]
     Cache-Control = "public, max-age=2592000"
+
+# Work includes an HTML index now; only media receives long-lived caching.
+[[headers]]
+  for = "/work/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/work/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/brief-received/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+    Cache-Control = "no-store"
 
 # Blog: hashed images never change; CSS/JS are versioned per build
 [[headers]]
@@ -89,3 +106,4 @@
   to = "https://payoffcreative.com/:splat"
   status = 301
   force = true
+

@@ -1,0 +1,103 @@
+---
+pagination:
+  data: agency.pages
+  size: 1
+  alias: pageModel
+permalink: "{{ pageModel.url }}"
+eleventyExcludeFromCollections: true
+---
+{% extends "base.njk" %}
+{% set seo_title = pageModel.title %}
+{% set seo_desc = pageModel.description %}
+{% set seo_canonical = pageModel.url | absoluteUrl(site.url) %}
+{% set seo_image = site.defaultImage | absoluteUrl(site.url) %}
+{% set header_cta_link = '/contact/' %}
+{% set header_cta_label = 'Send a brief' %}
+{% set body_class = 'is-core' %}
+{% block jsonld %}<script type="application/ld+json">{{ pageModel | agencySchema(site) | json | safe }}</script>{% endblock %}
+{% block main %}
+<article>
+  <header class="core-hero wrap{% if pageModel.kind == 'service' %} studio-service-hero{% endif %}">
+    <nav class="crumbs mono" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">{{ pageModel.name | escape }}</span></nav>
+    <p class="mono">{{ pageModel.eyebrow | escape }}</p>
+    <h1>{{ pageModel.heading | escape }}</h1>
+    <p class="core-lede">{{ pageModel.intro | escape }}</p>
+    {% if pageModel.kind != 'contact' %}
+    <div class="core-actions"><a class="btn" href="/contact/?service={{ pageModel.slug or '' | urlencode }}">Send a brief <span aria-hidden="true">↗</span></a><a href="/#teardown">Need direction? Get a free teardown →</a></div>
+    {% endif %}
+    {% if pageModel.kind == 'service' %}
+    <a class="studio-service-image" href="/work/#{{ pageModel.work[0].id }}" data-preview="/{{ pageModel.work[0].hv or pageModel.work[0].v }}"><img src="/{{ pageModel.work[0].hp or pageModel.work[0].p }}" alt="{{ pageModel.work[0].title | escape }}" width="800" height="900" fetchpriority="high" eleventy:ignore><span class="mono">Selected work / {{ pageModel.work[0].client | escape }}{% if pageModel.work[0].via %} · Via {{ pageModel.work[0].via | escape }}{% endif %} ↗</span></a>
+    {% endif %}
+  </header>
+
+  {% if pageModel.kind == 'service' %}
+  <section class="core-paper">
+    <div class="wrap core-split">
+      <div><p class="mono">The right starting point</p><h2>{{ pageModel.question | escape }}</h2></div>
+      <div><p class="core-lede">{{ pageModel.fit | escape }}</p><p>{{ pageModel.answer | escape }}</p></div>
+    </div>
+  </section>
+  <section class="core-section wrap" aria-labelledby="scope-heading">
+    <p class="mono">The work, scoped around you</p><h2 id="scope-heading">What we can make together.</h2>
+    <div class="core-three">{% for output in pageModel.outputs %}<div class="core-slate"><p class="mono">0{{ loop.index }}</p><h3>{{ output[0] | escape }}</h3><p>{{ output[1] | escape }}</p></div>{% endfor %}</div>
+  </section>
+  <section class="core-section core-proof wrap" aria-labelledby="proof-heading">
+    <p class="mono">The portfolio</p><h2 id="proof-heading">Let the work speak.</h2><p class="core-note">{{ pageModel.proofNote | escape }}</p>
+    <div class="core-work-grid">{% for w in pageModel.work %}{% include "work-card.njk" %}{% endfor %}</div>
+    <a class="core-text-link" href="/work/">Explore all selected work →</a>
+  </section>
+  <section class="core-paper"><div class="wrap core-section">
+    <p class="mono">From brief to delivery</p><h2>A clear next step at every stage.</h2>
+    <ol class="core-steps">{% for step in pageModel.process %}<li><h3>{{ step[0] | escape }}</h3><p>{{ step[1] | escape }}</p></li>{% endfor %}</ol>
+  </div></section>
+  <section class="core-section wrap core-split">
+    <div><p class="mono">Before we start</p><h2>Bring us what you have.</h2><p>{{ pageModel.prep | escape }}</p><a class="btn" href="/contact/?service={{ pageModel.slug | urlencode }}">Send your {{ pageModel.name | lower | escape }} brief →</a></div>
+    <div class="core-faq"><h2>Useful answers.</h2>{% for faq in pageModel.faqs %}<details><summary>{{ faq[0] | escape }}</summary><p>{{ faq[1] | escape }}</p></details>{% endfor %}</div>
+  </section>
+  <aside class="core-section wrap core-related" aria-label="Related services and reading">
+    <h2>The next part of the story.</h2><div class="core-link-row">{% for link in pageModel.related %}<a href="{{ link.url }}">{{ link.name | escape }} →</a>{% endfor %}</div>
+    {% if pageModel.reading.length %}<h3>Before you brief</h3><ul>{% for link in pageModel.reading %}<li><a href="{{ link.url }}">{{ link.label | escape }}</a></li>{% endfor %}</ul>{% endif %}
+  </aside>
+  {% elif pageModel.kind == 'work' %}
+  <div class="wrap"><nav class="core-link-row core-work-nav" aria-label="Work categories">{% for group in agency.groups %}<a href="#{{ group.key }}">{{ group.name }}</a>{% endfor %}</nav><p class="core-note">{{ agency.work.length }} selected pieces. Partner credits and spec work are labelled with the projects. Need an example from your category? <a href="/contact/">Tell us what you’re looking for.</a></p></div>
+  {% for group in agency.groups %}
+  <section class="core-section wrap" id="{{ group.key }}" aria-labelledby="heading-{{ group.key }}"><p class="mono">Reel 0{{ loop.index }}</p><h2 id="heading-{{ group.key }}">{{ group.name }}</h2><div class="core-work-grid">
+    {% for w in group.items %}
+    <article class="core-work" id="{{ w.id }}">
+      <a class="core-poster" href="/{{ w.hv or w.v or w.p }}" aria-label="{{ ('Watch ' if w.v else 'View ') + w.title | escape }}"><img src="/{{ w.hp or w.p }}" alt="{{ (w.client + ' · ' if w.client else '') + w.title | escape }}" width="640" height="480" loading="lazy" decoding="async" eleventy:ignore><span class="core-play">{{ 'Play ↗' if w.v else 'View ↗' }}</span></a>
+      <p class="mono">{{ w.client or 'Selected work' | escape }} · {{ w.cat | escape }}</p><h3>{{ w.title | escape }}</h3>
+      {% if w.via %}<p class="core-credit">Via {{ w.via | escape }}</p>{% endif %}
+      {% if w.v %}<details class="core-player"><summary>Watch preview</summary><video controls playsinline preload="none" poster="/{{ w.hp or w.p }}" data-src="/{{ w.hv or w.v }}" aria-label="{{ w.title | escape }}"></video><noscript><p><a href="/{{ w.hv or w.v }}">Open the video</a></p></noscript></details>{% endif %}
+      {% if w.link %}<a class="core-original" href="{{ w.link | escape }}" target="_blank" rel="noopener">{{ 'Watch the full cut' if w.v else 'View original work' }} ↗</a>{% endif %}
+    </article>
+    {% endfor %}
+  </div></section>
+  {% endfor %}
+  <section class="core-section wrap"><h2>Make something with us.</h2><div class="core-link-row">{% for service in agency.services %}<a href="{{ service.url }}">{{ service.name }} →</a>{% endfor %}</div></section>
+  {% elif pageModel.kind == 'about' %}
+  <section class="core-paper"><div class="wrap core-split">
+    <div><p class="mono">The beginning</p><h2>People forget ads. They remember stories.</h2></div>
+    <div><p class="core-lede">Payoff was started in Noida by Nikunj, a filmmaker and editor with 8+ years behind the camera and in the edit.</p><p>Those years shaped a simple question: what story can only this brand tell? Payoff exists to find it, and to give every film, ad and piece of content a reason to belong.</p><p>“Every story earns” is our ambition for the work: attention that matters, an idea worth remembering and a useful next step for the viewer.</p></div>
+  </div></section>
+  <section class="core-section wrap core-split"><div><p class="mono">Our filter</p><h2>Feel it, or use it.</h2><p>If an idea does neither, why ask someone to give it their attention? That question guides the choices we make before a camera rolls and long after the footage reaches the edit.</p><p>The Director you see on the site is how Payoff thinks, on screen: a character who asks about the story before the format or spend.</p></div><img class="core-director" src="/director-camera.webp" alt="The Payoff Director character with a camera on a red set" width="1080" height="1350" loading="lazy" decoding="async" eleventy:ignore></section>
+  <section class="core-section wrap"><p class="mono">Two ways in</p><div class="core-three"><div class="core-slate"><h2>We find the story.</h2><p>For brands that need direction, we connect customer insight to a story, a content plan and creative work.</p><a href="/services/content-strategy/">Start with strategy →</a></div><div class="core-slate"><h2>You bring the story.</h2><p>For teams with an existing brief, we can join at production, editing, motion or the final finish.</p><a href="/remote-creative-services/">Meet your remote creative partner →</a></div><div class="core-slate"><h2>The work comes next.</h2><p>Our portfolio includes films, ads, creator content, motion, AI campaigns and stills. See the formats and the people behind the credits.</p><a href="/work/">Explore the work →</a></div></div></section>
+  {% elif pageModel.kind == 'contact' %}
+  <section class="core-section wrap core-contact">
+    <aside><h2>Already have a brief?</h2><p>Use the form or email <a href="mailto:{{ site.email }}">{{ site.email }}</a>. Include links to your brief, footage or references; there’s no need to upload large files here.</p><p>Based in Noida, India. Remote creative support for brands and agencies worldwide.</p><p><a href="https://wa.me/{{ site.whatsapp }}">Talk on WhatsApp →</a></p><div class="core-slate"><h3>Still finding the direction?</h3><p>Send your brand and get a free 60-second video with a useful observation about its story.</p><a href="/#teardown">Get my free teardown →</a></div></aside>
+    <form class="brief-form" id="brief-form" name="brief" method="post" action="/brief-received/" data-netlify="true" netlify-honeypot="company_website">
+      <input type="hidden" name="form-name" value="brief">
+      <div hidden><label>Leave this empty<input name="company_website" tabindex="-1" autocomplete="off"></label></div>
+      <div class="brief-pair"><div><label for="brief-name">Your name *</label><input id="brief-name" name="name" autocomplete="name" required maxlength="120"></div><div><label for="brief-email">Email *</label><input id="brief-email" name="email" type="email" autocomplete="email" required maxlength="254"></div></div>
+      <label for="brief-company">Company or brand</label><input id="brief-company" name="company" autocomplete="organization" maxlength="160">
+      <label for="brief-service">What do you need?</label><select id="brief-service" name="service"><option value="">Choose a starting point</option value="multiple">Several things / not sure yet</option>{% for service in agency.services %}<option value="{{ service.slug }}">{{ service.name }}</option>{% endfor %}</select>
+      <label for="brief-project">What are you making? *</label><textarea id="brief-project" name="project" rows="5" required maxlength="6000" aria-describedby="project-help"></textarea><p class="brief-hint" id="project-help">Tell us about the audience, deliverables and what you already have.</p>
+      <div class="brief-pair"><div><label for="brief-budget">Budget, if known</label><input id="brief-budget" name="budget" maxlength="120" placeholder="Amount and currency, or still deciding"></div><div><label for="brief-timeline">Timeline and time zone</label><input id="brief-timeline" name="timeline" maxlength="200" placeholder="Launch date, deadline and time zone"></div></div>
+      <label for="brief-reference">Brief, footage or reference link</label><input id="brief-reference" name="reference" type="url" inputmode="url" maxlength="2000" placeholder="https://" aria-describedby="reference-help"><p class="brief-hint" id="reference-help">A shareable link is enough. You can arrange restricted access with us by email.</p>
+      <p class="brief-hint">We’ll use these details to respond to your enquiry. <a href="/privacy">Privacy policy</a>.</p>
+      <button class="btn" type="submit">Send my brief →</button><p id="brief-status" role="status" aria-live="polite" tabindex="-1"></p>
+    </form>
+  </section>
+  {% endif %}
+</article>
+{% if pageModel.kind != 'contact' %}{% include "two-paths.njk" %}{% endif %}
+{% endblock %}

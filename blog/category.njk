@@ -20,7 +20,9 @@ eleventyExcludeFromCollections: true
 {%- set seo_canonical = page.url | absoluteUrl(site.url) -%}
 {%- set seo_image = site.defaultImage | absoluteUrl(site.url) -%}
 {%- set body_class = "is-list" -%}
+{%- set seo_noindex = cat.posts.length < 3 -%}
 {% block jsonld %}
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"},{"@type":"ListItem","position":2,"name":"Blog","item":"{{ site.url }}/blog/"},{"@type":"ListItem","position":3,"name":{{ cat.name | json | safe }},"item":"{{ page.url | absoluteUrl(site.url) }}"}]}</script>
 {% endblock %}
 {% block main %}{% include "listing.njk" %}{% endblock %}
+
