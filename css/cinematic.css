@@ -1,4 +1,5 @@
 /* A photographic treatment: one type voice, quiet motion, generous frames. */
+.payoff-cinematic .hero #heroH1 .it{font-family:var(--display)!important;text-transform:uppercase!important;font-style:normal!important}
 body.payoff-cinematic{--display:'Anton','Arial Narrow',sans-serif;--cond:var(--display);--body:'Instrument Sans',Arial,sans-serif;--cream:#ffdfb2;background:#0b0806;color:#ffdfb2;font-family:var(--body);overflow-x:clip;cursor:auto}
 .payoff-cinematic [id]{scroll-margin-top:85px}.payoff-cinematic a,.payoff-cinematic button{cursor:pointer}
 .payoff-cinematic .cursor,.payoff-cinematic .cdot,.payoff-cinematic .pre,.payoff-cinematic .rail,.payoff-cinematic .grain{display:none!important}
