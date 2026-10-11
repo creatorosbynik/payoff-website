@@ -32,9 +32,11 @@
 
   /* hero loop */
   const hv = $('#heroVid');
+  if (!document.body.classList.contains('payoff-cinematic')) {
   if (phoneUp()) { $('#intro').classList.add('vert'); $('#intro .poster').src = 'director-loop-poster-v.jpg'; hv.poster = 'director-loop-poster-v.jpg'; hv.src = 'director-loop-v.mp4'; }
   else hv.src = small ? 'director-loop-960.mp4' : 'director-loop-1920.mp4';
   if (!reduce) hv.play().catch(()=>{});
+  }
 
   /* nav + reveals + sticky mobile CTA */
   const nav = $('#nav'), mcta = $('#mcta');
