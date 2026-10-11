@@ -1,5 +1,7 @@
 /* Payoff / creative playground. Real work, tactile type, native scrolling. */
 .payoff-playground{overflow-x:clip}
+.payoff-playground [id]{scroll-margin-top:90px}
+@media(max-width:700px){.payoff-playground .mcta:not(.hide){display:flex;gap:8px}.payoff-playground .mcta .cta{flex:1;min-width:0;min-height:48px;font-size:12px;padding:12px 8px}.payoff-playground .mcta .ghost{background:#0b0806;color:#ffdfb2;border:1px solid #ffdfb270}}
 .payoff-playground{--display:'Archivo Black',Arial,sans-serif;--serif:'Instrument Serif',Georgia,serif;--body:'Instrument Sans',Arial,sans-serif;--cream:#ffdfb2;font-family:var(--body);cursor:auto}
 .payoff-playground .cursor,.payoff-playground .cdot,.payoff-playground .pre,.payoff-playground .rail{display:none!important}
 .payoff-playground a,.payoff-playground button{cursor:pointer}
