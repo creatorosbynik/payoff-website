@@ -17,7 +17,8 @@
       card.style.setProperty('--brightness', 1 - depth * .16);
       card.dataset.active = String(offset === 0);
       card.tabIndex = offset === 0 ? 0 : -1;
-      card.setAttribute('aria-label', `${i + 1} of ${cards.length}: ${card.querySelector('strong').textContent}. View project`);
+      const title = card.querySelector('strong').innerHTML.replace(/<br\s*\/?\s*>/gi, ' ').replace(/<[^>]+>/g, '');
+      card.setAttribute('aria-label', `${i + 1} of ${cards.length}: ${title}. View project`);
     });
     status.textContent = `${String(current + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
   };
