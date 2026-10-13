@@ -52,7 +52,7 @@ body.payoff-world{--cream:#f2e8d8;--body:'DM Sans',sans-serif;--display:'Anton',
 
 /* Navigation / tactile film controls. No looping or cursor-chasing animation. */
 /* Hide the injected preview review frame, not portfolio/video embeds. */
-iframe[title="Netlify Drawer"]{display:none!important}
+div[data-netlify-deploy-id][data-netlify-site-id]:has(>iframe[title="Netlify Drawer"]){display:none!important}
 .payoff-world .hero-copy>.hero-positioning{display:grid;gap:8px;max-width:36ch;line-height:1.4;text-shadow:0 2px 16px #0009}
 .hero-positioning strong{font:400 clamp(17px,1.7vw,24px)/1.15 var(--display);letter-spacing:.025em;text-transform:uppercase}
 .hero-positioning>span{font:600 11px var(--body);letter-spacing:.18em;text-transform:uppercase}
