@@ -51,6 +51,18 @@ body.payoff-world{--cream:#f2e8d8;--body:'DM Sans',sans-serif;--display:'Anton',
 @media(prefers-reduced-motion:reduce){.chapter-links a,.payoff-world .svc{transition:none}}
 
 /* Navigation / tactile film controls. No looping or cursor-chasing animation. */
+/* Hide the injected preview review frame, not portfolio/video embeds. */
+iframe[title="Netlify Drawer"]{display:none!important}
+.payoff-world .hero-copy>.hero-positioning{display:grid;gap:8px;max-width:36ch;line-height:1.4;text-shadow:0 2px 16px #0009}
+.hero-positioning strong{font:400 clamp(17px,1.7vw,24px)/1.15 var(--display);letter-spacing:.025em;text-transform:uppercase}
+.hero-positioning>span{font:600 11px var(--body);letter-spacing:.18em;text-transform:uppercase}
+.payoff-world .hero #heroH1{font-size:clamp(82px,9vw,144px)!important;text-shadow:0 3px 26px #17121040}
+.hero-summary{max-width:39ch}.hero-summary>p{font:400 14px/1.7 var(--body);margin:12px 0 0}.hero-summary>.world-invitation{font:600 15px/1.4 var(--body);color:#f2e8d8;margin:0 0 12px;max-width:none}
+.world-point span{width:38px;height:38px;background:#281914bd;border:1px solid #f2e8d8;box-shadow:0 0 0 6px #f2e8d815;font-size:11px}
+.world-point b{transition:opacity .25s,transform .35s,background .3s}
+@media(hover:hover) and (pointer:fine) and (min-width:801px){.world-point b{opacity:0;transform:translateX(-8px);pointer-events:none}.world-point:is(:hover,:focus-visible) b{opacity:1;transform:translateX(0)}}
+.world-dialog>img,.chapter-glass{animation:none}.world-dialog>.chapter-outgoing{pointer-events:none;z-index:-2}
+@media(max-width:800px){.payoff-world .hero #heroH1{font-size:68px!important}.hero-positioning strong{font-size:17px}.hero-positioning>span{font-size:10px}.hero-summary{max-width:38ch}.hero-summary>.world-invitation{font-size:14px}.world-point span{width:29px;height:29px;font-size:10px;box-shadow:none}}
 .payoff-world .nav{border-bottom:1px solid #f2e8d81c;background:linear-gradient(180deg,#171210ed,#171210a6);backdrop-filter:blur(22px)}
 .payoff-world .nav .links{gap:4px;padding:4px;border:1px solid #f2e8d81c;border-radius:40px;background:#100b0840}
 .payoff-world .nav .links a{position:relative;display:inline-flex;align-items:center;min-height:42px;padding:0 15px;border-radius:24px;font-size:12px;font-weight:600;opacity:1;color:#e2d5c5;transition:color .25s,background .25s}

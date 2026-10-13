@@ -38,10 +38,24 @@
   toggle.addEventListener('click', () => { quiet = !quiet; motionState(); });
   preference.addEventListener('change', e => { quiet = e.matches; motionState(); });
   motionState();
-  function openChapter(key, trigger) {
+  let chapterRequest = 0;
+  async function openChapter(key, trigger) {
     const c = chapters[key]; if (!c) return;
+    const request = ++chapterRequest;
+    const incoming = new Image();
+    incoming.src = `/assets/story/${c.image}.webp`;
+    try { await incoming.decode(); } catch { return; }
+    if (request !== chapterRequest) return;
     if (!dialog.open) returnFocus = trigger;
     const img = document.getElementById('chapterImage');
+    dialog.querySelectorAll('.chapter-outgoing').forEach(e => e.remove());
+    img.getAnimations().forEach(a => a.cancel());
+    const outgoing = dialog.open && !quiet ? img.cloneNode() : null;
+    if (outgoing) {
+      outgoing.removeAttribute('id'); outgoing.alt = ''; outgoing.setAttribute('aria-hidden', 'true');
+      outgoing.className = 'chapter-outgoing'; img.after(outgoing);
+      outgoing.animate([{opacity:1,transform:'scale(1)'},{opacity:0,transform:'scale(1.04)'}],{duration:650,easing:'cubic-bezier(.22,.61,.36,1)'}).finished.then(() => outgoing.remove()).catch(() => outgoing.remove());
+    }
     img.src = `/assets/story/${c.image}.webp`;
     img.alt = {face: 'Close-up of the character and his sunglasses', watch: 'Steel watch and burgundy sleeve detail', outfit: 'Burgundy tailoring and ivory shirt detail', direction: 'The second character in the same roadside scene'}[c.image];
     document.getElementById('chapterKicker').textContent = c.label;
@@ -55,11 +69,17 @@
     dialog.style.setProperty('--origin-y', `${originY * 100}%`);
     dialog.querySelectorAll('[data-chapter]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.chapter === key)));
     if (!dialog.open) { dialog.showModal(); document.body.classList.add('chapter-open'); document.getElementById('worldBack').focus(); }
+    if (!quiet) {
+      img.animate([{opacity:.35,transform:'scale(1.075)'},{opacity:1,transform:'scale(1)'}],{duration:850,easing:'cubic-bezier(.22,.61,.36,1)'});
+      const panel = dialog.querySelector('.chapter-glass');
+      panel.getAnimations().forEach(a => a.cancel());
+      panel.animate([{opacity:.25,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}],{duration:500,easing:'ease-out'});
+    }
   }
   document.querySelectorAll('[data-chapter]').forEach(b => b.addEventListener('click', () => openChapter(b.dataset.chapter, b)));
   document.getElementById('worldBack').addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
-  dialog.addEventListener('close', () => { document.body.classList.remove('chapter-open'); returnFocus?.focus({preventScroll: true}); });
+  dialog.addEventListener('close', () => { chapterRequest++; dialog.querySelectorAll('.chapter-outgoing').forEach(e => e.remove()); document.body.classList.remove('chapter-open'); returnFocus?.focus({preventScroll: true}); });
   document.getElementById('chapterTeardown').addEventListener('click', () => { dialog.close(); document.getElementById('teardown').scrollIntoView({behavior: quiet ? 'instant' : 'smooth'}); });
   hero.addEventListener('pointermove', e => {
     if (quiet || !fine.matches || raf || dialog.open) return;
