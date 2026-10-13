@@ -188,7 +188,7 @@
 
 
   /* 3D hover tilt with glare (pointer devices only) */
-  if (matchMedia('(hover:hover) and (pointer:fine)').matches && !reduce) {
+  if (!document.body.classList.contains('payoff-world') && matchMedia('(hover:hover) and (pointer:fine)').matches && !reduce) {
     const tilt = el => {
       if (!el.querySelector(':scope > .glare')) { const g = document.createElement('span'); g.className = 'glare'; el.appendChild(g); }
       if (getComputedStyle(el).position === 'static') el.style.position = 'relative';
