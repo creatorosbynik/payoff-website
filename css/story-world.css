@@ -51,6 +51,7 @@ body.payoff-world{--cream:#f2e8d8;--body:'DM Sans',sans-serif;--display:'Anton',
 @media(prefers-reduced-motion:reduce){.chapter-links a,.payoff-world .svc{transition:none}}
 
 /* Navigation / tactile film controls. No looping or cursor-chasing animation. */
+.payoff-world #director .director figure{border-radius:3px;overflow:hidden;aspect-ratio:auto;border:1px solid #f2e8d830}.payoff-world #director .director figure img{display:block;width:100%;height:auto;object-fit:contain;transform:none}.payoff-world #director figcaption{background:linear-gradient(transparent,#171210cf);padding:26px 18px 18px;left:0;right:0;bottom:0;font-size:9px;letter-spacing:.12em}.payoff-world #dir-h{font-size:clamp(40px,4.6vw,70px);line-height:1.05}.director-note{font:14px/1.8 var(--body);color:#d5c7b9;max-width:47ch;margin:22px 0 28px}.payoff-world #director .lede{font-size:clamp(16px,1.5vw,21px);line-height:1.65}
 .payoff-world .film.story-editorial{height:auto!important;min-height:0;display:grid;grid-template-columns:1.1fr 1fr;gap:7vw;padding:100px 5vw;background:#191310;border-top:1px solid #f2e8d825;scroll-margin-top:78px}
 .story-editorial>.stage[hidden]{display:none!important}
 .story-editorial-copy>.mono{color:#c38b7b;font-size:10px;letter-spacing:.14em;margin:0 0 26px}
