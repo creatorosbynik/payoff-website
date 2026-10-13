@@ -70,7 +70,7 @@
   const N = 9, DUR = 45;
   const HOLD = .42; let loaded = false, cur = 0, lastSet = -1, lastStill = -1;
   function loadFilm(){
-    if (loaded) return; loaded = true;
+    if (film.classList.contains('story-editorial') || loaded) return; loaded = true;
     const av1 = !small && video.canPlayType('video/mp4; codecs="av01.0.08M.08"') === 'probably';
     portrait = phoneUp(); if (portrait) still.src = 'still-v' + Math.max(0, lastStill) + '.jpg';
     const src = portrait ? 'film-v720.mp4' : small ? 'film-m1280.mp4' : (av1 ? 'film-1920-av1.mp4' : 'film-m1280.mp4'); // phones held upright get a native 9:16 cut
@@ -379,7 +379,7 @@
     const ar = asSec.getBoundingClientRect();
     mcta.classList.toggle('hide', y < vh*.6 || (tr.top < vh && tr.bottom > 0) || (fr.top < 1 && fr.bottom > vh*.5) || (ar.top < vh*.5 && ar.bottom > vh*.5));
     // film
-    if (fr.top < vh && fr.bottom > 0) {
+    if (!film.classList.contains('story-editorial') && fr.top < vh && fr.bottom > 0) {
       const st = filmState();
       cur += (st.t - cur) * (reduce ? 1 : .14);
       if (video.readyState >= 1 && video.duration && !video.seeking && Math.abs(cur - lastSet) > .012) { video.currentTime = Math.min(cur, video.duration - .05); lastSet = cur; }

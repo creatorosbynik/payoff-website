@@ -38,6 +38,11 @@
   toggle.addEventListener('click', () => { quiet = !quiet; motionState(); });
   preference.addEventListener('change', e => { quiet = e.matches; motionState(); });
   motionState();
+  const optionalFilm = document.getElementById('storyOptionalFilm');
+  if (optionalFilm) {
+    optionalFilm.closest('details').addEventListener('toggle', e => { if (!e.target.open) optionalFilm.pause(); });
+    new IntersectionObserver(([entry]) => { if (!entry.isIntersecting) optionalFilm.pause(); }).observe(optionalFilm);
+  }
   let chapterRequest = 0;
   async function openChapter(key, trigger) {
     const c = chapters[key]; if (!c) return;
