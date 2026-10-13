@@ -1,5 +1,5 @@
 /* Payoff / a story you can step inside. Photograph first, interface second. */
-body.payoff-world{--cream:#f2e8d8;--body:'DM Sans',sans-serif;--display:'Italiana',Georgia,serif;--red:#a93636;background:#141110;color:var(--cream)}
+body.payoff-world{--cream:#f2e8d8;--body:'DM Sans',sans-serif;--display:'Anton','Arial Narrow',sans-serif;--red:#a93636;background:#141110;color:var(--cream)}
 .payoff-world .nav{background:linear-gradient(#171210b8,#17121025);border:0;backdrop-filter:blur(16px);height:78px}.payoff-world .nav .links a{font:500 12px var(--body);letter-spacing:.02em}.payoff-world .nav .cta{padding:11px 18px;border-radius:30px!important;background:#f2e8d8;color:#271714}
 .payoff-world .hero{height:max(820px,100svh);min-height:820px;overflow:hidden;display:block;perspective:1200px;--px:0px;--py:0px}
 .payoff-world .hero #hframe{transform:translate3d(var(--px),var(--py),0) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(1.025)!important;transition:transform .65s cubic-bezier(.2,.7,.2,1)}
@@ -24,3 +24,28 @@ body.payoff-world{--cream:#f2e8d8;--body:'DM Sans',sans-serif;--display:'Italian
 .world-quiet .hero #hframe,.world-quiet .world-points{transform:none!important}.world-quiet .world-dialog>img,.world-quiet .chapter-glass{animation:none}.world-quiet *{scroll-behavior:auto!important}
 @media(max-width:800px){.payoff-world .hero .hero-foot{margin-top:auto}}
 @media(prefers-reduced-motion:reduce){.world-dialog>img,.chapter-glass{animation:none!important}.world-points,.world-point span{transition:none!important}}
+
+/* Payoff's graphic voice: bold titles, quiet copy, numbered film chapters. */
+.payoff-world .hero #heroH1{font-size:clamp(76px,8vw,128px)!important;line-height:.98!important;letter-spacing:-.025em;text-transform:uppercase!important;max-width:6.3ch;margin-top:24px}
+.payoff-world .hero #heroH1 .it{text-transform:uppercase!important}
+.payoff-world .studio-section-head h2,.payoff-world .h2,.payoff-world .deck-caption strong{text-transform:uppercase!important;letter-spacing:-.015em;line-height:1.03}
+.payoff-world .h2 .it{font-family:var(--display)!important;font-style:normal;letter-spacing:inherit}
+.payoff-world .hero-copy>.mono,.chapter-kicker{font-size:10px;font-weight:600;letter-spacing:.16em}
+.world-invitation{font-weight:600}
+.world-point b{border-radius:3px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#1813109c}
+.world-point span{border-color:#f2e8d8a6;background:#24171385;font-weight:700}
+.chapter-glass{border-radius:3px;border-top:3px solid #a93636;background:linear-gradient(135deg,#211915e8,#211915c2);padding:30px 32px;box-shadow:0 24px 70px #0004}
+.chapter-kicker{display:flex;align-items:center;gap:12px;color:#e5cdb5}
+.chapter-kicker::before{content:'';width:22px;height:4px;background:#bf5147;flex-shrink:0}
+.chapter-glass h2{font-size:clamp(40px,4.3vw,62px);line-height:1.04;letter-spacing:-.015em;text-transform:uppercase;margin:22px 0}
+.chapter-glass>p:not(.chapter-kicker){line-height:1.7;max-width:42ch}
+.chapter-links{margin:22px 0}.chapter-links a{font-weight:600;display:block;transition:padding .2s,color .2s}.chapter-links a:hover{padding-left:8px;color:#f3c8b4}
+.chapter-ctas{gap:10px}.chapter-ctas a{padding:12px 14px;border:1px solid #f2e8d84d;border-radius:3px;text-decoration:none;font-weight:700}.chapter-ctas a:first-child{background:var(--cream);color:#231613;border-color:var(--cream)}
+.chapter-nav{border-radius:5px;background:#181310e6}.chapter-nav button{border-radius:2px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.chapter-nav button[aria-pressed=true]{background:#a93636;color:#fff4e5}
+.payoff-world .studio-section-head{padding-top:24px;border-top:1px solid #f2e8d840}.payoff-world .studio-section-head>div>.mono{color:#c38b7b}
+.payoff-world .studio-section-head h2 em{color:#e7cbb1;font-family:var(--display)}
+.payoff-world .home-paths{color:#241815}.payoff-world .home-path-grid>div{background:#211714;border-radius:3px;border-top:3px solid #a93636;color:#f2e8d8;padding:36px;box-shadow:0 15px 35px #22150d12}.payoff-world .home-path-grid>div:hover{background:#2e1d18;border-color:#b65a4b}.payoff-world .home-path-grid h3{text-transform:uppercase;line-height:1.05;font-size:clamp(30px,3.2vw,46px);letter-spacing:-.01em}.payoff-world .home-path-grid p{max-width:47ch;line-height:1.75}
+.payoff-world .svc{padding:28px 18px;border-top:1px solid #f2e8d830;transition:background .25s}.payoff-world .svc:hover{background:#a9363614}.payoff-world .svc h3{text-transform:uppercase;letter-spacing:.005em;font-size:30px}.payoff-world .svc p{line-height:1.75}
+.world-finale h2{text-transform:uppercase;letter-spacing:-.015em;line-height:1.02;font-size:clamp(48px,7.4vw,108px)}.world-footer .foot-grid{border-radius:3px;border-top:3px solid #a93636}.payoff-world .world-footer .big-sign{text-transform:uppercase}
+@media(max-width:800px){.payoff-world .hero #heroH1{font-size:64px!important;line-height:1!important;max-width:6.3ch}.payoff-world .hero .hero-copy{gap:12px}.chapter-glass{padding:24px}.chapter-glass h2{font-size:42px}.chapter-nav button{font-size:9px;padding:12px 10px}.payoff-world .home-path-grid>div{padding:26px}.payoff-world .svc{padding:22px 8px}.world-point b{font-size:9px;letter-spacing:.025em}}
+@media(prefers-reduced-motion:reduce){.chapter-links a,.payoff-world .svc{transition:none}}
