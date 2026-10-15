@@ -6,7 +6,10 @@ body,input,textarea,select,button{font-family:var(--body)}
 h1,h2,h3,.cond,.h2,.sec-h,.bf-sign,.big-sign{font-family:var(--display)!important;font-weight:400!important;letter-spacing:-.015em!important}
 h1,h2,h3,.cond{text-transform:uppercase}
 h1 em,h2 em,h3 em,.it,.studio-section-head em{font-family:var(--display)!important;font-style:normal!important;font-weight:400!important;letter-spacing:inherit!important;text-transform:inherit!important}
-.mono,code,pre{font-family:var(--mono)}
+code,pre{font-family:var(--mono)}
+/* Editorial labels pair quiet, proportional lettering with the bold display face. */
+.mono{font-family:var(--body);font-weight:600;letter-spacing:.14em;font-variant-numeric:lining-nums tabular-nums}
+.eyebrow.mono{font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:.18em;line-height:1.6;text-transform:uppercase}
 .bn{background:#171210e8;border-bottom:1px solid var(--line);backdrop-filter:blur(18px)}
 .bn-links a{font:600 12px var(--body);letter-spacing:.02em}
 .btn,.cta{font-family:var(--body);font-weight:600;border-radius:30px;min-height:44px}
