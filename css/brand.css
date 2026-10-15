@@ -1,0 +1,17 @@
+/* Shared public-site identity. Loaded last on every public template. */
+:root,body.payoff-world{--display:'Anton','Arial Narrow',sans-serif;--body:'DM Sans',Arial,sans-serif;--serif:'Anton','Arial Narrow',sans-serif;--mono:'JetBrains Mono',monospace;--cream:#f2e8d8;--red:#a93636;--red-deep:#862b2b;--black:#141110;--ink:#241815;--paper:#f2e8d8;--paper-2:#e9dfd0;--line:#f2e8d828}
+body,input,textarea,select,button{font-family:var(--body)}
+h1,h2,h3,.cond,.h2,.sec-h,.bf-sign,.big-sign{font-family:var(--display)!important;font-weight:400!important;letter-spacing:-.015em!important}
+h1,h2,h3,.cond{text-transform:uppercase}
+h1 em,h2 em,h3 em,.it,.studio-section-head em{font-family:var(--display)!important;font-style:normal!important;font-weight:400!important;letter-spacing:inherit!important;text-transform:inherit!important}
+.mono,code,pre{font-family:var(--mono)}
+.bn{background:#171210e8;border-bottom:1px solid var(--line);backdrop-filter:blur(18px)}
+.bn-links a{font:600 12px var(--body);letter-spacing:.02em}
+.btn,.cta{font-family:var(--body);font-weight:600;border-radius:30px;min-height:44px}
+.core-hero h1{line-height:1.07;max-width:19ch}.core-section h2{line-height:1.12}
+.prose h2,.prose h3{letter-spacing:0!important;line-height:1.25}
+.prose,.post-body{line-height:1.85}.prose em,.post-body em{font-family:inherit}
+:focus-visible{outline:2px solid #d77968;outline-offset:4px}
+.topic-directory{padding-block:44px;border-top:1px solid var(--line)}.topic-directory h2{font-size:clamp(28px,4vw,46px)}.topic-directory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.topic-directory article{border-top:2px solid var(--red);padding:20px;background:#f2e8d807}.topic-directory h3{font-size:25px;margin:0 0 12px}.topic-directory li{margin:12px 0}.topic-directory p{line-height:1.7}.topic-directory a{text-underline-offset:4px}
+@media(max-width:700px){.topic-directory-grid{grid-template-columns:1fr}.core-hero h1{font-size:clamp(36px,9vw,56px)}.bn-links{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

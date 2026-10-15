@@ -304,11 +304,11 @@
       const btn = $('#'+submitBtnId); btn.disabled = true; btn.textContent = 'Sending…';
       if (onValid) onValid();
       const done = () => { f.hidden = true; $('#'+okId).hidden = false; };
-      const live = /payoffcreative\.com$|netlify\.app$/.test(location.hostname);
+      const live = ['payoffcreative.com','www.payoffcreative.com'].includes(location.hostname);
       if (!live) { $('#'+okNoteId).hidden = false; setTimeout(done, 900); return; } // preview: nothing is sent
       // live: Netlify Forms stores the request and emails it (Site settings → Forms → notifications)
       fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(f)).toString() })
-        .then(r => { if (!r.ok) throw 0; done(); })
+        .then(r => { if (!r.ok) throw 0; document.dispatchEvent(new CustomEvent('payoff:conversion', {detail:{type:formId === 'tearForm' ? 'teardown_submitted' : 'creator_submitted', path:location.pathname}})); done(); })
         .catch(() => { btn.disabled = false; btn.textContent = idleLabel; $('#'+errorFieldId).textContent = "That didn't send. Try again, or WhatsApp us on +91 88267 74234."; });
     });
   }

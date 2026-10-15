@@ -1,0 +1,14 @@
+---
+permalink: /sitemap/
+eleventyExcludeFromCollections: true
+---
+{% extends "base.njk" %}
+{% set seo_title = "Explore Payoff: services, work and guides | Payoff" %}
+{% set seo_desc = "Find Payoff's creative services, portfolio and published guides on brand storytelling, video production and advertising." %}
+{% set seo_canonical = site.url + "/sitemap/" %}
+{% set seo_image = site.defaultImage | absoluteUrl(site.url) %}
+{% block main %}
+<section class="core-hero wrap"><p class="mono">The whole picture</p><h1>Find your next step.</h1><p class="core-lede">Explore our work, find the right creative support, or start with a guide.</p></section>
+<section class="topic-directory wrap" aria-labelledby="all-pages"><h2 id="all-pages">Work with Payoff</h2><ul>{% for core in agency.pages %}<li><a href="{{ core.url }}">{{ core.name or core.title or core.url }}</a></li>{% endfor %}<li><a href="/#teardown">Free 60-second teardown</a></li></ul></section>
+<section class="topic-directory wrap" aria-labelledby="all-guides"><h2 id="all-guides">Published guides</h2><p>Only published articles appear here. New guides will join the relevant topic as they go live.</p><div class="topic-directory-grid">{% for c in collections.categoryPages %}<article><h3>{{ c.name }}</h3><ul>{% for p in c.posts %}<li><a href="{{ p.url }}">{{ p.data.title }}</a></li>{% endfor %}</ul></article>{% endfor %}</div><p><a href="/blog/">Visit the Payoff blog</a></p></section>
+{% endblock %}

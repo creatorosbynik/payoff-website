@@ -17,7 +17,7 @@ if(briefForm) {
     const status = document.getElementById('brief-status');
     const button = briefForm.querySelector('button[type=submit]');
     // Local previews must never report that a brief was received.
-    if(['localhost','127.0.0.1',''].includes(location.hostname)) {
+    if(!['payoffcreative.com','www.payoffcreative.com'].includes(location.hostname)) {
       status.textContent = 'Preview only: nothing was sent. Submit on payoffcreative.com or email hello@payoffcreative.com.';
       status.focus(); return;
     }

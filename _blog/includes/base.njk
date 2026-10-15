@@ -27,11 +27,12 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400..800&family=Fraunces:ital,opsz,wght@1,9..144,300..500&family=Manrope:wght@400..700&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="/blog/assets/blog.css?v={{ build.version }}">
 <link rel="stylesheet" href="/css/agency.css?v={{ build.version }}">
 <link rel="stylesheet" href="/css/studio.css?v={{ build.version }}">
 {% block jsonld %}{% endblock %}
+<link rel="stylesheet" href="/css/brand.css">
 </head>
 <body class="{{ body_class }}">
 <a class="skip" href="#main">Skip to content</a>
@@ -62,6 +63,7 @@
       <h2 class="mono">The blog</h2>
       <ul>
         <li><a href="/blog/">All posts</a></li>
+        <li><a href="/sitemap/">Explore all pages and topics</a></li>
         {% for c in collections.categoryPages %}<li><a href="/blog/category/{{ c.slug }}/">{{ c.name }}</a></li>{% endfor %}
         <li><a href="/blog/feed.xml">RSS feed</a></li>
         <li><a href="/about/">About Payoff</a></li>
