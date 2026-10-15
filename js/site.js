@@ -130,6 +130,7 @@
 
   /* WORK: filterable portfolio grid, hover-play, lightbox */
   (function(){
+    if (!$('#wReels')) return; // The full archive lives on /work/.
     const data = JSON.parse($('#workData').textContent), KIND = {films:'Film',ads:'Ad',creators:'Creator',ai:'AI',jewellery:'Jewellery',stills:'Still'};
     const esc = t => String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
     const REELS = [
@@ -221,6 +222,7 @@
   /* v10: scroll-scrubbed film — a storm of sale tags and taglines pulled into one red card, then the real logo lands on it */
   (function(){
     const sec = $('#assemble'), v = $('#asVid'), frame = $('.as-frame'), logo = $('.as-logo'), words = $('#asWords'), hint = $('.as-hint');
+    if (!sec || !words) return;
     const parts = []; words.childNodes.forEach(n => { if (n.nodeType === 3) n.textContent.split(/(\s+)/).forEach(t => parts.push(t)); else parts.push(n); });
     words.textContent = ''; const ws = [];
     parts.forEach(t => { if (typeof t === 'string') { if (!t.trim()) { words.appendChild(document.createTextNode(t)); return; } const sp = document.createElement('span'); sp.className = 'w'; sp.textContent = t; words.appendChild(sp); ws.push(sp); } else { t.classList.add('w'); words.appendChild(t); ws.push(t); } });
@@ -376,7 +378,7 @@
     nav.classList.toggle('solid', y > 40);
     meter.style.transform = 'scaleX(' + Math.min(1, y / docH) + ')';
     const tr = tdn.getBoundingClientRect(), fr = film.getBoundingClientRect();
-    const ar = asSec.getBoundingClientRect();
+    const ar = asSec ? asSec.getBoundingClientRect() : {top:Infinity,bottom:Infinity};
     mcta.classList.toggle('hide', y < vh*.6 || (tr.top < vh && tr.bottom > 0) || (fr.top < 1 && fr.bottom > vh*.5) || (ar.top < vh*.5 && ar.bottom > vh*.5));
     // film
     if (!film.classList.contains('story-editorial') && fr.top < vh && fr.bottom > 0) {

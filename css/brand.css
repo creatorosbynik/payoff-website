@@ -13,6 +13,13 @@ code,pre{font-family:var(--mono)}
 .bn{background:#171210e8;border-bottom:1px solid var(--line);backdrop-filter:blur(18px)}
 .bn-links a{font:600 12px var(--body);letter-spacing:.02em}
 .btn,.cta{font-family:var(--body);font-weight:600;border-radius:30px;min-height:44px}
+/* A quieter commercial rhythm between the cinematic hero and selected work. */
+.home-paths{scroll-margin-top:100px}.home-paths .h2{font-size:clamp(40px,6vw,76px);max-width:18ch}
+.home-path-grid>div{padding:32px;background:transparent;border-radius:0;border:0;border-top:1px solid var(--line)}
+.home-path-grid>div:hover{background:#f2e8d805;border-color:#a93636}
+.home-path-grid h3{font-size:clamp(28px,3vw,40px)}
+.process .stripes{display:none}.process .step{border-radius:0;background:transparent;border:0;border-top:1px solid #f2e8d838;padding-top:24px}
+.process .h2{font-size:clamp(36px,5vw,64px);max-width:25ch}
 .core-hero h1{line-height:1.07;max-width:19ch}.core-section h2{line-height:1.12}
 .prose h2,.prose h3{letter-spacing:0!important;line-height:1.25}
 .prose,.post-body{line-height:1.85}.prose em,.post-body em{font-family:inherit}
