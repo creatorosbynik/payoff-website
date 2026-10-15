@@ -18,6 +18,9 @@ code,pre{font-family:var(--mono)}
 .home-path-grid>div{padding:32px;background:transparent;border-radius:0;border:0;border-top:1px solid var(--line)}
 .home-path-grid>div:hover{background:#f2e8d805;border-color:#a93636}
 .home-path-grid h3{font-size:clamp(28px,3vw,40px)}
+.payoff-world .home-path-grid>div{color:#f2e8d8}
+.payoff-world .home-path-grid>div p,.payoff-world .home-path-grid>div p a{color:#dfd0bc}
+.payoff-world .home-path-grid>div::before{color:#c8b39b;font-family:var(--body);font-weight:600}
 .process .stripes{display:none}.process .step{border-radius:0;background:transparent;border:0;border-top:1px solid #f2e8d838;padding-top:24px}
 .process .h2{font-size:clamp(36px,5vw,64px);max-width:25ch}
 .core-hero h1{line-height:1.07;max-width:19ch}.core-section h2{line-height:1.12}
