@@ -1,4 +1,6 @@
 /* Shared public-site identity. Loaded last on every public template. */
+/* Hide Netlify's injected preview drawer; a blocked iframe otherwise shows an error panel. */
+div[data-netlify-deploy-id][data-netlify-site-id]:has(>iframe[title="Netlify Drawer"]){display:none!important}
 :root,body.payoff-world{--display:'Anton','Arial Narrow',sans-serif;--body:'DM Sans',Arial,sans-serif;--serif:'Anton','Arial Narrow',sans-serif;--mono:'JetBrains Mono',monospace;--cream:#f2e8d8;--red:#a93636;--red-deep:#862b2b;--black:#141110;--ink:#241815;--paper:#f2e8d8;--paper-2:#e9dfd0;--line:#f2e8d828}
 body,input,textarea,select,button{font-family:var(--body)}
 h1,h2,h3,.cond,.h2,.sec-h,.bf-sign,.big-sign{font-family:var(--display)!important;font-weight:400!important;letter-spacing:-.015em!important}
