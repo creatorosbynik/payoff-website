@@ -103,6 +103,30 @@
 
 # www → apex
 
+# Extensionless legal and confirmation pages need their own policy.
+
+[[headers]]
+  for = "/privacy"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; upgrade-insecure-requests"
+
+[[headers]]
+  for = "/terms"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; upgrade-insecure-requests"
+
+[[headers]]
+  for = "/thank-you"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; upgrade-insecure-requests"
+
+# Route the alternate editor entry point through its dedicated CSP.
+[[redirects]]
+  from = "/admin/index.html"
+  to = "/admin/"
+  status = 301
+  force = true
+
 # Explicit public route policies avoid overlapping the CMS and cinematic homepage.
 [[headers]]
   for = "/services/*"
@@ -149,4 +173,5 @@
   to = "https://payoffcreative.com/:splat"
   status = 301
   force = true
+
 

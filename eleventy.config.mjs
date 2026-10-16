@@ -11,10 +11,9 @@ export default function (eleventyConfig) {
   // ---------- 1. Copy the existing static site untouched ----------
   // Root-level files (index.html, videos, images, icons, robots.txt, etc.)
   eleventyConfig.addPassthroughCopy("*.{html,css,js,jpg,jpeg,png,webp,avif,gif,svg,ico,mp4,webm,txt,webmanifest,pdf}");
-  // Every top-level folder (css, js, work, admin, and any you add later) except build/tooling folders
-  const skip = new Set(["node_modules", "_site", "_blog", "blog", ".cache", "scripts", "docs"]);
-  for (const d of fs.readdirSync(".", { withFileTypes: true })) {
-    if (d.isDirectory() && !d.name.startsWith(".") && !skip.has(d.name)) eleventyConfig.addPassthroughCopy(d.name);
+  // Only approved public folders: never publish a new backup/private folder by default.
+  for (const dir of ["css", "js", "work", "admin", "assets"]) {
+    if (fs.existsSync(dir)) eleventyConfig.addPassthroughCopy(dir);
   }
   eleventyConfig.addPassthroughCopy("blog/uploads");
   eleventyConfig.addPassthroughCopy("blog/assets");
@@ -161,4 +160,5 @@ export default function (eleventyConfig) {
     htmlTemplateEngine: "njk",
   };
 }
+
 
