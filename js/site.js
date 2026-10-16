@@ -332,7 +332,7 @@
       cNiche: v => v.length >= 2 || 'Add your niche.',
       cReach: v => /^\+?[\d\s-]{10,}$|^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) || 'Add a WhatsApp number or an email we can reply to.',
     },
-    honeypotId: 'cWeb', submitBtnId: 'castSubmitBtn', idleLabel: 'Join the cast',
+    honeypotId: 'cWeb', submitBtnId: 'castSubmitBtn', idleLabel: 'Start a conversation',
     okId: 'castOk', okNoteId: 'castOkNote', errorFieldId: 'eReach',
   });
 
@@ -406,4 +406,5 @@
   }
   requestAnimationFrame(frame);
 })();
+
 
