@@ -32,9 +32,11 @@
 
   /* hero loop */
   const hv = $('#heroVid');
+  if (!document.body.classList.contains('payoff-cinematic')) {
   if (phoneUp()) { $('#intro').classList.add('vert'); $('#intro .poster').src = 'director-loop-poster-v.jpg'; hv.poster = 'director-loop-poster-v.jpg'; hv.src = 'director-loop-v.mp4'; }
   else hv.src = small ? 'director-loop-960.mp4' : 'director-loop-1920.mp4';
   if (!reduce) hv.play().catch(()=>{});
+  }
 
   /* nav + reveals + sticky mobile CTA */
   const nav = $('#nav'), mcta = $('#mcta');
@@ -68,7 +70,7 @@
   const N = 9, DUR = 45;
   const HOLD = .42; let loaded = false, cur = 0, lastSet = -1, lastStill = -1;
   function loadFilm(){
-    if (loaded) return; loaded = true;
+    if (film.classList.contains('story-editorial') || loaded) return; loaded = true;
     const av1 = !small && video.canPlayType('video/mp4; codecs="av01.0.08M.08"') === 'probably';
     portrait = phoneUp(); if (portrait) still.src = 'still-v' + Math.max(0, lastStill) + '.jpg';
     const src = portrait ? 'film-v720.mp4' : small ? 'film-m1280.mp4' : (av1 ? 'film-1920-av1.mp4' : 'film-m1280.mp4'); // phones held upright get a native 9:16 cut
@@ -128,6 +130,7 @@
 
   /* WORK: filterable portfolio grid, hover-play, lightbox */
   (function(){
+    if (!$('#wReels')) return; // The full archive lives on /work/.
     const data = JSON.parse($('#workData').textContent), KIND = {films:'Film',ads:'Ad',creators:'Creator',ai:'AI',jewellery:'Jewellery',stills:'Still'};
     const esc = t => String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
     const REELS = [
@@ -186,7 +189,7 @@
 
 
   /* 3D hover tilt with glare (pointer devices only) */
-  if (matchMedia('(hover:hover) and (pointer:fine)').matches && !reduce) {
+  if (!document.body.classList.contains('payoff-world') && matchMedia('(hover:hover) and (pointer:fine)').matches && !reduce) {
     const tilt = el => {
       if (!el.querySelector(':scope > .glare')) { const g = document.createElement('span'); g.className = 'glare'; el.appendChild(g); }
       if (getComputedStyle(el).position === 'static') el.style.position = 'relative';
@@ -205,7 +208,7 @@
 
 
   /* v5: split H2s into masked words (motion-style stagger) */
-  $$('.h2, .hero h1').forEach(h => {
+  $$('.h2').forEach(h => {
     const walk = (node, out) => { node.childNodes.forEach(n => { if (n.nodeType === 3) n.textContent.split(/(\s+)/).forEach(t => out.push(/^\s+$/.test(t) || !t ? document.createTextNode(t) : Object.assign(document.createElement('span'), {textContent:t}))); else { const c = n.cloneNode(false); const inner = []; walk(n, inner); inner.forEach(x => c.appendChild(x)); out.push(c); } }); };
     const out = []; walk(h, out); h.textContent = ''; let i = 0;
     out.forEach(n => { if (n.nodeType === 3) { h.appendChild(n); return; } const wd = document.createElement('span'); wd.className = 'wd'; const inner = n.tagName === 'SPAN' && !n.className ? n : (() => { const x = document.createElement('span'); x.appendChild(n); return x; })(); inner.style.setProperty('--i', i++); wd.appendChild(inner); h.appendChild(wd); });
@@ -219,6 +222,7 @@
   /* v10: scroll-scrubbed film — a storm of sale tags and taglines pulled into one red card, then the real logo lands on it */
   (function(){
     const sec = $('#assemble'), v = $('#asVid'), frame = $('.as-frame'), logo = $('.as-logo'), words = $('#asWords'), hint = $('.as-hint');
+    if (!sec || !words) return;
     const parts = []; words.childNodes.forEach(n => { if (n.nodeType === 3) n.textContent.split(/(\s+)/).forEach(t => parts.push(t)); else parts.push(n); });
     words.textContent = ''; const ws = [];
     parts.forEach(t => { if (typeof t === 'string') { if (!t.trim()) { words.appendChild(document.createTextNode(t)); return; } const sp = document.createElement('span'); sp.className = 'w'; sp.textContent = t; words.appendChild(sp); ws.push(sp); } else { t.classList.add('w'); words.appendChild(t); ws.push(t); } });
@@ -251,7 +255,7 @@
   /* v6: hero pause + pointer parallax + Motion springs */
   const hp = $('#hPause');
   hp.addEventListener('click', () => { const paused = !hv.paused; paused ? hv.pause() : hv.play(); hp.textContent = paused ? 'Play' : 'Pause'; hp.setAttribute('aria-pressed', paused); hp.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video'); });
-  new IntersectionObserver(([e]) => { if (hp.getAttribute('aria-pressed') === 'true') return; e.isIntersecting ? hv.play().catch(()=>{}) : hv.pause(); }).observe($('#hframe'));
+  new IntersectionObserver(([e]) => { if (reduce || hp.getAttribute('aria-pressed') === 'true') return; e.isIntersecting ? hv.play().catch(()=>{}) : hv.pause(); }).observe($('#hframe'));
   if (matchMedia('(hover:hover) and (pointer:fine)').matches && !reduce) {
     const hf = $('#hframe'), layers = [hv, hf.querySelector('.poster')]; let tx = 0, ty = 0, ax = 0, ay = 0;
     hf.closest('.hero').addEventListener('pointermove', e => { const r = hf.getBoundingClientRect(); tx = ((e.clientX - r.left) / r.width - .5) * -18; ty = ((e.clientY - r.top) / r.height - .5) * -12; });
@@ -302,11 +306,11 @@
       const btn = $('#'+submitBtnId); btn.disabled = true; btn.textContent = 'Sending…';
       if (onValid) onValid();
       const done = () => { f.hidden = true; $('#'+okId).hidden = false; };
-      const live = /payoffcreative\.com$|netlify\.app$/.test(location.hostname);
+      const live = ['payoffcreative.com','www.payoffcreative.com'].includes(location.hostname);
       if (!live) { $('#'+okNoteId).hidden = false; setTimeout(done, 900); return; } // preview: nothing is sent
       // live: Netlify Forms stores the request and emails it (Site settings → Forms → notifications)
       fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(f)).toString() })
-        .then(r => { if (!r.ok) throw 0; done(); })
+        .then(r => { if (!r.ok) throw 0; document.dispatchEvent(new CustomEvent('payoff:conversion', {detail:{type:formId === 'tearForm' ? 'teardown_submitted' : 'creator_submitted', path:location.pathname}})); done(); })
         .catch(() => { btn.disabled = false; btn.textContent = idleLabel; $('#'+errorFieldId).textContent = "That didn't send. Try again, or WhatsApp us on +91 88267 74234."; });
     });
   }
@@ -374,10 +378,10 @@
     nav.classList.toggle('solid', y > 40);
     meter.style.transform = 'scaleX(' + Math.min(1, y / docH) + ')';
     const tr = tdn.getBoundingClientRect(), fr = film.getBoundingClientRect();
-    const ar = asSec.getBoundingClientRect();
+    const ar = asSec ? asSec.getBoundingClientRect() : {top:Infinity,bottom:Infinity};
     mcta.classList.toggle('hide', y < vh*.6 || (tr.top < vh && tr.bottom > 0) || (fr.top < 1 && fr.bottom > vh*.5) || (ar.top < vh*.5 && ar.bottom > vh*.5));
     // film
-    if (fr.top < vh && fr.bottom > 0) {
+    if (!film.classList.contains('story-editorial') && fr.top < vh && fr.bottom > 0) {
       const st = filmState();
       cur += (st.t - cur) * (reduce ? 1 : .14);
       if (video.readyState >= 1 && video.duration && !video.seeking && Math.abs(cur - lastSet) > .012) { video.currentTime = Math.min(cur, video.duration - .05); lastSet = cur; }
@@ -402,3 +406,4 @@
   }
   requestAnimationFrame(frame);
 })();
+

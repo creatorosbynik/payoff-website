@@ -61,7 +61,7 @@
 } -%}
 <script type="application/ld+json">{{ ld | json | safe }}</script>
 {%- if faqs and faqs.length %}
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for f in faqs %}{"@type":"Question","name":{{ f.q | json | safe }},"acceptedAnswer":{"@type":"Answer","text":{{ (f.a | md | striptags(true)) | json | safe }}}}{% if not loop.last %},{% endif %}{% endfor %}]}</script>
+<script type="application/ld+json">{{ faqs | blogFaqSchema | json | safe }}</script>
 {%- endif %}
 {% endblock %}
 
@@ -113,13 +113,16 @@
       </section>
       {% endif %}
 
+      {% if not ad_landing %}
+      <aside class="cta-card"><p class="mono">Put the idea to work</p>{% if category == "Brand Story" %}<p>Find the story your content should keep telling with <a href="/services/content-strategy/">Payoff’s content strategy</a> and our <a href="/d2c-creative-agency/">D2C creative approach</a>.</p>{% else %}<p>Explore <a href="/services/video-production/">video production</a> for a new film, <a href="/services/video-editing/">video editing</a> for footage you already have, or <a href="/services/advertising/">advertising creative</a> for your next campaign.</p>{% endif %}<a href="/contact/">Already have a brief? Send it →</a></aside>
+      {% endif %}
       {% if not hide_cta %}
       <aside class="cta-card" aria-label="Next step">
         <p class="mono">Your move</p>
         <h2>{{ cta_title }}</h2>
         <p>{{ cta_text }}</p>
         <a class="btn btn-cream" href="{{ cta_link }}" data-cta="end">{{ cta_label }} <span aria-hidden="true">→</span></a>
-        <a class="btn-link" href="https://wa.me/{{ site.whatsapp }}?text={{ ('Hi Payoff, I just read: ' + title) | urlencode }}" target="_blank" rel="noopener" data-cta="whatsapp">or talk to us on WhatsApp</a>
+        <a class="btn-link" href="/contact/" data-cta="brief">Already have a brief? Send it →</a>
       </aside>
       {% endif %}
 
@@ -166,3 +169,4 @@
 </div>
 {% endif %}
 {% endblock %}
+

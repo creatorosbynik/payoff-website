@@ -8,3 +8,9 @@ eleventyExcludeFromCollections: true
 /go/{{ l.code | slugify }}  {{ target | withUtm({ source: l.source, medium: l.medium, campaign: l.campaign, content: l.content }) | safe }}  302
 {%- endif %}{% endfor %}
 /blog/page/1/  /blog/  301
+/index.html  /  301
+/privacy.html  /privacy  301
+/terms.html  /terms  301
+{% for core in agency.pages %}{{ core.url }}index.html  {{ core.url }}  301
+{% endfor %}
+

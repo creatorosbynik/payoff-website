@@ -24,4 +24,5 @@ eleventyExcludeFromCollections: true
 {% block jsonld %}
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Blog","@id":"{{ site.url }}/blog/#blog","name":{{ settings.blog_title | json | safe }},"description":{{ settings.seo_description | json | safe }},"url":"{{ site.url }}/blog/","inLanguage":"{{ site.lang }}","publisher":{"@type":"Organization","@id":"{{ site.url }}/#org","name":"Payoff","url":"{{ site.url }}/","logo":{"@type":"ImageObject","url":"{{ site.url }}{{ site.logoOnLight }}"}},"blogPost":[{% for p in items %}{"@type":"BlogPosting","headline":{{ p.data.title | json | safe }},"url":"{{ p.url | absoluteUrl(site.url) }}","datePublished":"{{ p.date | isoDate }}"}{% if not loop.last %},{% endif %}{% endfor %}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"},{"@type":"ListItem","position":2,"name":"Blog","item":"{{ site.url }}/blog/"}]}]}</script>
 {% endblock %}
-{% block main %}{% include "listing.njk" %}{% endblock %}
+{% block main %}{% include "listing.njk" %}{% if pagination.pageNumber == 0 %}{% include "topic-paths.njk" %}{% endif %}{% endblock %}
+

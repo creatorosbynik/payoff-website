@@ -1,0 +1,5 @@
+<article class="core-work">
+  <a class="core-poster" href="/work/#{{ w.id }}"><img src="/{{ w.hp or w.p }}" alt="{{ (w.client + ' · ' if w.client else '') + w.title | escape }}" width="640" height="480" loading="lazy" decoding="async" eleventy:ignore><span class="core-play">Watch →</span></a>
+  <p class="mono">{{ w.client or 'Selected work' | escape }} · {{ w.cat | escape }}</p><h3><a href="/work/#{{ w.id }}">{{ w.title | escape }}</a></h3>
+  {% if w.via %}<p class="core-credit">Via {{ w.via | escape }}</p>{% endif %}
+</article>
