@@ -42,3 +42,9 @@
 @media(max-width:900px){.bn-links,.bn-blog{display:none!important}.core-work-grid,.core-three{grid-template-columns:repeat(2,minmax(0,1fr))}.core-split,.core-contact{gap:30px}}
 @media(max-width:650px){.core-hero{padding-top:118px;padding-bottom:50px}.core-split,.core-contact,.core-three{grid-template-columns:1fr}.core-section,.core-split{padding-block:48px}.core-work-grid{grid-template-columns:1fr;gap:36px}.brief-pair{grid-template-columns:1fr;gap:0}.core-actions{align-items:flex-start;flex-direction:column;gap:18px}.core-hero h1{max-width:100%;overflow-wrap:anywhere}.bn-logo img{height:22px}.bn-r .btn{padding:10px 14px;font-size:13px}}
 @media(prefers-reduced-motion:reduce){.core-poster img{transition:none}}
+/* For brand teams (/brand-teams/) */
+.bt-chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:24px 0 8px}
+.bt-chips li{border:1px solid currentColor;border-radius:999px;padding:7px 14px;font-size:12px;opacity:.85}
+.bt-four{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.brief-form .bt-check{display:flex;flex-direction:row;align-items:center;gap:10px;margin:18px 0 6px;cursor:pointer}
+.brief-form .bt-check input{width:18px;height:18px;min-height:0;margin:0;padding:0;flex:none;accent-color:var(--red)}
