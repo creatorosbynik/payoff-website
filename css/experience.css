@@ -1,0 +1,46 @@
+/* Focused experience layer: keep the cinematic world, clarify the buying journey. */
+.payoff-world .hero{height:max(760px,100svh);min-height:760px}
+.payoff-world .hero::after{background:linear-gradient(90deg,#141110e8 0%,#141110a6 29%,#14111015 63%),linear-gradient(0deg,#141110e8,transparent 28%)}
+.payoff-world .hero .hero-copy{padding:115px 5vw 110px;justify-content:center}
+.payoff-world .hero #heroH1{font-size:clamp(68px,7vw,104px)!important;line-height:1!important;margin:24px 0;max-width:7ch}
+.payoff-world .hero .hero-foot{margin-top:0;display:block;width:min(430px,36vw)}
+.payoff-world .hero .hero-summary{max-width:36ch}
+.payoff-world .hero .hero-summary>p{font-size:15px;line-height:1.65;color:#f2e8d8}
+.payoff-world .hero .hero-summary>.world-invitation{font-size:19px;font-weight:600;margin-bottom:8px}
+.payoff-world .hero .btns{margin-top:24px;gap:12px}
+.payoff-world .hero .home-work-link{display:block!important;width:100%;padding:10px 0;font:500 12px/1.5 var(--body);color:var(--cream);text-decoration:underline;text-underline-offset:4px}
+.payoff-world .hero .proof{display:none}
+.explore-menu{position:relative;color:var(--cream);font:500 12px var(--body)}
+.explore-menu summary{cursor:pointer;list-style:none;min-height:44px;display:flex;align-items:center;gap:20px;padding:12px 18px;border:1px solid #f2e8d84d;border-radius:30px;background:#201814e8}
+.explore-menu summary::-webkit-details-marker{display:none}
+.explore-menu[open] summary span{transform:rotate(45deg)}
+.explore-menu nav{position:absolute;bottom:calc(100% + 10px);left:0;min-width:245px;padding:10px;background:#211a16;border:1px solid #f2e8d84d;border-radius:12px;box-shadow:0 12px 40px #0006}
+.world-bottom .explore-menu nav button{display:block;text-align:left;width:100%;border:0;border-radius:6px;padding:14px;font:500 13px var(--body);min-height:44px}
+.explore-menu nav button:is(:hover,:focus-visible){background:#f2e8d817}
+.world-bottom{z-index:5}
+.featured-cut{display:grid;grid-template-columns:.8fr 1.2fr;gap:5vw;margin:60px 4vw 20px;padding:50px 0;border-top:1px solid #f2e8d833;align-items:center}
+.featured-cut h3{font:400 clamp(36px,4.2vw,64px)/1.05 var(--display);text-transform:uppercase;margin:18px 0 24px}
+.featured-cut-copy>p:not(.mono){max-width:38ch;color:#d7c8b8;font:400 15px/1.7 var(--body)}
+.featured-cut .mono{color:#d78f81}
+.featured-cut dl{margin:28px 0;display:grid;gap:12px;font:13px/1.5 var(--body)}
+.featured-cut dl>div{display:flex;gap:20px;justify-content:space-between;border-bottom:1px solid #f2e8d820;padding-bottom:10px}
+.featured-cut dt{color:#baa999}.featured-cut dd{margin:0;text-align:right}
+.featured-cut figure{margin:0;min-width:0}.featured-cut video{width:100%;display:block;aspect-ratio:16/9;object-fit:contain;background:#080706;border-radius:4px}
+.featured-cut figcaption{font:12px/1.7 var(--body);color:#baa999;margin-top:14px;max-width:65ch}
+@media(min-width:801px){.world-point.point-direction{display:none}.world-point b{max-width:150px;white-space:normal;text-align:left}}
+@media(max-width:800px){
+ .payoff-world .hero{height:auto;min-height:0;padding-bottom:0;perspective:none}
+ .payoff-world .hero #hframe{inset:78px 0 auto!important;height:540px;transform:none!important}
+ .payoff-world .hero .poster{object-position:61% center}
+ .payoff-world .hero::after{background:linear-gradient(0deg,#141110 30%,#14111030 70%),linear-gradient(90deg,#14111080,transparent 85%)}
+ .payoff-world .hero .hero-copy{position:relative;inset:auto;padding:115px 24px 26px;gap:0}
+ .payoff-world .hero #heroH1{font-size:clamp(58px,15vw,86px)!important;margin:26px 0 155px;max-width:7ch}
+ .payoff-world .hero .hero-foot{width:100%;margin:0;display:block}
+ .payoff-world .hero .hero-summary{max-width:42ch}.payoff-world .hero .btns{margin-top:20px}
+ .world-points{display:none}.world-bottom{position:relative;left:auto;right:auto;bottom:auto;padding:0 24px 30px;gap:12px;flex-wrap:wrap}
+ .world-bottom>a{display:none}.explore-menu{flex:1}.explore-menu summary{justify-content:space-between}
+ .explore-menu nav{min-width:0;width:100%}
+ .featured-cut{grid-template-columns:1fr;gap:26px;margin:35px 12px 0;padding-top:30px}
+ .featured-cut h3{font-size:42px}.featured-cut figure{grid-row:1}.featured-cut dl{max-width:480px}
+}
+@media(prefers-reduced-motion:reduce){.explore-menu *{transition:none!important}}
