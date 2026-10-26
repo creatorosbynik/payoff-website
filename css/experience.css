@@ -1,4 +1,7 @@
 /* Focused experience layer: keep the cinematic world, clarify the buying journey. */
+.story-editorial-visual .story-artwork{aspect-ratio:4/5}
+.story-editorial-visual .story-artwork img{filter:none;object-position:center}
+.story-editorial-visual .story-artwork figcaption{padding-top:70px;background:linear-gradient(transparent,#241a15ed)}
 .payoff-world .hero{height:max(760px,100svh);min-height:760px}
 .payoff-world .hero::after{background:linear-gradient(90deg,#141110e8 0%,#141110a6 29%,#14111015 63%),linear-gradient(0deg,#141110e8,transparent 28%)}
 .payoff-world .hero .hero-copy{padding:115px 5vw 110px;justify-content:center}
