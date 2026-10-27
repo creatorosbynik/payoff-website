@@ -1,0 +1,98 @@
+---
+permalink: /brand-teams/
+eleventyExcludeFromCollections: true
+---
+{#- Unlisted page for brand and marketing teams. Shared directly in outreach;
+    kept out of the menu, sitemaps and search (noindex). -#}
+{% extends "base.njk" %}
+{% set seo_title = 'For Brand Teams | Payoff' %}
+{% set seo_desc = 'How Payoff works with brand and marketing teams: an NDA before the brief, a director’s treatment before the shoot, and a rights record with every file.' %}
+{% set seo_canonical = site.url + '/brand-teams/' %}
+{% set seo_image = site.defaultImage | absoluteUrl(site.url) %}
+{% set seo_noindex = true %}
+{% set focus_mode = true %}
+{% set header_cta_link = '#request' %}
+{% set header_cta_label = 'Request a treatment' %}
+{% set body_class = 'is-core is-brand-teams' %}
+{% set picks = ['mercedes-film', 'chicco-bravo-film', 'stbotanica-film'] %}
+{% block main %}
+<article>
+  <header class="core-hero wrap">
+    <p class="mono">For brand and marketing teams</p>
+    <h1>Every frame, accounted for.</h1>
+    <p class="core-lede">Payoff is a story-led film agency based in Noida. We make brand films, product films and campaigns for teams who need the work right on screen and right on paper.</p>
+    <ul class="bt-chips mono" aria-label="What every engagement includes">
+      <li>NDA before the brief</li><li>Treatment before the shoot</li><li>Rights record with every file</li>
+    </ul>
+    <div class="core-actions"><a class="btn" href="#request">Request a treatment <span aria-hidden="true">↓</span></a><a href="/work/">See the work →</a></div>
+  </header>
+
+  <section class="core-paper" aria-labelledby="process-heading">
+    <div class="wrap core-section">
+      <p class="mono">How we work with your team</p>
+      <h2 id="process-heading">Five stages. You sign off each one.</h2>
+      <ol class="core-steps">
+        <li><h3>NDA, the same day</h3><p>Yours or ours, signed before you share the brief, the product or the launch date.</p></li>
+        <li><h3>Story Session</h3><p>A paid 90-minute working session. You leave with one written page: the story only your brand can tell, and the move that follows from it.</p></li>
+        <li><h3>Director’s treatment</h3><p>The film on paper before any shoot day: the idea, the visual world, previz frames, cast and locations, and a plain line on what we shoot and what AI does.</p></li>
+        <li><h3>Production and review</h3><p>A named crew for your shoot. Every cut numbered, feedback in one place, and the review rounds for each stage agreed up front.</p></li>
+        <li><h3>Delivery</h3><p>Masters, cut-downs and captions, with a delivery sheet, signed releases and licences, and a provenance record for anything AI touched.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="core-section wrap" aria-labelledby="ai-heading">
+    <p class="mono">On AI, plainly</p>
+    <h2 id="ai-heading">We use AI where it serves the film, and nowhere else.</h2>
+    <div class="core-three bt-four">
+      <div class="core-slate"><h3>Your product stays real.</h3><p>We composite your actual packshots and logos. We never generate a label, a logo or a product face.</p></div>
+      <div class="core-slate"><h3>Unreleased work stays here.</h3><p>Confidential products and files are processed on Payoff’s own computers, not uploaded to cloud AI services.</p></div>
+      <div class="core-slate"><h3>Only cleared models reach you.</h3><p>Every model we use for final deliverables has had its commercial terms reviewed. Everything else stays in previz.</p></div>
+      <div class="core-slate"><h3>Every AI file has a record.</h3><p>The model, its licence, the prompt and whether anything left our computers, saved with the file. Published work carries an AI disclosure label.</p></div>
+    </div>
+  </section>
+
+  <section class="core-section core-proof wrap" aria-labelledby="work-heading">
+    <p class="mono">Selected films</p>
+    <h2 id="work-heading">Work we’ve made.</h2>
+    <p class="core-note">Partner credits are shown on each piece. Ask us for the story behind any of them.</p>
+    <div class="core-work-grid">
+      {%- for id in picks %}{% for w in agency.work %}{% if w.id == id %}{% include "work-card.njk" %}{% endif %}{% endfor %}{% endfor %}
+    </div>
+    <a class="core-text-link" href="/work/">See all selected work →</a>
+  </section>
+
+  <section class="core-paper" aria-labelledby="crew-heading">
+    <div class="wrap core-section core-split">
+      <div><p class="mono">Who makes your film</p><h2 id="crew-heading">A director in the room, a named crew on set.</h2></div>
+      <div><p class="core-lede">Nikunj, founder and director. A filmmaker and editor with 8+ years behind the camera and in the edit, trained in cinema and film direction at AAFT Noida.</p><p>For each production we name the crew (cinematography, colour, sound, retouching and production) in the treatment, before we quote.</p></div>
+    </div>
+  </section>
+
+  <section class="core-section wrap core-contact" id="request" aria-labelledby="request-heading">
+    <aside>
+      <p class="mono">Start here</p>
+      <h2 id="request-heading">Request a treatment.</h2>
+      <p>Tell us what you are launching or making. We reply with an NDA and two times for a 30-minute call.</p>
+      <p>Prefer email? <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      <div class="core-faq">
+        <details><summary>Will you sign our NDA instead of yours?</summary><p>Yes. We are happy to sign yours. If you don’t have one, we send a mutual NDA the same day.</p></details>
+        <details><summary>Who owns the finished film?</summary><p>Ownership and usage (media, territory and term) are agreed in writing in the project agreement before production. Talent, music and stock licences are listed in the delivery sheet.</p></details>
+        <details><summary>Do you work with agencies and production houses?</summary><p>Yes, as your execution partner, credited or white-label, agreed up front. <a href="/remote-creative-services/">How remote collaboration works →</a></p></details>
+        <details><summary>Where do you shoot?</summary><p>We are based in Noida, travel for shoots across India, and work remotely with teams worldwide.</p></details>
+      </div>
+    </aside>
+    <form class="brief-form" id="treatment-form" name="treatment" method="post" action="/brief-received/" data-netlify="true" netlify-honeypot="company_website">
+      <input type="hidden" name="form-name" value="treatment">
+      <div hidden><label>Leave this empty<input name="company_website" tabindex="-1" autocomplete="off"></label></div>
+      <div class="brief-pair"><div><label for="tr-name">Your name *</label><input id="tr-name" name="name" autocomplete="name" required maxlength="120"></div><div><label for="tr-email">Work email *</label><input id="tr-email" name="email" type="email" autocomplete="email" required maxlength="254"></div></div>
+      <div class="brief-pair"><div><label for="tr-company">Brand or company *</label><input id="tr-company" name="company" autocomplete="organization" required maxlength="160"></div><div><label for="tr-role">Your role</label><input id="tr-role" name="role" autocomplete="organization-title" maxlength="120"></div></div>
+      <label for="tr-project">What are you launching or making? *</label><textarea id="tr-project" name="project" rows="5" required maxlength="6000" aria-describedby="tr-project-help"></textarea><p class="brief-hint" id="tr-project-help">A few lines is enough. Please don’t include confidential details yet; we arrange secure sharing after the NDA.</p>
+      <div class="brief-pair"><div><label for="tr-timing">Launch date or deadline</label><input id="tr-timing" name="timing" maxlength="200" placeholder="Date and time zone"></div><div><label for="tr-budget">Budget range, if known</label><input id="tr-budget" name="budget" maxlength="120" placeholder="Amount and currency, or still deciding"></div></div>
+      <label class="bt-check"><input type="checkbox" name="nda_first" value="yes" checked> Send an NDA before we share details</label>
+      <p class="brief-hint">We’ll use these details only to reply to your request. <a href="/privacy">Privacy policy</a>.</p>
+      <button class="btn" type="submit">Request a treatment →</button><p id="treatment-status" role="status" aria-live="polite" tabindex="-1"></p>
+    </form>
+  </section>
+</article>
+{% endblock %}
