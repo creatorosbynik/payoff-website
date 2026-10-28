@@ -79,7 +79,7 @@
   <section class="hero" id="intro" aria-label="Introduction">
     <div class="hframe" id="hframe">
       <img class="poster" src="/assets/story/master.webp" alt="A cinematic roadside scene: two characters looking into a vintage burgundy car" fetchpriority="high" width="1672" height="941">
-      <video id="heroVid" muted loop playsinline preload="auto" poster="director-loop-poster.jpg" aria-hidden="true"></video>
+      <video id="heroVid" muted loop playsinline preload="none" poster="/assets/story/master.webp" aria-hidden="true"></video>
       <div class="vf" aria-hidden="true">
         <i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
         <span class="rec mono"><b></b>REC</span><span class="tc mono" id="heroTc">00:00:00:00</span>
@@ -154,7 +154,7 @@
     </div>
     <!-- Legacy film nodes retained for shared-script compatibility; not displayed or loaded. -->
     <div class="stage" hidden inert>
-      <img class="fstill" id="fstill" src="still-0.jpg" alt="">
+      <img class="fstill" id="fstill" src="/assets/story/master.webp" alt="" loading="lazy">
       <video id="film" muted playsinline preload="none" aria-hidden="true" disablepictureinpicture></video>
       <div class="fload mono" aria-hidden="true"><div class="fb"><i id="floadBar"></i></div><span id="floadPct">LOADING FILM 0%</span></div>
       <div class="shade"></div><div class="bars" id="bars"></div>
@@ -296,7 +296,7 @@
 
   <!-- TEARDOWN -->
   <section class="sec wrap tear" id="teardown" aria-labelledby="tear-h">
-    <figure class="rv"><img src="director-point.webp" alt="The Payoff Director pointing at you" loading="lazy" width="1080" height="1350"></figure>
+    <figure class="rv art-invitation"><img src="/assets/story/director-viewfinder.webp" alt="The Payoff Director holding an empty viewfinder frame: an invitation to look at your brand differently" loading="lazy" decoding="async" width="1122" height="1402"><figcaption class="mono">A fresh pair of eyes. A different point of view.</figcaption></figure>
     <div class="rv">
       <div class="eyebrow mono" style="color:var(--white)">Your next story</div>
       <h2 class="cond h2" id="tear-h">Send us your brand. Get your <span class="it">story</span> back.</h2>

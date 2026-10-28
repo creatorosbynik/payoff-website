@@ -64,7 +64,7 @@
   /* film chapter: 9 keyframes, 8 moves of 5s; each segment holds then moves */
   const meter = $('#meter');
   let portrait = phoneUp();
-  if (portrait) $('#fstill').src = 'still-v0.jpg';
+  if (portrait && !document.body.classList.contains('payoff-world')) $('#fstill').src = 'still-v0.jpg';
   const video = $('#film'), still = $('#fstill'), caps = $$('.cap');
   const ACTS = ['Cold open','Act I — The noise','The cut','Act II — The dig','The filter','Act III — The work','Credits','The payoff','Post-credits','Enter the Director'];
   const N = 9, DUR = 45;

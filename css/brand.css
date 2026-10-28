@@ -36,3 +36,13 @@ code,pre{font-family:var(--mono)}
 .topic-directory{padding-block:44px;border-top:1px solid var(--line)}.topic-directory h2{font-size:clamp(28px,4vw,46px)}.topic-directory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.topic-directory article{border-top:2px solid var(--red);padding:20px;background:#f2e8d807}.topic-directory h3{font-size:25px;margin:0 0 12px}.topic-directory li{margin:12px 0}.topic-directory p{line-height:1.7}.topic-directory a{text-underline-offset:4px}
 @media(max-width:700px){.topic-directory-grid,.work-proof-grid{grid-template-columns:1fr}.core-hero h1{font-size:clamp(36px,9vw,56px)}.bn-links{display:none}.work-proof{margin:34px 12px 0}.work-proof article,.work-proof article+article{border-right:0;border-bottom:1px solid #f2e8d828;padding:22px 0}.work-proof article:last-child{border-bottom:0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Visual Bible: quiet editorial frames, tactile artwork, restrained movement. */
+.art-interlude{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);gap:clamp(28px,6vw,90px);align-items:center}
+.art-interlude figure,.art-invitation{position:relative;margin:0;overflow:hidden;border:1px solid #f2e8d829;border-radius:8px}
+.art-interlude img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.art-interlude figure:hover img{transform:scale(1.025)}
+.art-interlude figcaption,.art-invitation figcaption{position:absolute;inset:auto 0 0;padding:54px 24px 24px;color:#fff;background:linear-gradient(transparent,#241a15e6);font-size:12px;line-height:1.5}
+.art-interlude h2{font-size:clamp(36px,4.4vw,64px);line-height:1.08}.art-interlude p:not(.mono){max-width:48ch;line-height:1.8}
+@media(max-width:700px){.art-interlude{grid-template-columns:1fr}.art-interlude figure{max-width:420px;width:100%;margin-inline:auto}.art-invitation figcaption{padding:44px 18px 18px}}
+@media(prefers-reduced-motion:reduce){.art-interlude img{transition:none}.art-interlude figure:hover img{transform:none}}
