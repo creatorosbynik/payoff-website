@@ -79,7 +79,7 @@
   <section class="hero" id="intro" aria-label="Introduction">
     <div class="hframe" id="hframe">
       <img class="poster" src="/assets/story/master.webp" alt="A cinematic roadside scene: two characters looking into a vintage burgundy car" fetchpriority="high" width="1672" height="941">
-      <video id="heroVid" muted loop playsinline preload="auto" poster="director-loop-poster.jpg" aria-hidden="true"></video>
+      <video id="heroVid" muted loop playsinline preload="none" poster="/assets/story/master.webp" aria-hidden="true"></video>
       <div class="vf" aria-hidden="true">
         <i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
         <span class="rec mono"><b></b>REC</span><span class="tc mono" id="heroTc">00:00:00:00</span>
@@ -150,12 +150,11 @@
       <a class="cta" href="#teardown">Find your story ↗</a>
     </div>
     <div class="story-editorial-visual">
-      <figure><img src="still-8.jpg" alt="A director's chair, headphones and a notebook on a warmly lit film set" loading="lazy" width="1280" height="720"><figcaption><span class="mono">A point of view, not just a production.</span><strong>Every story needs a director.</strong></figcaption></figure>
-      <details class="story-watch"><summary><span>Watch the 45-second film</span><span aria-hidden="true">↗</span></summary><video id="storyOptionalFilm" controls playsinline preload="none" poster="still-8.jpg" aria-label="Payoff's story film"><source src="film-m1280.mp4" type="video/mp4"></video><p>The short version is on the left. The film is here if you're curious.</p></details>
+      <figure class="story-artwork"><img src="/assets/story/story-finds-its-frame.webp" alt="A sculptural red ribbon flows from an editing reel through a brushed-metal frame in warm window light" loading="lazy" decoding="async" width="1122" height="1402" eleventy:ignore><figcaption><span class="mono">One idea. Every frame.</span><strong>Give your story<br>a point of view.</strong></figcaption></figure>
     </div>
     <!-- Legacy film nodes retained for shared-script compatibility; not displayed or loaded. -->
     <div class="stage" hidden inert>
-      <img class="fstill" id="fstill" src="still-0.jpg" alt="">
+      <img class="fstill" id="fstill" src="/assets/story/master.webp" alt="" loading="lazy">
       <video id="film" muted playsinline preload="none" aria-hidden="true" disablepictureinpicture></video>
       <div class="fload mono" aria-hidden="true"><div class="fb"><i id="floadBar"></i></div><span id="floadPct">LOADING FILM 0%</span></div>
       <div class="shade"></div><div class="bars" id="bars"></div>
@@ -233,7 +232,7 @@
   <!-- DIRECTOR -->
   <section class="sec wrap" id="director" aria-labelledby="dir-h">
     <div class="director">
-      <figure class="rv"><img src="/assets/story/director-full.webp" alt="Payoff's cinematic character in a burgundy suit and sunglasses, standing beside a vintage car" loading="lazy" width="1122" height="1402"><figcaption class="mono">The Director · A Payoff character</figcaption></figure>
+      <figure class="rv"><img src="/assets/story/director-full-v2.webp" alt="Payoff's cinematic character in a burgundy suit and sunglasses, standing beside a vintage car" loading="lazy" decoding="async" width="1122" height="1402"><figcaption class="mono">The Director · A Payoff character</figcaption></figure>
       <div class="rv">
         <div class="eyebrow mono">Inside the Payoff world</div>
         <h2 class="cond h2" id="dir-h">A clear point of view. In every frame.</h2>
@@ -297,7 +296,7 @@
 
   <!-- TEARDOWN -->
   <section class="sec wrap tear" id="teardown" aria-labelledby="tear-h">
-    <figure class="rv"><img src="director-point.webp" alt="The Payoff Director pointing at you" loading="lazy" width="1080" height="1350"></figure>
+    <figure class="rv art-invitation"><img src="/assets/story/director-viewfinder.webp" alt="The Payoff Director holding an empty viewfinder frame: an invitation to look at your brand differently" loading="lazy" decoding="async" width="1122" height="1402"><figcaption class="mono">A fresh pair of eyes. A different point of view.</figcaption></figure>
     <div class="rv">
       <div class="eyebrow mono" style="color:var(--white)">Your next story</div>
       <h2 class="cond h2" id="tear-h">Send us your brand. Get your <span class="it">story</span> back.</h2>
