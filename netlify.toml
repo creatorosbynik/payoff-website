@@ -174,4 +174,32 @@
   status = 301
   force = true
 
+# ---------- Payoff Control (private app at /control/, API at /api/control/*) ----------
+[functions]
+  directory = "netlify/functions"
 
+[[redirects]]
+  from = "/api/control/*"
+  to = "/.netlify/functions/control/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/control/index.html"
+  to = "/control/"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/control/"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' https://identity.netlify.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https: blob:; media-src 'self' https: blob:; connect-src 'self'; frame-src 'self'; worker-src 'self'; manifest-src 'self'; upgrade-insecure-requests"
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/control/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' https://identity.netlify.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https: blob:; media-src 'self' https: blob:; connect-src 'self'; frame-src 'self'; worker-src 'self'; manifest-src 'self'; upgrade-insecure-requests"
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-cache"

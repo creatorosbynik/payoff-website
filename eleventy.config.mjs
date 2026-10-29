@@ -12,7 +12,7 @@ export default function (eleventyConfig) {
   // Root-level files (index.html, videos, images, icons, robots.txt, etc.)
   eleventyConfig.addPassthroughCopy("*.{html,css,js,jpg,jpeg,png,webp,avif,gif,svg,ico,mp4,webm,txt,webmanifest,pdf}");
   // Only approved public folders: never publish a new backup/private folder by default.
-  for (const dir of ["css", "js", "work", "admin", "assets"]) {
+  for (const dir of ["css", "js", "work", "admin", "assets", "control"]) {
     if (fs.existsSync(dir)) eleventyConfig.addPassthroughCopy(dir);
   }
   eleventyConfig.addPassthroughCopy("blog/uploads");
@@ -23,6 +23,8 @@ export default function (eleventyConfig) {
   eleventyConfig.ignores.add("BLOG-GUIDE.md");
   eleventyConfig.ignores.add("docs/**");
   eleventyConfig.ignores.add("scripts/**");
+  eleventyConfig.ignores.add("netlify/**"); // serverless functions, not pages
+  eleventyConfig.ignores.add("control/**"); // Payoff Control app: copied as-is above, never templated
   eleventyConfig.addFilter("agencySchema", agencySchema);
   eleventyConfig.addWatchTarget("./index.html");
   // Preview deployments should not compete with the canonical production URLs.

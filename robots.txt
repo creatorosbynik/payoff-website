@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
+Disallow: /control/
+Disallow: /api/
 Disallow: /go/
 
 Sitemap: https://payoffcreative.com/sitemap.xml
