@@ -1,0 +1,9 @@
+# Rendered media stays out of git (the reel goes to Notion + the run's chat)
+days/**/reel.mp4
+days/**/reel-cover.jpg
+days/**/*.png
+days/**/*.mp3
+days/**/*.wav
+render/public/days/
+render/node_modules/
+render/out/

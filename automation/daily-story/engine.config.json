@@ -1,0 +1,77 @@
+{
+  "name": "Payoff Daily Story Engine",
+  "version": "1.0.0",
+  "timezone": "Asia/Kolkata",
+  "one_line": "One topic a day becomes a blog post, a 30-second reel and the social copy, all telling the same story. Nothing goes live without Nikunj merging the preview.",
+
+  "notion": {
+    "calendar_database": "https://app.notion.com/p/2a7574da66cf45c9a5d4b72ccc774606",
+    "calendar_data_source": "collection://3ed3f626-0739-4a01-8c25-9ea946e9c402",
+    "website_log_page": "https://app.notion.com/p/3e41d30b4fcc81d38d56d9a29fe0e9dc",
+    "seo_strategy_page": "https://app.notion.com/p/3ea1d30b4fcc818b8228f15af52e9ec2"
+  },
+
+  "github": {
+    "repo": "creatorosbynik/payoff-website",
+    "base_branch": "main",
+    "branch_prefix": "story/",
+    "preview_url": "https://deploy-preview-{pr}--payoffcreative.netlify.app/blog/{slug}/"
+  },
+
+  "pillars": {
+    "1": { "name": "Mon · Teardown", "category": "Teardowns", "depth": "Deep post",
+           "job": "A real brand with real budget, taken apart in public: what it buries, and the move. Always ends on something the brand is doing right. Needs an Ad Signals (Meta Ad Library) pass by Nikunj before merge." },
+    "2": { "name": "Tue · Story Rules", "category": "Brand Story", "depth": "Field note",
+           "job": "One storytelling rule, shown on a D2C example the reader recognises." },
+    "3": { "name": "Wed · Ad Lab", "category": "Ads & Performance", "depth": "Field note",
+           "job": "One Meta-ads creative problem (hooks, fatigue, testing, briefs) and the fix." },
+    "4": { "name": "Thu · Cost & Choice", "category": "Video & Content", "depth": "Deep post",
+           "job": "Buyer-intent SEO: what something costs in India, or X vs Y. Real price ranges with sources." },
+    "5": { "name": "Fri · Craft Cut", "category": "Video & Content", "depth": "Field note",
+           "job": "Behind the craft: one shot, edit, light or sound decision, from 8+ years on set. First-hand by definition." },
+    "6": { "name": "Sat · Founder Notes", "category": "Founder Notes", "depth": "Field note",
+           "job": "A lesson from running Payoff this week. Honest, specific, no invented wins." },
+    "0": { "name": "Sun · Culture Watch", "category": "Video & Content", "depth": "Field note",
+           "job": "One platform or culture change (Meta, Instagram, YouTube, ASCI) and what Indian D2C brands should do about it. Must cite the primary source." }
+  },
+
+  "depth": {
+    "Deep post":  { "words": [1200, 2200], "faqs": [3, 5], "external_links_min": 2, "internal_links_min": 3, "images": [3, 5] },
+    "Field note": { "words": [600, 1100],  "faqs": [2, 3], "external_links_min": 1, "internal_links_min": 2, "images": [2, 3] }
+  },
+
+  "video": {
+    "format": "1080x1920, 30 fps, ~29-34 s, H.264",
+    "beats": [3, 4],
+    "hook_max_words": 9,
+    "beat_max_words": 18,
+    "move_max_words": 14,
+    "closing": "That's the payoff.",
+    "cta": "Full breakdown → payoffcreative.com/blog",
+    "comment_keyword": "STORY",
+    "music": "Artlist catalog track (instrumental, 90-120 BPM), downloaded under Nikunj's plan. Optional; captions carry the reel without sound."
+  },
+
+  "images": {
+    "source": "Payoff Studio cloud (MuAPI) — default model nano-banana-pro; fallback flux-2-pro",
+    "style": "Editorial, filmic, Payoff palette (red #D52204, cream #FFD9A1, ink #241A15). One clear subject, real Indian D2C context, natural skin, shallow depth of field, 35mm grain. No text in the image, no logos, no real brands' packaging, no recognisable real people.",
+    "blog_size": "1600x900 (16:9) for cover, 1600x1000 in-post",
+    "reel_size": "1080x1920 (9:16) per beat",
+    "label": "AI image"
+  },
+
+  "brand_rules": {
+    "logo_files": ["logo-cream.png", "logo-white.png", "logo-red.jpg"],
+    "retired_logos": "Never use the warped/blurred grotesque wordmark or any other older logo.",
+    "always_say": "story-led creative agency",
+    "never_say": ["film studio", "The Nikunj Productions", "TNP", "BMW"],
+    "cta": "Free 60-second teardown (/#teardown) unless the post sells something specific",
+    "facts": "No invented numbers, clients, results or testimonials. Every stat links to its original source."
+  },
+
+  "schedule": {
+    "daily_run": "06:41 IST every day — writes the day's story, renders the reel, opens the preview PR, notifies",
+    "weekly_plan": "Sunday 18:37 IST — fills next Monday to Sunday in the calendar",
+    "review": "Nikunj reviews the preview + reel, merges the PR (= blog live), posts the reel with the caption"
+  }
+}
