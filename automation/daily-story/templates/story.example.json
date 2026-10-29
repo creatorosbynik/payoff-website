@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-04",
+  "slate": 7,
+  "pillar": "Wed · Ad Lab",
+  "category": "Ads & Performance",
+  "depth": "Field note",
+  "notion_page": "https://app.notion.com/p/<row-id>",
+  "topic": "Why new creators don't fix tired ads",
+  "title": "Your Meta Ads Aren't Tired. Your Story Is.",
+  "slug": "meta-ads-tired-story",
+  "keyword": "ad creative fatigue",
+  "fanout": ["why do meta ads stop working", "how often to refresh ad creative"],
+  "one_idea": "Swapping creators without a fixed story line resets learning instead of refreshing it.",
+  "reader": "D2C founder spending ₹2–10 lakh/month on Meta, briefing UGC creators himself",
+  "cep": "My CTR keeps dropping and I keep buying new UGC",
+  "firsthand": "From the edit suite: the same 3 product claims re-cut 20 ways beat 20 creators each inventing their own claim.",
+
+  "post": { "file": "blog/posts/meta-ads-tired-story.md" },
+
+  "graphics": [
+    { "name": "meta-ads-tired-story-cover", "composition": "Cover",
+      "spec": { "type": "cover", "pillar": "Wed · Ad Lab", "slate": 7, "title": "Your ads aren't tired. Your story is.", "tone": "red" },
+      "alt": "Payoff Ad Lab cover: your ads aren't tired, your story is" },
+    { "name": "meta-ads-tired-story-list", "composition": "Card",
+      "spec": { "type": "list", "title": "Brief every creator to", "items": ["One customer", "One tension", "One line they must say", "One proof shot"], "tone": "ink" },
+      "alt": "Four things every creator brief should fix" }
+  ],
+
+  "video": {
+    "slate": 7,
+    "pillar": "Ad Lab",
+    "date": "2026-11-04",
+    "hook": "Your ads aren't *tired.* Your story is.",
+    "beats": [
+      { "kicker": "01 · The symptom", "text": "CTR slides, so you buy a *new* creator. Again." },
+      { "kicker": "02 · The cause", "text": "Twenty creators. Twenty *different* brands. Nobody remembers yours." },
+      { "kicker": "03 · The fix", "text": "Write the story in one line. Brief every face to *that* line." }
+    ],
+    "move": "One story. Many *faces.* Never the other way round.",
+    "cta": "Comment STORY for the brief template",
+    "music": "day/music.mp3"
+  },
+
+  "social": {
+    "ig_caption": "…hook line…\n\n…3–5 short lines…\n\nComment STORY and I'll send you the one-line brief template.\n\nFull breakdown on the blog (link in bio).",
+    "linkedin_post": "…",
+    "hashtags": ["#d2cmarketing", "#metaads", "#creativestrategy"]
+  },
+
+  "lead_hook": "Saw you've launched 6 new creator ads this month. Quick thought on why CTR keeps sliding, and it's not the creators.",
+
+  "sources": [
+    { "title": "Meta Business Help Center — creative fatigue", "url": "https://www.facebook.com/business/help/" }
+  ],
+
+  "extra_files": [],
+  "checks": { "ad_signals_done": false }
+}

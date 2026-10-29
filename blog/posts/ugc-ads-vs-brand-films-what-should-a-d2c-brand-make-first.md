@@ -28,7 +28,13 @@ faqs:
       skincare), you're launching or rebranding, you're pitching retail or
       investors, or your ads don't add up to one brand.
 tags:
-  - ugcadsbrandfilmd2cmarketingmetaadsvideomarketingugcindiacreativestrategy
+  - ugc ads
+  - brand film
+  - d2c marketing
+  - meta ads
+  - video marketing
+  - ugc india
+  - creative strategy
 hide_cta: false
 ad_landing: false
 seo:
