@@ -23,8 +23,6 @@ export default function (eleventyConfig) {
   eleventyConfig.ignores.add("BLOG-GUIDE.md");
   eleventyConfig.ignores.add("docs/**");
   eleventyConfig.ignores.add("scripts/**");
-  eleventyConfig.ignores.add("netlify/**"); // serverless functions, not pages
-  eleventyConfig.ignores.add("control/**"); // Payoff Control app: copied as-is above, never templated
   eleventyConfig.addFilter("agencySchema", agencySchema);
   eleventyConfig.addWatchTarget("./index.html");
   // Preview deployments should not compete with the canonical production URLs.
@@ -34,6 +32,8 @@ export default function (eleventyConfig) {
     }
   });
   eleventyConfig.ignores.add("node_modules/**");
+  eleventyConfig.ignores.add("netlify/**"); // serverless functions, not pages
+  eleventyConfig.ignores.add("control/**"); // Payoff Control app: copied as-is, never templated
   eleventyConfig.ignores.add("_site/**");
 
   // ---------- 2. Markdown ----------
