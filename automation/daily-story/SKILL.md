@@ -57,6 +57,7 @@ Running unattended: never stop to ask. Take the most reasonable reading, write i
 
 ### 0. Set up (2 min)
 - Repo at `/home/claude/payoff-website` (attach `creatorosbynik/payoff-website` with push access and clone `--depth 1` if missing). `git fetch origin main && git switch main && git pull`.
+- If `automation/daily-story/` isn't on main yet (engine PR not merged), bring the engine files in untracked: `git fetch origin engine/daily-story-v1 --depth=1 && git checkout FETCH_HEAD -- automation/daily-story eleventy.config.mjs && git reset -q`. open-pr.mjs only commits the day's own files, so this is safe.
 - `npm ci` in the repo root; `npm ci` (or `npm install`) in `automation/daily-story/render`.
 - Today = Asia/Kolkata date.
 
@@ -103,7 +104,7 @@ node automation/daily-story/scripts/open-pr.mjs automation/daily-story/days/<id>
 It prints `{pr, url, preview}`.
 
 ### 10. Hand it over
-- Upload `reel.mp4` (and `reel-cover.jpg`) to the Notion row (file upload/attachment) and send it in the run's chat (SendUserFile).
+- Upload `reel.mp4` (max 20 MB) and `reel-cover.jpg` to the Notion row: call Notion `create-file-upload` with the filename, then from the shell `curl -X POST <upload_url> -H "authorization: <header>" -F "file=@reel.mp4"`, then add `<file source="file-upload://<id>" />` to the row page with `update-page` (insert_content). Also send the reel in the run's chat (SendUserFile).
 - Notion row: Status **Ready to paste** (= in review), Video **Rendered**, Preview / PR = PR url, Slate, Video hook, Lead hook, Notes += "Gate: N warnings".
 - Payoff Website page: dated Change log entry "Story NNN preview opened: <title> — PR #n (not live until merged)" and What's left "Review + merge PR #n".
 - Notify (SendUserMessage): title, one idea, PR link, preview link, reel attached, warnings worth a look. Three lines, no essay.
