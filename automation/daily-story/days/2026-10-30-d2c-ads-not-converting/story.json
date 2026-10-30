@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-30",
+  "slate": 1,
+  "pillar": "Fri · Craft Cut",
+  "category": "Brand Story",
+  "depth": "Field note",
+  "notion_page": "https://app.notion.com/p/3ea1d30b4fcc81f983dbdbff9d34c7a3",
+  "topic": "Why D2C ads that look good don't sell: the story is in the wrong order",
+  "title": "D2C Ads Not Converting? Why Good-Looking Ads Don't Sell",
+  "slug": "d2c-ads-not-converting",
+  "keyword": "D2C ads not converting",
+  "fanout": [
+    "instagram ads getting clicks but no sales",
+    "high CTR low conversion meta ads",
+    "why facebook ads don't convert",
+    "first 3 seconds of a video ad",
+    "should I reshoot my ad"
+  ],
+  "one_idea": "An ad that looks good but doesn't sell usually shows the product before the viewer has felt the problem; the fix is the order of the story, not more polish.",
+  "reader": "D2C founder in India running Meta ads that get likes and clicks but few sales, about to pay for another polished shoot",
+  "cep": "My ads look great and get clicks, but nobody buys",
+  "firsthand": "From the edit suite: Payoff's order test (pause every three seconds, write what the viewer learns) and the craft habit of re-cutting problem-first before anyone books a reshoot, because the problem shot is usually already filmed and trimmed.",
+  "sharp_question": "How do we get a D2C founder whose good-looking ads don't sell to re-cut the story problem-first instead of paying for another polished shoot, given they can't afford to keep reshooting?",
+
+  "post": { "file": "blog/posts/d2c-ads-not-converting.md" },
+
+  "graphics": [
+    { "name": "d2c-ads-not-converting-cover", "composition": "Cover",
+      "spec": { "type": "cover", "pillar": "Fri · Craft Cut", "slate": 1, "title": "Your ad isn't ugly. It's in the wrong order.", "kicker": "D2C ads not converting", "tone": "red" },
+      "alt": "Payoff Craft Cut cover: D2C ads not converting? Your ad isn't ugly, it's in the wrong order" },
+    { "name": "d2c-ads-not-converting-versus", "composition": "Card",
+      "spec": { "type": "versus", "left": { "title": "Product first", "points": ["Opens on the packshot", "Logo in second one", "Problem at second 12", "Viewer thinks: nice"] }, "right": { "title": "Problem first", "points": ["Opens on their problem", "Product enters with a job", "Proof closes it", "Viewer thinks: that's me"] }, "tone": "ink" },
+      "alt": "Product-first ads versus problem-first ads, side by side" },
+    { "name": "d2c-ads-not-converting-list", "composition": "Card",
+      "spec": { "type": "list", "title": "The order that sells", "items": ["The problem they felt this week", "What it costs them", "Your product, with a job", "The proof"], "tone": "cream" },
+      "alt": "The four-line order test for an ad that looks good but doesn't sell" }
+  ],
+
+  "video": {
+    "slate": 1,
+    "pillar": "Craft Cut",
+    "date": "2026-10-30",
+    "hook": "Your ad isn't ugly. It's in the *wrong order.*",
+    "beats": [
+      { "kicker": "01 · The symptom", "text": "Great light. Great product. Lots of likes. *Nobody* buys." },
+      { "kicker": "02 · The cause", "text": "It shows the product before the viewer has *felt* the problem." },
+      { "kicker": "03 · The test", "text": "Pause every three seconds. Write what they learn. Problem should come *first.*" },
+      { "kicker": "04 · The fix", "text": "Don't reshoot. *Re-cut.* The problem shot is usually already filmed." }
+    ],
+    "move": "Problem first. Product second. *Proof* last.",
+    "cta": "Full breakdown → payoffcreative.com/blog"
+  },
+
+  "social": {
+    "ig_caption": "Your ad isn't ugly. It's in the wrong order.\n\nGreat light, great product, lots of likes. Still no sales.\n\nMost good-looking ads show the product before the viewer has felt the problem.\n\nTry this: pause your ad every three seconds and write down what a viewer learns. If the first line is your logo, you've found the leak.\n\nThe fix is usually a re-cut, not a reshoot.\n\nComment STORY and we'll send you the 4-line order test.\n\nFull post on the blog (link in bio).",
+    "linkedin_post": "The prettiest frame in your ad is probably in the wrong place.\n\nA pattern I keep seeing in the edit: a D2C ad looks great, gets likes and clicks, and doesn't sell. The founder's instinct is to book a better shoot, a new creator or a new audience.\n\nBefore any of that, run one test. Pause the ad every three seconds and write down what the viewer has learned so far. One line per pause.\n\nA selling ad usually reads: the problem, what it costs them, the product as the fix, the proof.\n\nMost good-looking ads read: the brand, the product, the product again, a discount.\n\nThe viewer never met their own problem, so the product had no job to do.\n\nMeta's research found that up to 47% of a video campaign's value came in the first three seconds. Those seconds belong to the viewer's problem, not the packshot.\n\nThe good news: the problem shot is often already filmed. It got trimmed for time or pushed to second 12. That's a day in the edit, not a new shoot.\n\nStory first. Camera second. Spend third.\n\nFull breakdown on the Payoff blog.",
+    "hashtags": ["#d2cmarketing", "#metaads", "#brandstorytelling"]
+  },
+
+  "lead_hook": "Your newest ad looks great. Quick question: what does a viewer learn in its first three seconds with the sound off?",
+
+  "sources": [
+    { "title": "Meta newsroom (Feb 2016): Capta la atención con nuevas funcionalidades para anuncios de vídeo — up to 47% of video campaign value in the first 3 seconds; most mobile video ads watched without sound", "url": "https://about.fb.com/es/news/2016/02/capta-la-atencion-con-nuevas-funcionalidades-para-anuncios-de-video/" }
+  ],
+
+  "assumptions": [
+    "No Blog Queue row had today's Publish date; took the only Queued row (Priority 2).",
+    "The row had no Pillar or Depth; today is Friday so it runs as Fri · Craft Cut, Field note, keeping the row's Category (Brand Story).",
+    "No earlier slates existed; started the reel slate at 001.",
+    "Free path: designed cards and type-led beats, no AI images or music (no credits checked/spent).",
+    "The only verifiable stat is Meta's 2016 figure (fetched from Meta's Spanish newsroom; the English page blocks automated reading). The post says it's from 2016."
+  ],
+
+  "extra_files": [],
+  "checks": { "ad_signals_done": true }
+}
