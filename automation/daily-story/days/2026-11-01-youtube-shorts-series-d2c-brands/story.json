@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-01",
+  "slate": 2,
+  "pillar": "Sun · Culture Watch",
+  "category": "Video & Content",
+  "depth": "Field note",
+  "notion_page": "https://app.notion.com/p/40b1d30b4fcc815d82cae9a830c23da7",
+  "topic": "YouTube Shorts series: what Indian D2C brands should do about episodic Shorts",
+  "title": "YouTube Shorts Series: Why D2C Brands Should Think in Episodes",
+  "slug": "youtube-shorts-series-d2c-brands",
+  "keyword": "YouTube Shorts series",
+  "fanout": [
+    "what is youtube shorts series",
+    "how to make a shorts series on youtube",
+    "youtube shorts seasons and episodes",
+    "microdrama youtube brands india",
+    "episodic content strategy for brands"
+  ],
+  "one_idea": "Shorts series reward stories that have a next episode, so D2C brands should plan their Shorts as a season with an open question at the end of each episode, not as one-off ads.",
+  "reader": "Indian D2C founder or marketer posting brand Shorts on YouTube that get views once and are never watched again",
+  "cep": "We post Shorts every week but nobody comes back for the next one",
+  "firsthand": "From eight years in the edit suite: cut each episode one beat early, stop on the question before the answer, because the urge to resolve everything is what kills episode two; plus Payoff's order of story first, camera second, spend third (season line before any shoot).",
+  "sharp_question": "How do we get a D2C founder who briefs one Short at a time to plan a five-episode season instead, given their channel may not qualify for the Shorts series feature yet?",
+
+  "post": { "file": "blog/posts/youtube-shorts-series-d2c-brands.md" },
+
+  "graphics": [
+    { "name": "youtube-shorts-series-d2c-brands-cover", "composition": "Cover",
+      "spec": { "type": "cover", "pillar": "Sun · Culture Watch", "slate": 2, "title": "One Short is an ad. Five is a show.", "kicker": "YouTube Shorts series", "tone": "red" },
+      "alt": "Payoff Culture Watch cover: YouTube Shorts series, one Short is an ad, five is a show" },
+    { "name": "youtube-shorts-series-d2c-brands-versus", "composition": "Card",
+      "spec": { "type": "versus", "left": { "title": "One-off Short", "points": ["Hook, product, logo", "Ends on a discount", "Nothing to come back for", "Starts from zero"] }, "right": { "title": "Series episode", "points": ["Part of one story", "Ends on a question", "Pulls to episode two", "Keeps earning views"] }, "tone": "ink" },
+      "alt": "A one-off brand Short compared with a YouTube Shorts series episode" },
+    { "name": "youtube-shorts-series-d2c-brands-list", "composition": "Card",
+      "spec": { "type": "list", "title": "Plan the season first", "items": ["The season in one line", "One job per episode", "End on an open question", "Keep one constant", "Give the product a job"], "tone": "cream" },
+      "alt": "Five steps to plan a YouTube Shorts series for a D2C brand" }
+  ],
+
+  "video": {
+    "slate": 2,
+    "pillar": "Culture Watch",
+    "date": "2026-11-01",
+    "hook": "One Short is an ad. Five is a *show.*",
+    "beats": [
+      { "kicker": "01 · The news", "text": "YouTube now lets creators group Shorts into *seasons* and episodes." },
+      { "kicker": "02 · The problem", "text": "Most brand Shorts end on a logo. Nothing pulls anyone to *episode two.*" },
+      { "kicker": "03 · The craft", "text": "Cut every episode one beat early. End on the *question*, not the answer." },
+      { "kicker": "04 · The plan", "text": "Write five lines. One per episode. *Then* book the shoot." }
+    ],
+    "move": "Plan a *season*, not a post.",
+    "cta": "Full breakdown → payoffcreative.com/blog"
+  },
+
+  "social": {
+    "ig_caption": "One Short is an ad. Five is a show.\n\nYouTube now lets creators group Shorts into seasons and episodes that play in order.\n\nMost brand Shorts end on a logo or a discount code. There's nothing to come back for.\n\nTry this before your next shoot: write the season in one line, then one line per episode. Each one ends on a question.\n\nComment STORY and we'll send you the five-line season planner.\n\nFull post on the blog (link in bio).",
+    "linkedin_post": "YouTube just made it easier to turn Shorts into a show.\n\nShorts series let creators group Shorts into seasons and episodes, with sequential playback. It's rolling out to channels in the YouTube Partner Program.\n\nThe feature matters less than what it says about the audience. YouTube's own post on microdramas says 40% of their views came more than 30 days after a video went live. A good episode keeps working. A one-off ad usually doesn't.\n\nMost D2C brand Shorts are built like tiny ads. Hook, product, logo, discount. Every new one starts from zero.\n\nSo here's the brief I'd write instead. One line for the whole season. One line per episode. Each episode ends on an open question.\n\nA habit from the edit suite: cut each episode one beat early. Stop on the question, before the answer. Finished feels good in the edit. For a series, finished is the enemy.\n\nIf your channel doesn't qualify for the feature yet, publish in numbered episodes anyway. Build the habit before you have the button.\n\nStory first. Camera second. Spend third.\n\nFull breakdown on the Payoff blog.",
+    "hashtags": ["#youtubeshorts", "#d2cmarketing", "#brandstorytelling"]
+  },
+
+  "lead_hook": "Noticed your Shorts each stand on their own. If one of them had an episode two, which would it be?",
+
+  "sources": [
+    { "title": "YouTube Blog (27 Oct 2026): The evolution of web series on YouTube: Microdramas — Shorts series seasons/episodes; 6.5B microdrama views H1 2026; APAC +70%; 40% of views after 30 days", "url": "https://blog.youtube/culture-and-trends/the-evolution-of-web-series-on-youtube-microdramas/" },
+    { "title": "TechCrunch (23 Sep 2026): YouTube's new Shorts series feature brings episodic viewing to Shorts — rolling out to YPP creators", "url": "https://techcrunch.com/2026/09/23/youtubes-new-short-series-feature-brings-episodic-viewing-to-shorts/" },
+    { "title": "YouTube Help: YouTube Partner Programme overview and eligibility", "url": "https://support.google.com/youtube/answer/72851?hl=en-GB" }
+  ],
+
+  "assumptions": [
+    "No Blog Queue row had today's Publish date and no row was Queued, so PLAN ran for today's slot only (Sun · Culture Watch); the remaining Ideas didn't fit a platform-news pillar.",
+    "Topic picked from this week's platform news with a primary source: YouTube Blog post of 27 Oct 2026. Meta's 28 Oct product-browsing default was considered but skipped: no Meta primary source could be found.",
+    "Rollout scope (YPP creators, web/mobile/TV) is from TechCrunch's Made on YouTube report; YouTube's post gives no region list or date, so the post doesn't claim India availability.",
+    "Slate 002 follows Story 001. Free path: designed cards and type-led beats, no AI images or music (no credits spent).",
+    "The 'chai-proof lipstick' season line is an illustrative example, not a client."
+  ],
+
+  "extra_files": [],
+  "checks": { "ad_signals_done": true }
+}
