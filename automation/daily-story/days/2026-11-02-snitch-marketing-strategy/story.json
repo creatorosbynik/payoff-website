@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-02",
+  "slate": 3,
+  "pillar": "Mon · Teardown",
+  "category": "Teardowns",
+  "depth": "Deep post",
+  "notion_page": "https://app.notion.com/p/40b1d30b4fcc81b39beac9a96197aba8",
+  "topic": "Snitch teardown: a brand built on speed whose campaigns told the speed story once, then moved to look-good stories any menswear brand could run",
+  "title": "Snitch Marketing Strategy: The Speed Story It Told Only Once",
+  "slug": "snitch-marketing-strategy",
+  "keyword": "Snitch marketing strategy",
+  "fanout": [
+    "snitch marketing spend",
+    "snitch brand campaigns",
+    "snitch last minute snitch it campaign",
+    "how fast does snitch launch new styles",
+    "snitch quick 60 minute delivery",
+    "d2c fashion brand marketing lessons india"
+  ],
+  "one_idea": "Snitch's real advantage is speed (new styles roughly every 25 days, delivery in an hour in some cities), it told that story once in 'Last Minute? Snitch It', and its later campaigns went back to look-good stories any menswear brand could run, so speed should become the spine of every ad.",
+  "reader": "Indian D2C founder or marketing head spending crores a year on ads, briefing a new campaign idea every quarter",
+  "cep": "I need something new to wear this weekend, and I need it now",
+  "firsthand": "Payoff's teardown order (story first, camera second, spend third) applied to Snitch's public campaigns, plus an edit-suite habit: on camera urgency is a prop, not an adjective, so put a clock or timestamp in the first two seconds and show the delivery moment with the time in frame.",
+  "sharp_question": "How do we get a fast-growing D2C fashion brand to brief every campaign around the one advantage rivals can't copy (speed) instead of a fresh look-good idea each quarter, given each campaign is judged on its own and the humour is working?",
+
+  "post": { "file": "blog/posts/snitch-marketing-strategy.md" },
+
+  "graphics": [
+    { "name": "snitch-marketing-strategy-cover", "composition": "Cover",
+      "spec": { "type": "cover", "pillar": "Mon · Teardown", "slate": 3, "title": "Fastest brand in the room. Slowest story.", "kicker": "Snitch marketing strategy", "tone": "red" },
+      "alt": "Payoff teardown cover: Snitch marketing strategy, the fastest brand in the room telling the slowest story" },
+    { "name": "snitch-marketing-strategy-stat", "composition": "Card",
+      "spec": { "type": "stat", "big": "₹82.6 Cr", "label": "Snitch's marketing spend in FY25, on ₹498 Cr of revenue", "source": "RoC filings via Startuppedia, Feb 2026", "tone": "ink" },
+      "alt": "Snitch spent ₹82.6 crore on marketing in FY25 on ₹498 crore of revenue" },
+    { "name": "snitch-marketing-strategy-versus", "composition": "Card",
+      "spec": { "type": "versus", "left": { "title": "Look-good story", "points": ["You look great", "Rivals notice", "Birthday sale", "Any brand can say it"] }, "right": { "title": "Speed story", "points": ["Last minute? Sorted", "New drop every 25 days", "An hour to the door, in 4 cities", "Only Snitch can say it"] }, "tone": "cream" },
+      "alt": "Snitch's look-good campaign story compared with its speed story" },
+    { "name": "snitch-marketing-strategy-list", "composition": "Card",
+      "spec": { "type": "list", "title": "Make speed the spine", "items": ["Freeze the one line", "A clock in the first 2 seconds", "Show the bag at the door", "Date every drop", "Same joke, faster punchline"], "tone": "red" },
+      "alt": "Five ways to make speed the spine of every Snitch ad" }
+  ],
+
+  "video": {
+    "slate": 3,
+    "pillar": "Teardown",
+    "date": "2026-11-02",
+    "hook": "Fastest brand in the room. *Slowest* story.",
+    "beats": [
+      { "kicker": "01 · The spend", "text": "Snitch spent ₹82.6 crore on marketing in FY25. One rupee in every *six.*" },
+      { "kicker": "02 · The edge", "text": "New styles every 25 days. *An hour* to your door in some cities." },
+      { "kicker": "03 · The story", "text": "June 2025: Last Minute? Snitch It. The right story. Told *once.*" },
+      { "kicker": "04 · The drift", "text": "Then style, birthdays, summer. Stories *any* menswear brand could tell." }
+    ],
+    "move": "Put a *clock* in every ad. Speed is the story.",
+    "cta": "Full breakdown → payoffcreative.com/blog"
+  },
+
+  "social": {
+    "ig_caption": "Fastest brand in the room. Slowest story.\n\nSnitch launches new styles roughly every 25 days and can deliver in an hour in some cities.\n\nIn June 2025 it said so: Last Minute? Snitch It. The right story.\n\nThe campaigns after that sold looking good. Fine films. Any menswear brand could run them.\n\nThe fix costs nothing: put a clock in every ad.\n\nComment STORY and we'll send you the one-line brief we'd write for Snitch.\n\nFull teardown on the blog (link in bio).",
+    "linkedin_post": "Snitch might be the fastest brand in Indian menswear. Its ads don't always say so.\n\nThe machine is real. New styles roughly every 25 days. About 30 days from design to store. Delivery in an hour in some cities. ₹82.6 crore on marketing in FY25, per its RoC filings.\n\nIn June 2025 it told that story: Last Minute? Snitch It. A sudden pitch, an unexpected yes, a spontaneous trip. The clock is the villain, the guy is the hero, the product gets him there in time.\n\nThen the campaigns moved on. Rivals bonding over the same brand. You look so good everyone thinks it's your birthday. Summer spontaneity. Well made, funny, and any menswear brand could put its logo on the end.\n\nThis is the pattern I see most in brands that spend well. Every campaign is judged on its own, so every campaign gets its own idea. The audience is never told the same thing twice.\n\nThe fix isn't a bigger film. It's a narrower brief. Keep the humour. Put a clock in the first two seconds. Show the bag at the door with the time in frame.\n\nStory first. Camera second. Spend third.\n\nFull teardown on the Payoff blog.",
+    "hashtags": ["#d2cmarketing", "#brandstorytelling", "#creativestrategy"]
+  },
+
+  "lead_hook": "Your fastest promise is the one your ads mention least. Want the one line I'd brief your next campaign on?",
+
+  "sources": [
+    { "title": "Startuppedia (25 Feb 2026), from RoC filings: FY25 operating revenue ₹498 Cr, marketing expense ₹82.6 Cr (FY24 ₹35 Cr), net loss ₹1.7 Cr", "url": "https://startuppedia.in/trending/startup-news/shark-tankfeatured-fast-fashion-menswear-brand-snitch-doubles-revenue-to-rs-506-crore-in-fy25-slips-into-a-rs-17-crore-loss-11154796" },
+    { "title": "Inc42 (10 Apr 2026): FY26 revenue ~₹900 Cr unaudited, 115 stores, ~60% online, Snitch Quick in four cities", "url": "https://inc42.com/buzz/d2c-brand-snitchs-fy26-revenue-surges-80-to-%E2%82%B9900-cr/" },
+    { "title": "Outlook Business (29 Oct 2025): 60-minute delivery pilot in Bengaluru; new styles roughly every 25 days", "url": "https://www.outlookbusiness.com/news/snitch-launches-60-minute-apparel-delivery-pilot-in-bengaluru-targets-national-rollout-by-2026" },
+    { "title": "DFU Publications (4 Nov 2025): ~30-day design-to-store cycle; Dungarwal quote 'Speed isn't chaos for us. It's structured agility.'", "url": "https://dfupublications.com/index.php/news/apparel/snitch-s-30-day-fashion-cycle-where-data-and-discipline-drive-rs-520-cr-growth" },
+    { "title": "afaqs (19 Jun 2025): 'Last Minute? Snitch It', 48-hour delivery, 7,000+ designs", "url": "https://www.afaqs.com/news/advertising/snitch-unveils-campaign-showcasing-fast-fashion-and-quick-delivery-9376841" },
+    { "title": "Marketech APAC (23 Jun 2025): Verve Media campaign, CMO Chetan Siyal quote", "url": "https://marketech-apac.com/snitch-verve-media-target-indias-fast-moving-urban-male-in-new-fashion-campaign/" },
+    { "title": "Mediainfoline (9 Apr 2026): 'Style Recognises Style', cinema + digital", "url": "https://www.mediainfoline.com/advertising/verve-media-brings-snitchs-style-recognises-style-to-cinema-screens-nationwide" },
+    { "title": "Impact (29 Jun 2026): sixth birthday campaign, 'you look so good, everyone thinks it's your birthday'", "url": "https://www.impactonnet.com/more-from-impact/snitch-celebrates-sixth-birthday-with-new-campaign-15109.html" },
+    { "title": "Campaign India: Snitch summer campaign (spontaneity, social moments)", "url": "https://www.campaignindia.in/article/snitch-reframes-summer-with-lifestyle-led-campaign/4k9qdhxqj59fcvs5t1nac4s1de" }
+  ],
+
+  "assumptions": [
+    "Angle changed from the queue note ('most ads sell the shirt instead of the speed'): that couldn't be checked against live ads in this run, so the teardown reads Snitch's publicly reported campaigns instead, where the speed story appears once (June 2025) and not in the 2026 campaigns covered by trade press. The post says this caveat out loud.",
+    "Spend figure is ₹82.6 crore 'marketing expense' from RoC filings (Startuppedia), not the rounded ₹83 crore 'ad spend' in the queue note; the Entrackr page couldn't be opened in this run.",
+    "Revenue: FY25 ₹498 crore (RoC). Some coverage cites ₹520 crore from earlier unaudited numbers; the post uses the filed figure.",
+    "'Last minute? We're faster than your plans.' is Payoff's illustrative line, not a Snitch line.",
+    "Free path: designed cards and type-led beats, no AI images or music (no credits spent).",
+    "Ad Signals pass not done: Nikunj to check Snitch's live ads in the Meta Ad Library before merging. If live performance ads already carry the clock, soften the 'What did Snitch's campaigns say after that?' section."
+  ],
+
+  "extra_files": [],
+  "checks": { "ad_signals_done": false }
+}
