@@ -23,6 +23,7 @@ export default function (eleventyConfig) {
   eleventyConfig.ignores.add("BLOG-GUIDE.md");
   eleventyConfig.ignores.add("docs/**");
   eleventyConfig.ignores.add("scripts/**");
+  eleventyConfig.ignores.add("automation/**"); // daily story engine: tooling, never published
   eleventyConfig.addFilter("agencySchema", agencySchema);
   eleventyConfig.addWatchTarget("./index.html");
   // Preview deployments should not compete with the canonical production URLs.
