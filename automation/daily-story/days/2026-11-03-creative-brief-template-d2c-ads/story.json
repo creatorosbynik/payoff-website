@@ -1,0 +1,141 @@
+{
+  "date": "2026-11-03",
+  "slate": 4,
+  "pillar": "Tue · Story Rules",
+  "category": "Brand Story",
+  "depth": "Field note",
+  "notion_page": "https://app.notion.com/p/3ea1d30b4fcc81cbba00e034ae1efb91",
+  "topic": "How to write a creative brief for a D2C ad, with a free one-page template",
+  "title": "Creative Brief Template for Ads: The One-Page D2C Version",
+  "slug": "creative-brief-template-d2c-ads",
+  "keyword": "creative brief template for ads",
+  "fanout": [
+    "what should a creative brief include",
+    "ad creative brief example",
+    "how to brief a UGC creator",
+    "one page creative brief",
+    "creative brief for meta ads"
+  ],
+  "one_idea": "A brief that lists deliverables gets you content; a brief that names one customer, one tension and one line gets you an ad, so the deliverables belong at the bottom of the page, not the top.",
+  "reader": "Indian D2C founder or marketer who briefs UGC creators and freelance editors over WhatsApp, with no strategist on the team",
+  "cep": "We sent the creator a brief and what came back doesn't sound like us",
+  "firsthand": "Payoff's own one-page brief (the cmo-brain Gate 3 fields: the number, the customer and moment, the tension, the one line, the proof, brand codes, what it is not), cut to seven lines; plus eight years on set and in the edit: shoots go wrong on page one, and Payoff writes the one line before booking a camera.",
+  "sharp_question": "How do we get a D2C founder who briefs creators with a WhatsApp list of deliverables to send a one-page story brief instead, given they have no strategist and brief several creators a month?",
+  "post": {
+    "file": "blog/posts/creative-brief-template-d2c-ads.md"
+  },
+  "graphics": [
+    {
+      "name": "creative-brief-template-d2c-ads-cover",
+      "composition": "Cover",
+      "spec": {
+        "type": "cover",
+        "pillar": "Tue · Story Rules",
+        "slate": 4,
+        "title": "A list of deliverables isn't a brief.",
+        "kicker": "Creative brief template",
+        "tone": "red"
+      },
+      "alt": "Payoff Story Rules cover: a creative brief template for ads, a list of deliverables is not a brief"
+    },
+    {
+      "name": "creative-brief-template-d2c-ads-versus",
+      "composition": "Card",
+      "spec": {
+        "type": "versus",
+        "left": {
+          "title": "The order",
+          "points": [
+            "3 reels, 30 sec",
+            "Trending audio",
+            "Show the product",
+            "Launch Friday"
+          ]
+        },
+        "right": {
+          "title": "The brief",
+          "points": [
+            "One customer, one moment",
+            "The tension first",
+            "One line to remember",
+            "Then the deliverables"
+          ]
+        },
+        "tone": "ink"
+      },
+      "alt": "An order message compared with a one-page creative brief for a D2C ad"
+    },
+    {
+      "name": "creative-brief-template-d2c-ads-list",
+      "composition": "Card",
+      "spec": {
+        "type": "list",
+        "title": "Story first",
+        "items": [
+          "The number",
+          "One customer, one moment",
+          "The tension",
+          "The one line",
+          "The proof shot"
+        ],
+        "tone": "cream"
+      },
+      "alt": "The first five lines of Payoff's creative brief template for ads: the story comes before brand codes and deliverables"
+    }
+  ],
+  "video": {
+    "slate": 4,
+    "pillar": "Story Rules",
+    "date": "2026-11-03",
+    "hook": "Your creator isn't the problem. Your *brief* is.",
+    "beats": [
+      {
+        "kicker": "01 · The symptom",
+        "text": "\"3 reels, trending audio, show the product.\" That's an *order*, not a brief."
+      },
+      {
+        "kicker": "02 · The cause",
+        "text": "Leave the story blank and every creator writes *their* own."
+      },
+      {
+        "kicker": "03 · The brief",
+        "text": "One customer. One moment. The *tension* before your product shows up."
+      },
+      {
+        "kicker": "04 · The line",
+        "text": "Then one line they must remember. Deliverables go *last.*"
+      }
+    ],
+    "move": "Write the *line* before you write the order.",
+    "cta": "Comment STORY for the one-page brief"
+  },
+  "social": {
+    "ig_caption": "Your creator isn't the problem. Your brief is.\n\n\"3 reels, 30 seconds, trending audio, show the product\" is an order. It leaves the story blank, so every creator writes their own.\n\nA brief names one customer, one moment, the tension they feel, and the one line they must remember.\n\nThe deliverables go at the bottom. Not the top.\n\nComment STORY and we'll send you our one-page brief.\n\nFull post with the template on the blog (link in bio).",
+    "linkedin_post": "Most ad briefs I see from D2C brands are orders.\n\n\"3 reels. 30 seconds. Trending audio. Show the product. Launch Friday.\"\n\nNothing wrong with any of that. It's just the last line of a brief, sent as the whole thing.\n\nWhen the story is left blank, the creator fills it in. Hire five creators and you get five brands, each saying something nice and nothing in particular.\n\nThe brief we use at Payoff fits on one page. Seven lines, in this order:\n\n1. The number this ad should move\n2. One customer, in one moment\n3. The tension they feel before the product shows up\n4. The one line they must remember\n5. One shot that proves it\n6. The brand codes that must appear in the first three seconds\n7. What this ad must not say\n\nThen the deliverables.\n\nEight years on set and in the edit taught me this: when a shoot goes wrong, the trouble was usually on page one. A crew can light anything. Nobody can guess the line you meant to say.\n\nStory first. Camera second. Spend third.\n\nThe full template is on the Payoff blog.",
+    "hashtags": [
+      "#d2cmarketing",
+      "#creativestrategy",
+      "#ugcads"
+    ]
+  },
+  "lead_hook": "If your next creator brief had to fit in one line, what would that line be?",
+  "sources": [
+    {
+      "title": "Nielsen (Oct 2017): When it comes to advertising effectiveness, what is key? — good creative is still the most important element; Project Apollo (2006) found 65% of sales lift from advertising came from the creative",
+      "url": "https://www.nielsen.com/insights/2017/when-it-comes-to-advertising-effectiveness-what-is-key/"
+    }
+  ],
+  "assumptions": [
+    "Today's Blog Queue row ('D2C Ads Not Converting?', dated 3 Nov by the weekly plan) was already written as Story 001 on 30 Oct and is still open as PR #13, so it was not rewritten (same keyword). Following SKILL.md 'else run PLAN for today's slot only', today's Tue · Story Rules slot went to the queued Idea row 'How to write a creative brief for a D2C ad (free template)' (P5, Brand Story). The rest of the week's schedule is unchanged.",
+    "That Notion row was corrected: Status Queued → Ready to paste, Slate 4 → 1. Its post in PR #13 is dated 30 Oct.",
+    "Slug kept from the Notion row (creative-brief-template-d2c-ads) rather than the bare keyword, since it was already planned and links may reference it.",
+    "The template is Payoff's own one-page brief (cmo-brain Gate 3 fields), simplified to seven lines. The 'working mom at 7 pm' and the order message are illustrative examples, not clients.",
+    "Only one stat (Nielsen 2017 / Project Apollo 2006), dated in the text. Free path: designed cards and type-led beats, no AI images or music, no credits spent."
+  ],
+  "extra_files": [
+    "eleventy.config.mjs"
+  ],
+  "checks": {
+    "ad_signals_done": true
+  }
+}
